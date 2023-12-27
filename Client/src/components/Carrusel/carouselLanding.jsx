@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useTransition, animated } from "react-spring";
 import styles from "../Carrusel/carouselLanding.module.css";
 import pc1 from "../../Assets/Img/CarruselImgs/pc1.jpeg";
@@ -11,60 +11,82 @@ const images = [pc1, pc2, pc3, pc4];
 const Carousel = () => {
   const [index, setIndex] = useState(0);
   const imagesLength = images.length;
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % imagesLength);
-    }, 8000);
-    return () => clearInterval(interval);
-  }, []);
+  const [direction, setDirection] = useState(1);
+  const [resetInterval, setResetInterval] = useState(false);
+
+  const goToPrevious = useCallback(() => {
+    setIndex((prevIndex) => (prevIndex - 1 + imagesLength) % imagesLength);
+    setDirection(-1);
+    handleResetInterval();
+  }, [imagesLength]);
+
+  const goToNext = useCallback(() => {
+    setIndex((prevIndex) => (prevIndex + 1) % imagesLength);
+    setDirection(1);
+    handleResetInterval();
+  }, [imagesLength]);
 
   const transitions = useTransition(index, {
-    from: { transform: "translate3d(100%, 0, 0)" },
+    from: {
+      transform: `translate3d(${direction === 1 ? "100%" : "-100%"}, 0, 0)`,
+    },
     enter: { transform: "translate3d(0%, 0, 0)" },
-    leave: { transform: "translate3d(-100%, 0, 0)" },
+    leave: {
+      transform: `translate3d(${direction === 1 ? "-100%" : "100%"}, 0, 0)`,
+    },
   });
+
+  const handleResetInterval = () => {
+    setResetInterval(true);
+    setTimeout(() => {
+      setResetInterval(false);
+    });
+  };
+
+  useEffect(() => {
+    const interval = setTimeout(() => {
+      if (!resetInterval) {
+        goToNext();
+      } else {
+        setResetInterval(false);
+      }
+    }, 8000);
+    return () => clearTimeout(interval);
+  }, [goToNext, resetInterval]);
 
   return (
     <div className={styles["carousel-container"]}>
       {transitions((style, i) => {
         const currentIndex = i % imagesLength;
-        const nextIndex = (currentIndex + 1) % imagesLength;
         const currentImage = images[currentIndex];
-        const nextImage = images[nextIndex];
         return (
-          <>
-            <animated.div
-              key={currentIndex}
-              className={styles["carousel-image"]}
-              style={{
-                ...style,
-                backgroundImage: `url(${currentImage})`,
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                width: "100%",
-                height: "100%",
-              }}
-            />
-            <animated.div
-              key={nextIndex}
-              className={styles["carousel-image"]}
-              style={{
-                ...style,
-                backgroundImage: `url(${nextImage})`,
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                width: "100%",
-                height: "100%",
-                position: "absolute",
-                top: 0,
-                left: "100%",
-              }}
-            />
-          </>
+          <animated.div
+            key={currentIndex}
+            className={styles["carousel-image"]}
+            style={{
+              ...style,
+              backgroundImage: `url(${currentImage})`,
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              width: "100%",
+              height: "100%",
+              position: "absolute",
+              top: 0,
+              left: 0,
+            }}
+          />
         );
       })}
+
+      <div className={styles["buttons-container"]}>
+        <button className={styles["prev-button"]} onClick={goToPrevious}>
+          Previous
+        </button>
+        <button className={styles["next-button"]} onClick={goToNext}>
+          Next
+        </button>
+      </div>
     </div>
   );
 };
