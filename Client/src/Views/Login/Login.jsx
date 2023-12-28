@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react';
 
-const Login = () => {
+import { NavBar, Footer, Login } from '../../components/Index';
+
+
+
+const LoginView = () => {
+
+
   return (
-    <div>Login</div>
-  )
-}
+<div>
+<NavBar/>
+<Login/>
+<Footer/>
+</div>
 
-export default Login
+  );
+};
+
+export default LoginView;
