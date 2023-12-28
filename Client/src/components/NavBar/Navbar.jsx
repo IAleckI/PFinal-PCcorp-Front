@@ -161,7 +161,7 @@ const NavBar = () => {
           
         </div> :
         <div>
-          <a>Log In/Sing Up</a>
+          <a href="/login">Log In/Sing Up</a>
         </div>}
 
         
