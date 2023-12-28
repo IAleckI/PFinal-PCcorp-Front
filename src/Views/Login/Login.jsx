@@ -1,19 +1,14 @@
-import React, { useState } from 'react';
-
-import { NavBar, Footer, Login } from '../../components/Index';
+import { Footer, Login, NavBar } from '../../components/Index';
 
 
 
 const LoginView = () => {
-
-
-  return (
-<div>
-<NavBar/>
-<Login/>
-<Footer/>
-</div>
-
+  return ( 
+  <div>
+    <NavBar/>
+    <Login/>
+    <Footer/>
+  </div>
   );
 };
 
