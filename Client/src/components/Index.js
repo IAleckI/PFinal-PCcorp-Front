@@ -3,4 +3,5 @@ import SearchBar from "./SearchBar/SearchBar";
 import Carousel from "./Carrusel/carouselLanding";
 import NavBar from "./NavBar/Navbar";
 import Footer from "./Footer/footer";
-export { Button, SearchBar, Carousel, NavBar, Footer };
+import Login from "./Login/Login";
+export { Button, SearchBar, Carousel, NavBar, Footer, Login };
