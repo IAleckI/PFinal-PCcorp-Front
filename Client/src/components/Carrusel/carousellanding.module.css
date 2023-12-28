@@ -16,28 +16,27 @@
 }
 
 
-.prev-button,
-.next-button {
+.prev-button, .next-button {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
+  bottom: 0; 
   background: rgba(0, 0, 0, 0.5);
   border: none;
   color: white;
-  font-size: 18px; 
+  font-size: 22px;
   cursor: pointer;
+  z-index: 1; 
 }
 
-.prev-button:hover,
-.next-button:hover {
+.prev-button:hover, .next-button:hover {
   color: rgba(255, 255, 255, 0.8);
   opacity: 0.8;
 }
 
 .prev-button {
-  left: 20px; 
+  left: 0; 
 }
 
 .next-button {
-  right: 20px;
+  right: 0; 
 }
