@@ -4,7 +4,6 @@ import { Carousel, Footer } from '../../components/Index'
 const Home = () => {
   return (
     <div>
-
       <Carousel />
       <Footer />
     </div>
