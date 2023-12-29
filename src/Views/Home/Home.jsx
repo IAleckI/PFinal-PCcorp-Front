@@ -1,4 +1,3 @@
-import React from 'react'
 import { Carousel, Footer, NavBar } from '../../components/Index'
 
 const Home = () => {
