@@ -75,10 +75,15 @@ const Carousel = () => {
               top: 0,
               left: 0,
             }}
-          />
-        );
-      })}
 
+          />
+          
+        );
+            
+      })}
+      <button className={styles["catalogo-button"]} onClick={()=> window.location.href="/catalogo"}>
+          ir a catalogo
+        </button>
       <div className={styles["buttons-container"]}>
         <button className={styles["prev-button"]} onClick={goToPrevious}>
           {"<"}

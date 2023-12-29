@@ -2,13 +2,7 @@
 import { gapi } from 'gapi-script';
 import { useEffect } from 'react';
 
-
-
-
 export const useOnState = ( clientID ) => {
-
-   
- 
     useEffect(()=>{
     const start =() => {
     gapi.auth2.init({
