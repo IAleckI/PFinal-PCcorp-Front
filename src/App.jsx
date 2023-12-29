@@ -1,6 +1,6 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import { Home, LoginView, Detail } from "./Views/Index";
+import { Home, LoginView, Detail, Catalogo } from "./Views/Index";
 
 
 function App() {
@@ -10,6 +10,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<LoginView />} />
         <Route pa th="/detail" element={<Detail />} />
+        <Route path="/catalogo" element={<Catalogo />} />
       </Routes>
   );
 }
