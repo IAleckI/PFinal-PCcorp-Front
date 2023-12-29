@@ -1,5 +1,4 @@
-import React from 'react'
-import { Carousel, NavBar, Footer } from '../../components/Index'
+import { Carousel, Footer, NavBar } from '../../components/Index'
 
 const Home = () => {
   return (
