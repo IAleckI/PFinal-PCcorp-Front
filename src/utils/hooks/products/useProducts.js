@@ -1,6 +1,6 @@
 import { useEffect } from "react"
-import { useSelector, useDispatch } from "react-redux"
-import { getProductsRequest, getProducts, getProductsFailure } from "../../state/features/products/productSlice"
+import { useDispatch } from "react-redux"
+import { getProductsRequest, getProducts, getProductsFailure, setFiltered } from "../../state/features/products/productSlice"
 import { GET_ALL_PRODUCTS } from "../../graphql/querys/products/getAllProducts"
 import { useQuery } from "@apollo/client"
 
@@ -13,7 +13,9 @@ export const useProducts = () => {
         dispatch(getProductsRequest())
         try {
           const products = await data?.getAllProducts
-          if (products) dispatch(getProducts(products))
+          if (products) {
+            dispatch(getProducts(products))
+            dispatch(setFiltered(products))}
         } catch (error) {
           dispatch(getProductsFailure(error.message))
           }

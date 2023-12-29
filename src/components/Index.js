@@ -6,4 +6,5 @@ import Login from "./Login/Login";
 import NavBar from './NavBar/Navbar'
 import Banner from "./banner/banner";
 import CardList from "./cardList/carList";
-export { Button, SearchBar, Carousel, Footer, Login, NavBar, Banner, CardList };
+import Filter from "./filter/filter";
+export { Button, SearchBar, Carousel, Footer, Login, NavBar, Banner, CardList, Filter };

@@ -4,6 +4,7 @@ const initialState = {
     data: null,
     error: null,
     loading: false,
+    filtered: []
 }
 
 export const productSlice = createSlice({
@@ -23,9 +24,12 @@ export const productSlice = createSlice({
         getProductsFailure: (state, action) => {
             state.loading = false;
             state.error = action.payload;
+        },
+        setFiltered: (state, action) => {
+            return { ...state, filtered: action.payload }
         }
     }
 })
 
-export const { getProductsRequest, getProducts, getProductsFailure } = productSlice.actions;
+export const { getProductsRequest, getProducts, getProductsFailure, setFiltered } = productSlice.actions;
 export default productSlice.reducer;

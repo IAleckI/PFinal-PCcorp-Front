@@ -8,6 +8,8 @@ export const GET_ALL_PRODUCTS = gql`
             price
             model
             image
+            brand
+            type
         }
     }
 `
