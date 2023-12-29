@@ -1,14 +1,13 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import { Home, LoginView, Detail } from "./Views/Index";
-
+import { Home, Detail, Login } from "./Views/Index";
 
 function App() {
   return (
       <Routes>
        
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<LoginView />} />
+        <Route path="/login" element={<Login />} />
         <Route pa th="/detail" element={<Detail />} />
       </Routes>
   );

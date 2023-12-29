@@ -1,0 +1,88 @@
+.navbar {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #8a8585;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 7ch;
+    z-index: 9999;
+    padding: 0 20px;
+    box-sizing: border-box; 
+    
+  }
+  
+  .leftSection .homelogo {
+    width: 6ch;
+    height: 6ch;
+    object-fit: cover;
+    border-radius: 10%;
+    cursor: pointer;
+  }
+  
+  .leftSection .homelogo:hover {
+    transform: scale(1.1);
+  }
+  
+  .navbar button {
+    border: none;
+    height: 6ch;
+    width: 5ch;
+    border-radius: 8px;
+    background-color: #8a85d2;
+    color: white;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbar button:hover {
+    background-color: #675fad;
+  }
+  
+  .navbar .searchBar {
+    flex: 1;
+    height: 4ch;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    width: 50ch;
+    margin-right: 5px;
+    place-content: center;
+  }
+  .navbar .searchBar {
+    flex: 1;
+    height: 4ch;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    width: 50ch;
+    margin-right: 5px;
+    place-content: center;
+  }
+
+  .navbar .searchBar input[type="text"] {
+    text-align: center; 
+}
+  
+
+  .rightSection {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .icon {
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+
+  .centerContent {
+    display: flex;
+    align-items: center; }

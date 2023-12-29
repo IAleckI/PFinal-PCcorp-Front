@@ -81,10 +81,10 @@ const Carousel = () => {
 
       <div className={styles["buttons-container"]}>
         <button className={styles["prev-button"]} onClick={goToPrevious}>
-          Previous
+          {"<"}
         </button>
         <button className={styles["next-button"]} onClick={goToNext}>
-          Next
+          {">"}
         </button>
       </div>
     </div>
