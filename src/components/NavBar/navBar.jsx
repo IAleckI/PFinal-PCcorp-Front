@@ -38,8 +38,8 @@ const NavBar = () => {
             className={styles.icon}
           />
         </button>
-        <button className={styles.Button}>
-          <img src={usuario} alt="Usuario Logo" className={styles.icon} />
+        <button className={styles.Button} onClick={() => (window.location.href = "/login")}>
+          <img src={usuario} alt="Usuario Logo" className={styles.icon}/>
         </button>
       </div>
     </nav>
