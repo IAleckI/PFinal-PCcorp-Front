@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <div>
       <NavBar/>
-      <Carousel />
+      <Carousel /> 
       <Footer />
     </div>
   )
