@@ -1,10 +1,10 @@
 import React from 'react'
-import { Carousel, Footer } from '../../components/Index'
+import { Carousel, Footer, NavBar } from '../../components/Index'
 
 const Home = () => {
   return (
     <div>
-
+      <NavBar />
       <Carousel />
       <Footer />
     </div>
