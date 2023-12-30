@@ -3,21 +3,14 @@ import { GoogleLogin } from 'react-google-login';
 import {useOnState} from "../../utils/hooks/User/user.js"
 import { useState } from "react";
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
-
-const LoginComponent = () => {
-  const clientID = import.meta.env.VITE_GOOGLE_ID
-  const facebookAppID = import.meta.env.VITE_FACEBOOK_APP_ID;
-  
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  
-import { GoogleLogin } from 'react-google-login';
-import {useOnState} from "../../utils/hooks/User/login.js"
-import { useState } from "react";
-import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import { useMutation, useQuery } from '@apollo/client';
 import { LOGIN_USER } from '../../utils/graphql/mutations/user/userLogin.js';
 import { GET_USER } from '../../utils/graphql/querys/user/getUser.js';
+
+
+
+
+
 
 const LoginComponent = () => {
   const clientID = import.meta.env.VITE_GOOGLE_ID
@@ -33,13 +26,9 @@ const LoginComponent = () => {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
-  const handleFormSubmit =  (e) => {
-    e.preventDefault();
   
-   
-  };
 
-  const {onSuccess, onFailure, facebookResponse} = useOnState(clientID)
+ 
 
  
 // Example of a mutation
