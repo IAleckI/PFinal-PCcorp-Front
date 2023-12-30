@@ -1,37 +1,30 @@
+import React, { useState } from "react";
 import styles from "./loginComponent.module.css";
-import { GoogleLogin } from 'react-google-login';
-import {useOnState} from "../../utils/hooks/User/user.js"
-import { useState } from "react";
-import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
+import { GoogleLogin } from "react-google-login";
 
-const LoginComponent = () => {
-  const clientID = import.meta.env.VITE_GOOGLE_ID
-  const facebookAppID = import.meta.env.VITE_FACEBOOK_APP_ID;
-  
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  
+import { useOnState } from "../../utils/hooks/user/login.js";
+
+const Login = () => {
+  const clientID = import.meta.env.VITE_GOOGLE_ID;
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
-  
+
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
-  const handleFormSubmit =  (e) => {
+  const handleFormSubmit = (e) => {
     e.preventDefault();
-  
-   
   };
 
-  const {onSuccess, onFailure, facebookResponse} = useOnState(clientID)
+  const { onSuccess, onFailure } = useOnState(clientID);
 
   return (
-
-
     <div className={styles.box}>
-
-      
       <form className={styles.formContainer} onSubmit={handleFormSubmit}>
         <label className={styles.label} htmlFor="email">
           Email
@@ -61,32 +54,18 @@ const LoginComponent = () => {
           Login
         </button>
         <div className={styles.google}>
-        <GoogleLogin
-        
-        clientId={clientID}
-        buttonText="Login with Google"
-        onSuccess={onSuccess}
-        onFailure={onFailure}
-        cookiePolicy={'single_host_origin'}
-      /></div>
-       <div className={styles.facebook}>
-          <FacebookLogin
-            appId={facebookAppID}
-            autoLoad={false}
-            fields="name,email,picture"
-            callback={facebookResponse}
-            render={(renderProps) => (
-              <button onClick={renderProps.onClick} className={styles.facebookButton}>
-                Login with Facebook
-              </button>
-            )}
+          <GoogleLogin
+            clientId={clientID}
+            buttonText="Login with Google"
+            onSuccess={onSuccess}
+            onFailure={onFailure}
+            cookiePolicy={"single_host_origin"}
           />
         </div>
-       <p className={styles.signin}>¿You dont have an account yet? <a href="/signin"> Sign In!</a> </p> 
       </form>
-    
+      <button onClick={() => window.history.back()}>go back</button>
     </div>
   );
 };
 
-export default LoginComponent;
+export default Login;

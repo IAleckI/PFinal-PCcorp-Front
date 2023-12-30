@@ -1,9 +1,12 @@
-import React from 'react'
-
+import { ProductDetail, NavBar, Footer } from "../../components/Index";
 const Detail = () => {
   return (
-    <div>Detail</div>
-  )
-}
+    <div>
+      <NavBar />
+      <ProductDetail />
+      <Footer />
+    </div>
+  );
+};
 
-export default Detail
+export default Detail;
