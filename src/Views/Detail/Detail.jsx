@@ -1,11 +1,12 @@
-
-import { ProductDetail } from '../../components/Index'
+import { ProductDetail, NavBar, Footer } from "../../components/Index";
 const Detail = () => {
   return (
     <div>
+      <NavBar />
       <ProductDetail />
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Detail
+export default Detail;

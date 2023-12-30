@@ -1,6 +1,8 @@
-import { useQuery } from '@apollo/client';
-import { useParams } from 'react-router-dom';
-import { GET_PRODUCT_BY_ID } from '../../utils/graphql/querys/products/getProductById';
+import { useQuery } from "@apollo/client";
+import { ButtonHome } from "../Index";
+import { useParams } from "react-router-dom";
+import { GET_PRODUCT_BY_ID } from "../../utils/graphql/querys/products/getProductById";
+import Style from "./detailComponent.module.css";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -8,14 +10,19 @@ const ProductDetail = () => {
     variables: { id },
   });
 
-  if (loading) return <p>Cargando...</p>;
-  if (error) return <p>Error al cargar el producto.</p>;
+  if (loading) return <h1 className={Style.loading}>Cargando...</h1>;
+  if (error)
+    return (
+      <div className={Style.error}>
+        <h1>Error al cargar el producto.</h1>
+        <ButtonHome />
+      </div>
+    );
 
   const { getProductById } = data;
 
   return (
     <div>
-      <h2>Detalles del Producto</h2>
       <img src={getProductById.image} alt="imagen" />
       <p>Nombre: {getProductById.name}</p>
       <p>Precio: {getProductById.price}</p>
