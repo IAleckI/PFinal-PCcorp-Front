@@ -1,0 +1,8 @@
+.filter {
+    min-width: 350px;
+    height: 800px;
+    box-shadow: 2px 2px 6px #ccc;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
