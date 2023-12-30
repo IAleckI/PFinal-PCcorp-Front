@@ -1,4 +1,4 @@
-import { Button, ButtonHome } from "./Button/button";
+import { Button} from "./Button/button";
 import SearchBar from "./SearchBar/SearchBar";
 import Carousel from "./Carrusel/carouselLanding";
 import Footer from "./Footer/footer";
@@ -11,7 +11,6 @@ import ProductDetail from "./Detail/detailComponent";
 
 export {
   Button,
-  ButtonHome,
   SearchBar,
   Carousel,
   Footer,
