@@ -1,6 +1,6 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import { Home, Detail, Login } from "./Views/Index";
+import { Home, Detail, Login , Catalogo } from "./Views/Index";
 
 function App() {
   return (
@@ -8,7 +8,8 @@ function App() {
        
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route pa th="/detail" element={<Detail />} />
+        <Route path="/catalogo" element={<Catalogo />} />
+        <Route path="/:id" element={<Detail />} />
       </Routes>
   );
 }

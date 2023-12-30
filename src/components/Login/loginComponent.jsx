@@ -22,7 +22,7 @@ const LoginComponent = () => {
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
-  
+
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
@@ -68,8 +68,6 @@ const handleFormSubmit = (e) => {
 
 
     <div className={styles.box}>
-
-      
       <form className={styles.formContainer} onSubmit={handleFormSubmit}>
         <label className={styles.label} htmlFor="email">
           Email
@@ -141,7 +139,7 @@ const handleFormSubmit = (e) => {
           /> 
         </div>
        <p className={styles.signin}>¿You dont have an account yet? <a href="/signin"> Sign In!</a> </p> 
-       <p className={styles.label} >¿You dont have an account yet? <a href="/signin"> Sign In!</a> </p> 
+       
       <button className={styles.button} onClick={() => window.history.back()}>go back</button>
       </form>
     

@@ -4,7 +4,6 @@
   height: 40vh;
   overflow: hidden;
   z-index: 1;
-  margin-top: 7ch;
 }
 
 .carousel-image {
@@ -29,6 +28,20 @@
   z-index: 1;
   height: auto;
   width: 40px;
+}
+
+.catalogo-button {
+  position: relative;
+  top: 80%;
+  transform: translateY(-50%);
+  background: rgba(253, 0, 177, 0.5);
+  color: rgb(255, 255, 255);
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 1;
+  height: 5ch;
+  width: 12ch;
+  margin-left: 80%;
 }
 
 .prev-button:hover, .next-button:hover {

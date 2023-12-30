@@ -1,9 +1,25 @@
-import React from 'react'
+import Style from "./button.module.css";
+import { Link, useLocation } from "react-router-dom";
 
-const button = () => {
+export const Button = ({ text, onClick, style }) => {
   return (
-    <div>button</div>
-  )
-}
+    <button onClick={onClick} style={style} className={Style.button}>
+      {text}
+    </button>
+  );
+};
 
-export default button
+export const ButtonHome = () => {
+  const location = useLocation();
+
+  let buttonText = "Volver al Home";
+  if (location.pathname === "/") {
+    buttonText = "Ingresar";
+  }
+
+  return (
+    <Link to="/">
+      <button className={Style.button}>{buttonText}</button>
+    </Link>
+  );
+};
