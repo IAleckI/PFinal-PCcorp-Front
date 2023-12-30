@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
-import { GET_PRODUCT_BY_ID } from '../../utils/graphql/querys/products/getProductById'; 
+import { GET_PRODUCT_BY_ID } from '../../utils/graphql/querys/products/getProductById';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -16,7 +16,7 @@ const ProductDetail = () => {
   return (
     <div>
       <h2>Detalles del Producto</h2>
-      <p>ID: {getProductById.id}</p>
+      <img src={getProductById.image} alt="imagen" />
       <p>Nombre: {getProductById.name}</p>
       <p>Precio: {getProductById.price}</p>
       <p>Modelo: {getProductById.model}</p>
