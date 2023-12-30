@@ -1,4 +1,4 @@
-import { NavBar, Banner, CardList, Filter } from "../../components/Index"
+import { NavBar, Banner, CardList, Filter, Footer } from "../../components/Index"
 import { useProducts } from "../../utils/hooks/products/useProducts"
 import { useSelector } from "react-redux"
 import { usePaginate } from "../../utils/hooks/products/usePaginate"
@@ -23,6 +23,7 @@ export default function Catalogo () {
           currentPage={currentPage} 
           totalPages={totalPages} 
           setCurrentPage={setCurrentPage}/>
+        <Footer/>
       </main>
     )
 }

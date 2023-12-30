@@ -3,7 +3,6 @@ import styles from "./navBar.module.css";
 import homelogo from "../../Assets/Logos/home.jpg";
 import lupalogo from "../../Assets/Logos/lupa.png";
 import bolsalogo from "../../Assets/Logos/bolsa.png";
-import notificacion from "../../Assets/Logos/notificacion.png";
 import usuario from "../../Assets/Logos/usuario.png";
 import wishlist from "../../Assets/Logos/wishlist.png";
 
@@ -21,7 +20,7 @@ const NavBar = () => {
 
       <div className={styles.centerContent}>
         <input type="text" placeholder= "  Search" className={styles.searchBar} />
-        <img src={lupalogo} alt="Lupa Logo" className={styles.icon} />
+        <img src={lupalogo} alt="Lupa Logo" className={styles.iconLupa} />
       </div>
 
       <div className={styles.rightSection}>
@@ -30,13 +29,6 @@ const NavBar = () => {
         </button>
         <button className={styles.Button}>
           <img src={wishlist} alt="Wishlist Logo" className={styles.icon} />
-        </button>
-        <button className={styles.Button}>
-          <img
-            src={notificacion}
-            alt="Notificacion Logo"
-            className={styles.icon}
-          />
         </button>
         <button className={styles.Button} onClick={() => (window.location.href = "/login")}>
           <img src={usuario} alt="Usuario Logo" className={styles.icon}/>

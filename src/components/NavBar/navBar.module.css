@@ -1,88 +1,90 @@
 .navbar {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #8a8585;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 7ch;
-    z-index: 9999;
-    padding: 0 20px;
-    box-sizing: border-box; 
-    
-  }
-  
-  .leftSection .homelogo {
-    width: 6ch;
-    height: 6ch;
-    object-fit: cover;
-    border-radius: 10%;
-    cursor: pointer;
-  }
-  
-  .leftSection .homelogo:hover {
-    transform: scale(1.1);
-  }
-  
-  .navbar button {
-    border: none;
-    height: 6ch;
-    width: 5ch;
-    border-radius: 8px;
-    background-color: #8a85d2;
-    color: white;
-    margin-right: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .navbar button:hover {
-    background-color: #675fad;
-  }
-  
-  .navbar .searchBar {
-    flex: 1;
-    height: 4ch;
-    border-radius: 8px;
-    border: none;
-    font-size: 16px;
-    width: 50ch;
-    margin-right: 5px;
-    place-content: center;
-  }
-  .navbar .searchBar {
-    flex: 1;
-    height: 4ch;
-    border-radius: 8px;
-    border: none;
-    font-size: 16px;
-    width: 50ch;
-    margin-right: 5px;
-    place-content: center;
-  }
-
-  .navbar .searchBar input[type="text"] {
-    text-align: center; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  background-color: #7c7a7a; 
+  right: 0%;
+  left: 0%;
+  top: 0;
 }
-  
 
-  .rightSection {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.leftSection {
+  margin-left: 1%; 
+}
+
+.centerContent {
+  flex: 1; 
+  display: flex;
+  align-items: center;
+}
+
+.searchBar {
+  width: 70%; 
+  padding: 8px;
+  margin-left: 15%;
+}
+
+.icon {
+  width: 30px; 
+  height: 30px;
+  cursor: pointer;
+}
+
+.homelogo {
+  border-radius: 5px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+
+.iconLupa {
+  width: 30px; 
+  height: 30px;
+  cursor: pointer;
+  margin-right: 15%;
+}
+
+.rightSection {
+  display: flex;
+  gap: 10px;
+  margin-right: 1%;
+}
+
+.Button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.Button:hover {
+  background-color: #ccc;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
-  .icon {
-    width: 20px;
-    height: 20px;
-    object-fit: cover;
-    cursor: pointer;
-    margin: 5px;
-  }
-  
 
   .centerContent {
-    display: flex;
-    align-items: center; }
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .searchBar {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .iconLupa {
+    margin-right: 0;
+  }
+
+  .rightSection {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
