@@ -7,9 +7,10 @@ import LoginComponent from "./Login/loginComponent";
 import Banner from "./banner/banner";
 import CardList from "./cardList/carList";
 import Filter from "./filter/filter";
+import ProductDetail from "./Detail/detailComponent";
 
 
-export { Button, SearchBar, Carousel, Footer, LoginComponent, NavBar, Banner, CardList, Filter };
+export { Button, SearchBar, Carousel, Footer, LoginComponent, NavBar, Banner, CardList, Filter, ProductDetail };
 
 
 

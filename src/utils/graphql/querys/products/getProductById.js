@@ -1,8 +1,8 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
-export const GET_PRODUCT_By_ID = gql`
+export const GET_PRODUCT_BY_ID = gql`
     query GetProductsById($id: ID!) {
-        getProductById(id: ID!) {
+        getProductById(id: $id) {
             id
             name
             price
@@ -12,4 +12,4 @@ export const GET_PRODUCT_By_ID = gql`
             type
         }
     }
-`
+`;
