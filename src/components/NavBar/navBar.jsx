@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./navBar.module.css";
 import homelogo from "../../Assets/Logos/home.jpg";
 import lupalogo from "../../Assets/Logos/lupa.png";
@@ -20,7 +19,7 @@ const NavBar = () => {
       </div>
 
       <div className={styles.centerContent}>
-        <input type="text" placeholder= "  Search" className={styles.searchBar} />
+        <input type="search" placeholder= "  Search" className={styles.searchBar} />
         <img src={lupalogo} alt="Lupa Logo" className={styles.icon} />
       </div>
 

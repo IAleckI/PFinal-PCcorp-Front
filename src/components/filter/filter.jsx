@@ -3,21 +3,26 @@ import FilterRange from './filterRange/filterRange'
 import FilterPrice from './filterPrice/filterPrice'
 import { useFilter } from '../../utils/hooks/products/useFilter'
 
+import _ from 'lodash'
+
 export default function Filter(){
-  const { filter, filterBrand, deleteFilters } = useFilter()
-  
+  const { filter, filterBrand, deleteFilters, filterType } = useFilter()
+
   return (
       <div className={Style.filter}>
         <button onClick={deleteFilters}>Borrar filtros</button>
         {Object.keys(filter).map((item, index) => (
-          <div key={index}>
-            <h3>{item}</h3>
+          <details key={index}>
+            <summary onClick={() => filterType(item)}>{item}</summary>
             <ul>
-              {filter[item].map((item, index) => (
-               <button key={index} onClick={() => filterBrand(item)}>{item.brand}</button>
+              {_.uniqBy(filter[item], 'brand').map((item, index) => (
+               <div key={index}>
+                <input type='radio' name="group" onChange={() => filterBrand(item)} id={item.id} />
+                <label htmlFor={item.id}>{item.brand}</label>
+               </div>
               ))}
             </ul>
-          </div>
+          </details>
         ))} 
         <FilterRange/>
         <FilterPrice/>
