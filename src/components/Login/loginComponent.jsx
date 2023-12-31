@@ -6,8 +6,8 @@ import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props
 import { useMutation, useQuery } from '@apollo/client';
 import { LOGIN_USER } from '../../utils/graphql/mutations/user/userLogin.js';
 import { GET_USER } from '../../utils/graphql/querys/user/getUser.js';
-
-
+import { useAuth } from '../../utils/hooks/auth/authContext.jsx'
+import LogoutButton from "../Logout/LogoutComponent.jsx";
 
 
 
@@ -16,6 +16,8 @@ const LoginComponent = () => {
   const clientID = import.meta.env.VITE_GOOGLE_ID
   const facebookAppID = import.meta.env.VITE_FACEBOOK_APP_ID;
   
+  const { login } = useAuth();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   
@@ -38,6 +40,7 @@ const [loginUser, { loading: loginLoading, error: loginError }] = useMutation(LO
     // Fetch user data after successful login
     try {
       await getUser();
+      login(data.loginUser);
     } catch (error) {
       console.error("Error fetching user data after login:", error);
     }
@@ -50,6 +53,7 @@ const { loading: userLoading, error: userError, data: userData, refetch: getUser
 });
 
 const handleFormSubmit = (e) => {
+  console.log('Form submitted!');
   e.preventDefault();
 
   // Call the login mutation
@@ -117,32 +121,13 @@ const handleFormSubmit = (e) => {
               </button>
             )}
           />
-        <GoogleLogin
-        
-        clientId={clientID}
-        buttonText="Login with Google"
-        onSuccess={onSuccess}
-        onFailure={onFailure}
-        cookiePolicy={'single_host_origin'}
-      /></div>
-       <div className={styles.facebook}>
-          <FacebookLogin
-            appId={facebookAppID}
-            autoLoad={false}
-            fields="name,email,picture"
-            callback={facebookResponse}
-            render={(renderProps) => (
-              <button onClick={renderProps.onClick} className={styles.facebookButton}>
-                Login with Facebook
-              </button>
-            )}
-          /> 
         </div>
-       <p className={styles.signin}>¿You dont have an account yet? <a href="/signin"> Sign In!</a> </p> 
+      
+       <p className={styles.signin}>¿You dont have an account yet? <a href="/register"> Sign In!</a> </p> 
        
       <button className={styles.button} onClick={() => window.history.back()}>go back</button>
       </form>
-    
+    <LogoutButton/>
     </div>
   );
 };

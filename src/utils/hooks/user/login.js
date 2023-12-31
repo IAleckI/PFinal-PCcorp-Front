@@ -1,16 +1,8 @@
-<<<<<<< HEAD
 import { gapi } from 'gapi-script';
 import { useEffect } from 'react';
 
 export const useOnState = ( clientID) => {
 
-=======
-
-import { gapi } from 'gapi-script';
-import { useEffect } from 'react';
-
-export const useOnState = ( clientID ) => {
->>>>>>> 3e2959cf5da0b6bea5f52c48aa59687ce3dce3f3
     useEffect(()=>{
     const start =() => {
     gapi.auth2.init({
@@ -27,7 +19,6 @@ console.log(response)
 
 const onFailure = () =>{
 console.log("something went wrong")
-<<<<<<< HEAD
 
 
 
@@ -47,10 +38,3 @@ const facebookResponse = (response) => {
 };
 return {onSuccess, onFailure, facebookResponse}
 }
-=======
-}
-return {onSuccess, onFailure}
-}
-
-
->>>>>>> 3e2959cf5da0b6bea5f52c48aa59687ce3dce3f3

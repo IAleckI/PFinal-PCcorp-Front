@@ -8,7 +8,7 @@ import Banner from "./banner/banner";
 import CardList from "./cardList/carList";
 import Filter from "./filter/filter";
 import ProductDetail from "./Detail/detailComponent";
-
+import RegisterComponent from "./Register/registerComponent";
 export {
   Button,
   ButtonHome,
@@ -16,6 +16,7 @@ export {
   Carousel,
   Footer,
   LoginComponent,
+  RegisterComponent,
   NavBar,
   Banner,
   CardList,
