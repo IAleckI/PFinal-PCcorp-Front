@@ -4,7 +4,7 @@ import lupalogo from "../../Assets/Logos/lupa.png";
 import bolsalogo from "../../Assets/Logos/bolsa.png";
 import notificacion from "../../Assets/Logos/notificacion.png";
 import usuario from "../../Assets/Logos/usuario.png";
-import wishlist from "../../Assets/Logos/wishlist.png";
+import wishlist from "../../Assets/Logos/wishlist.png"
 
 const NavBar = () => {
   return (
