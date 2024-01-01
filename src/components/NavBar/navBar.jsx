@@ -1,10 +1,11 @@
+import React from "react";
 import styles from "./navBar.module.css";
 import homelogo from "../../Assets/Logos/home.jpg";
 import lupalogo from "../../Assets/Logos/lupa.png";
 import bolsalogo from "../../Assets/Logos/bolsa.png";
 import notificacion from "../../Assets/Logos/notificacion.png";
 import usuario from "../../Assets/Logos/usuario.png";
-import wishlist from "../../Assets/Logos/wishlist.png"
+import wishlist from "../../Assets/Logos/wishlist.png";
 
 const NavBar = () => {
   return (
@@ -19,7 +20,7 @@ const NavBar = () => {
       </div>
 
       <div className={styles.centerContent}>
-        <input type="search" placeholder= "  Search" className={styles.searchBar} />
+        <input type="text" placeholder= "  Search" className={styles.searchBar} />
         <img src={lupalogo} alt="Lupa Logo" className={styles.icon} />
       </div>
 
