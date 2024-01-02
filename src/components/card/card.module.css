@@ -1,6 +1,6 @@
 .card {
-    width: 260px;
-    height: 350px;
+    width: 350px;
+    height: 400px;
     box-shadow: 2px 2px 4px #bbb;
     display: flex;
     flex-direction: column;
@@ -18,17 +18,17 @@
 }
 
 .card img {
-    width: 160px;
-    height: 160px;
+    width: 200px;
+    height: 200px;
     object-fit:cover;
 }
 
 .card h2 {
     color: #7971EA;
-    font-size: 16px;
+    font-size: 22px;
     white-space: wrap;
     width: 200px;
-    height: 60px;
+    height: 80px;
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: center;

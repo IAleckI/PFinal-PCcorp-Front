@@ -15,12 +15,18 @@ export default function CardCarrousel( { components, interval = 5000}) {
     }, [components.length, interval]);
     
     return (
+      <div className={Style.section}>
+        <div className={Style.tittle}>
+        <span className={Style.line_section}/>
+        <h2>Productos destacados</h2>
+        </div>
         <section className={Style.carrousel}>
           {components.map((component, index) => (
             <div key={index} style={{marginTop: '30px',width: `${width <= 1024 ? '100%' : '300px'}`}}>
                 {component}
             </div>
-          )).slice(currentIndex, currentIndex + 5)}
+          )).slice(currentIndex, currentIndex + 3)}
         </section>
+      </div>
     )
 }
