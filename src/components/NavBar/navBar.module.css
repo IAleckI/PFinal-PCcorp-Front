@@ -1,90 +1,72 @@
 .navbar {
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 150px;
+  background-color: #7971EA99;
+}
+
+.firstNavbar {
+  width: 100%;
+  height: 75px;
+  border-bottom: 1px solid #fffa;
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px;
-  background-color: #7c7a7a; 
-  right: 0%;
-  left: 0%;
-  top: 0;
 }
 
-.leftSection {
-  margin-left: 1.5%; 
+.logo {
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(100%) sepia(1%) saturate(7477%) hue-rotate(37deg) brightness(97%) contrast(118%);
 }
-
-.centerContent {
-  flex: 1; 
+.navbar_user {
+  margin-right: 40px;
   display: flex;
+  gap: 20px;
+}
+
+.navbar_user img{
+  width: 35px;
+  height: 35px;
+  filter: brightness(0) saturate(100%) invert(95%) sepia(0%) saturate(9%) hue-rotate(186deg) brightness(97%) contrast(87%);
+  cursor: pointer;
+}
+
+.navbar_user img:hover {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(1%) saturate(7477%) hue-rotate(37deg) brightness(97%) contrast(118%);
+}
+
+.secondNavbar {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
   align-items: center;
+  gap: 20px;
 }
 
-.searchBar {
-  width: 60%; 
-  padding: 8px;
-  margin-left: 15%;
+.location {
+  font-size: 13px;
+  font-family: sans-serif;
+  border-bottom: 3px solid transparent;
 }
 
-.icon {
-  width: 30px; 
-  height: 30px;
-  cursor: pointer;
+.location a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 13px;
 }
 
-.homelogo {
-  border-radius: 5px;
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
+.location_active {
+  border-bottom: 3px solid #eee;
 }
 
-.iconLupa {
-  width: 30px; 
-  height: 30px;
-  cursor: pointer;
-  margin-right: 15%;
+.location_active a {
+  text-decoration: none;
+  color: #7971EA;
+  font-size: 13px;
 }
 
-.rightSection {
-  display: flex;
-  gap: 10px;
-  margin-right: 1.5%;
-}
-
-.Button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 5px;
-  border-radius: 3px;
-}
-
-.Button:hover {
-  background-color: #ccc;
-}
-
-@media screen and (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .centerContent {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-
-  .searchBar {
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .iconLupa {
-    margin-right: 0;
-  }
-
-  .rightSection {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}

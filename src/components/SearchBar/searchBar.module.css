@@ -1,0 +1,25 @@
+
+
+.searchBar {
+    position: relative;
+  }
+  
+  .searchBar input{
+    width: 35vw;
+    height: 50px;
+    border: none;
+    box-shadow: 2px 2px 4px #000;
+    font-size: 20px;
+    padding-left: 50px;
+    outline: none;
+    border-radius: 6px;
+  }
+  
+  .searchBar img {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    margin: 9px;
+    filter: brightness(0) saturate(100%) invert(90%) sepia(8%) saturate(29%) hue-rotate(323deg) brightness(95%) contrast(82%);
+  }
+  
