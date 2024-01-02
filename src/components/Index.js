@@ -1,17 +1,19 @@
-import { Button, ButtonHome } from "./Button/button";
+import { Button} from "./Button/button";
 import SearchBar from "./SearchBar/SearchBar";
 import Carousel from "./Carrusel/carouselLanding";
 import Footer from "./Footer/footer";
-import NavBar from "./NavBar/navBar";
+import NavBar from "./NavBar/navbar";
 import LoginComponent from "./Login/loginComponent";
 import Banner from "./banner/banner";
 import CardList from "./cardList/carList";
 import Filter from "./filter/filter";
+import Card from "./card/card";
 import ProductDetail from "./Detail/detailComponent";
 import RegisterComponent from "./Register/registerComponent";
+import CardCarrousel from "./Carrusel/cardCarrussel/cardCarrusel";
+
 export {
   Button,
-  ButtonHome,
   SearchBar,
   Carousel,
   Footer,
@@ -22,4 +24,6 @@ export {
   CardList,
   Filter,
   ProductDetail,
+  CardCarrousel,
+  Card
 };

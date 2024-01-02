@@ -1,49 +1,48 @@
-import React from "react";
-import styles from "./navBar.module.css";
-import homelogo from "../../Assets/Logos/home.jpg";
-import lupalogo from "../../Assets/Logos/lupa.png";
+import Style from "./navBar.module.css";
+import SearchBar from "../SearchBar/SearchBar";
+import homelogo from "../../Assets/Logos/home.png";
 import bolsalogo from "../../Assets/Logos/bolsa.png";
-import notificacion from "../../Assets/Logos/notificacion.png";
 import usuario from "../../Assets/Logos/usuario.png";
 import wishlist from "../../Assets/Logos/wishlist.png";
+import { NavLink, Link, useLocation } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <nav className={styles.navbar}>
-      <div className={styles.leftSection}>
-        <img
-          src={homelogo}
-          alt="Home Logo"
-          className={styles.homelogo}
-          onClick={() => (window.location.href = "/")}
-        />
+    <nav className={Style.navbar}>
+      <div className={Style.firstNavbar}>
+        <Link to={"/"}><img src={homelogo} alt="logo"  className={Style.logo}/></Link>
+        <SearchBar/>
+        <div className={Style.navbar_user}>
+          <Link to={"/wishlist"}><img src={wishlist} alt="wishlist" /></Link>
+          <Link to={"/cart"}><img src={bolsalogo} alt="bolsa" /></Link>
+          <Link to={"/login"}><img src={usuario} alt="user" /></Link>
+        </div>
       </div>
-
-      <div className={styles.centerContent}>
-        <input type="text" placeholder= "  Search" className={styles.searchBar} />
-        <img src={lupalogo} alt="Lupa Logo" className={styles.icon} />
-      </div>
-
-      <div className={styles.rightSection}>
-        <button className={styles.Button}>
-          <img src={bolsalogo} alt="Bolsa Logo" className={styles.icon} />
-        </button>
-        <button className={styles.Button}>
-          <img src={wishlist} alt="Wishlist Logo" className={styles.icon} />
-        </button>
-        <button className={styles.Button}>
-          <img
-            src={notificacion}
-            alt="Notificacion Logo"
-            className={styles.icon}
-          />
-        </button>
-        <button className={styles.Button} onClick={() => (window.location.href = "/login")}>
-          <img src={usuario} alt="Usuario Logo" className={styles.icon}/>
-        </button>
+      <div className={Style.secondNavbar}>
+        <LocationNav location="/"  tittle='HOME'/>
+        <LocationNav location="/catalogo" tittle='CATALOGO'/>
+        <LocationNav location="/build" tittle='ARMA TU PC'/>
+        <LocationNav location="/destacados" tittle='DESTACADOS'/>
+        <LocationNav location="/contacto" tittle='¿QUIENES SOMOS?'/>
       </div>
     </nav>
   );
 };
+
+
+
+const LocationNav = ({ location, tittle }) => {
+  const loc = useLocation().pathname
+
+  return (
+    <div className={`${loc === location
+    ? Style.location_active 
+    : Style.location}`}>
+      <NavLink to={location}>
+        <h2>{tittle}</h2>
+      </NavLink>
+    </div>
+  )
+}
 
 export default NavBar;

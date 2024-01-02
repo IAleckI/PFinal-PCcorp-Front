@@ -1,88 +1,72 @@
 .navbar {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #8a8585;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 7ch;
-    z-index: 9999;
-    padding: 0 20px;
-    box-sizing: border-box; 
-    
-  }
-  
-  .leftSection .homelogo {
-    width: 6ch;
-    height: 6ch;
-    object-fit: cover;
-    border-radius: 10%;
-    cursor: pointer;
-  }
-  
-  .leftSection .homelogo:hover {
-    transform: scale(1.1);
-  }
-  
-  .navbar button {
-    border: none;
-    height: 6ch;
-    width: 5ch;
-    border-radius: 8px;
-    background-color: #8a85d2;
-    color: white;
-    margin-right: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .navbar button:hover {
-    background-color: #675fad;
-  }
-  
-  .navbar .searchBar {
-    flex: 1;
-    height: 4ch;
-    border-radius: 8px;
-    border: none;
-    font-size: 16px;
-    width: 50ch;
-    margin-right: 5px;
-    place-content: center;
-  }
-  .navbar .searchBar {
-    flex: 1;
-    height: 4ch;
-    border-radius: 8px;
-    border: none;
-    font-size: 16px;
-    width: 50ch;
-    margin-right: 5px;
-    place-content: center;
-  }
-
-  .navbar .searchBar input[type="text"] {
-    text-align: center; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 150px;
+  background-color: #7971EA99;
 }
-  
 
-  .rightSection {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .icon {
-    width: 20px;
-    height: 20px;
-    object-fit: cover;
-    cursor: pointer;
-    margin: 5px;
-  }
-  
+.firstNavbar {
+  width: 100%;
+  height: 75px;
+  border-bottom: 1px solid #fffa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .centerContent {
-    display: flex;
-    align-items: center; }
+.logo {
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(100%) sepia(1%) saturate(7477%) hue-rotate(37deg) brightness(97%) contrast(118%);
+}
+.navbar_user {
+  margin-right: 40px;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar_user img{
+  width: 35px;
+  height: 35px;
+  filter: brightness(0) saturate(100%) invert(95%) sepia(0%) saturate(9%) hue-rotate(186deg) brightness(97%) contrast(87%);
+  cursor: pointer;
+}
+
+.navbar_user img:hover {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(1%) saturate(7477%) hue-rotate(37deg) brightness(97%) contrast(118%);
+}
+
+.secondNavbar {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.location {
+  font-size: 13px;
+  font-family: sans-serif;
+  border-bottom: 3px solid transparent;
+}
+
+.location a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 13px;
+}
+
+.location_active {
+  border-bottom: 3px solid #eee;
+}
+
+.location_active a {
+  text-decoration: none;
+  color: #7971EA;
+  font-size: 13px;
+}
+

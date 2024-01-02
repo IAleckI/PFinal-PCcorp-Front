@@ -1,5 +1,5 @@
 import Style from "./button.module.css";
-import { Link, useLocation } from "react-router-dom";
+// import { Link, useLocation } from "react-router-dom";
 
 export const Button = ({ text, onClick, style }) => {
   return (
@@ -9,17 +9,17 @@ export const Button = ({ text, onClick, style }) => {
   );
 };
 
-export const ButtonHome = () => {
-  const location = useLocation();
+// export const ButtonHome = () => {
+//   const location = useLocation();
 
-  let buttonText = "Volver al Home";
-  if (location.pathname === "/") {
-    buttonText = "Ingresar";
-  }
+//   let buttonText = "Home";
+//   if (location.pathname === "/") {
+//     buttonText = "Ingresar";
+//   }
 
-  return (
-    <Link to="/">
-      <button className={Style.button}>{buttonText}</button>
-    </Link>
-  );
-};
+//   return (
+//     <Link to="/">
+//       <button className={Style.ButtonHome}>{buttonText}</button>
+//     </Link>
+//   );
+// };

@@ -1,7 +1,8 @@
 .carousel-container {
   position: relative;
   width: 100%;
-  height: 40vh;
+  height: 50vh;
+  margin-top: 50px;
   overflow: hidden;
   z-index: 1;
 }
@@ -20,21 +21,22 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  background: rgba(163, 159, 159, 0.5);
+  background: rgba(255, 255, 255, 0.5);
   border: none;
-  color: rgb(255, 255, 255);
+  color: #ffff;
   font-size: 22px;
   cursor: pointer;
   z-index: 1;
   height: auto;
   width: 40px;
+  opacity: 0.5;
 }
 
 .catalogo-button {
   position: relative;
   top: 80%;
   transform: translateY(-50%);
-  background: rgba(253, 0, 177, 0.5);
+  background: #7c7a7a;
   color: rgb(255, 255, 255);
   font-size: 22px;
   cursor: pointer;

@@ -7,6 +7,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 20px;
+    padding-top: 80px;
 }
 .banner h2 {
     font-size: 40px;
