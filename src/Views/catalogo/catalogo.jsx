@@ -12,7 +12,7 @@ export default function Catalogo () {
       <main>
         <NavBar/>
         <Banner/>
-        <section style={{display: 'flex'}}>
+        <section style={{display: 'flex', marginTop: '40px'}}>
           <Filter/>
           <CardList 
             firstIndex={firstIndex} 
