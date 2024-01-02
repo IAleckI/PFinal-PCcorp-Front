@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Style from './filterRange.module.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { setFiltered } from '../../../utils/state/features/products/productSlice';
 
@@ -14,10 +15,13 @@ const FilterRange = () => {
         dispatch(setFiltered(filtered))
     }
     return (
-        <div>
-            <input type="number" value={min} onChange={(e) => setMin(e.target.value)}/>
-            <input type="number" value={max} onChange={(e) => setMax(e.target.value)}/>
-            <button onClick={onFilter}>Filtrar</button>
+        <div className={Style.filter}>
+            <div className={Style.filterRange}>
+            <input placeholder='Minimo' type="number" value={min} onChange={(e) => setMin(e.target.value)}/>
+            <span>-</span>
+            <input placeholder='Maximo' type="number" value={max} onChange={(e) => setMax(e.target.value)}/>
+            </div>
+            <button className={Style.filter_button} onClick={onFilter}>Filtrar</button>
         </div>
     )
 }

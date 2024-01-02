@@ -1,0 +1,38 @@
+.filter {
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.filterRange {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filterRange input{
+    height: 30px;
+    width: 120px;
+    padding: 5px;
+    border-radius: 14px;
+    border-color: #7971EA;
+}
+
+.filterRange span {
+    font-size: 50px;
+    color: #7971EA;
+}
+
+.filter_button {
+    height:50px;
+    margin-top: 20px;
+    width: 96%;
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid #7971EA;
+    border-radius: 14px;
+    font-size: 20px;
+
+}
