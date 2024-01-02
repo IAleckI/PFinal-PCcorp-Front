@@ -40,9 +40,10 @@ const [loginUser, { loading: loginLoading, error: loginError }] = useMutation(LO
     // Fetch user data after successful login
     try {
       await getUser();
+      loginLoading
       login(data.loginUser);
     } catch (error) {
-      console.error("Error fetching user data after login:", error);
+      console.error("Error fetching user data after login:",error, loginError);
     }
   },
 });
@@ -127,7 +128,7 @@ const handleFormSubmit = (e) => {
        
       <button className={styles.button} onClick={() => window.history.back()}>go back</button>
       </form>
-    <LogoutButton/>
+    <LogoutButton className={styles.button}/>
     </div>
   );
 };
