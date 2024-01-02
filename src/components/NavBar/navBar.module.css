@@ -1,3 +1,4 @@
+/* Estilos para la barra de navegación principal */
 .navbar {
   display: flex;
   flex-direction: column;
@@ -10,7 +11,7 @@
 .firstNavbar {
   width: 100%;
   height: 75px;
-  border-bottom: 1px solid #fffa;
+  border-bottom: 1px solid #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,13 +23,14 @@
   object-fit: contain;
   filter: brightness(0) saturate(100%) invert(100%) sepia(1%) saturate(7477%) hue-rotate(37deg) brightness(97%) contrast(118%);
 }
+
 .navbar_user {
-  margin-right: 40px;
+  margin-right: 20px;
   display: flex;
-  gap: 20px;
+  gap: 10px;
 }
 
-.navbar_user img{
+.navbar_user img {
   width: 35px;
   height: 35px;
   filter: brightness(0) saturate(100%) invert(95%) sepia(0%) saturate(9%) hue-rotate(186deg) brightness(97%) contrast(87%);
@@ -54,7 +56,7 @@
   border-bottom: 3px solid transparent;
 }
 
-.location a{
+.location a {
   text-decoration: none;
   color: #fff;
   font-size: 13px;
@@ -70,3 +72,47 @@
   font-size: 13px;
 }
 
+@media screen and (max-width: 768px) {
+  .navbar {
+    height: auto;
+    padding: 10px;
+  }
+
+  .firstNavbar {
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar_user {
+    margin-right: 0;
+    margin-top: 15px;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .navbar_user img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .secondNavbar {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .location {
+    font-size: 10px;
+    margin-top: 5px;
+    width: 100%;
+    text-align: center;
+  }
+}
