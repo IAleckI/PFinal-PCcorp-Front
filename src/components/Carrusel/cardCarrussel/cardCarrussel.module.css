@@ -1,5 +1,28 @@
 .carrousel {
     display: flex;
-    justify-content: center;
+    width: 100%;
+    justify-content: space-around;
     flex-wrap: wrap;
+}
+
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.tittle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.line_section {
+    width: 60px;
+    height: 4px;
+    background-color: #7971EA;
+    margin-bottom: 10px;
 }
