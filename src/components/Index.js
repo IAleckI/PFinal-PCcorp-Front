@@ -7,7 +7,9 @@ import LoginComponent from "./Login/loginComponent";
 import Banner from "./banner/banner";
 import CardList from "./cardList/carList";
 import Filter from "./filter/filter";
+import Card from "./card/card";
 import ProductDetail from "./Detail/detailComponent";
+import CardCarrousel from "./Carrusel/cardCarrussel/cardCarrusel";
 
 export {
   Button,
@@ -20,4 +22,6 @@ export {
   CardList,
   Filter,
   ProductDetail,
+  CardCarrousel,
+  Card
 };

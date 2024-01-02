@@ -1,0 +1,15 @@
+.filter {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter button {
+    height: 30px;
+    background-color: transparent;
+    margin-top: 20px;
+    border: none;
+    border-bottom: 3px solid #7971EA;
+    font-size: 20px;
+    font-family: sans-serif;
+    cursor: pointer;
+}
