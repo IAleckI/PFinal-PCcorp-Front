@@ -1,27 +1,16 @@
-import { Carousel, Footer, NavBar, CardList} from "../../components/Index";
-
+import { Carousel, Footer, NavBar, Card, CardCarrousel } from "../../components/Index";
 import { useProducts } from "../../utils/hooks/products/useProducts"
 import { useSelector } from "react-redux"
-import { usePaginate } from "../../utils/hooks/products/usePaginate"
-import Paginate from "../../components/paginate/paginate"
+
 const Home = () => {
-  const { filtered } = useSelector(state => state.products)
-  const {firstIndex, lastIndex, currentPage, totalPages, setCurrentPage} = usePaginate(filtered)
+  const { data } = useSelector(state => state.products)
+  const arrayOfComponents = data?.map(product => <Card key={product.id} props={product} />)
   useProducts()
   return (
     <div>
       <NavBar />
       <Carousel />
-      <section style={{display: 'flex'}}>
-          <CardList 
-            firstIndex={firstIndex} 
-            lastIndex={lastIndex} 
-            currentProducts={filtered}/>
-        </section>
-        <Paginate 
-          currentPage={currentPage} 
-          totalPages={totalPages} 
-          setCurrentPage={setCurrentPage}/>
+      { arrayOfComponents && <CardCarrousel components={arrayOfComponents}/>}
       <Footer />
     </div>
   );

@@ -6,3 +6,27 @@
     display: flex;
     flex-direction: column;
 }
+
+.filter h2 {
+    color: #666;
+    font-family: sans-serif;
+}
+
+.tittle {
+    list-style-type: none;
+    font-size: 25px;
+    margin-top: 5px;
+    color: #666;
+    font-family: sans-serif;
+}
+
+.button {
+    background-color: transparent;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 8px;
+    border-color: #7971EA;
+    margin-right: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+}

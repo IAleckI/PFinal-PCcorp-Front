@@ -1,16 +1,16 @@
 import Style from "./card.module.css";
 import {Button} from "../Index";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Card = ({ props }) => {
   return (
     <figure className={Style.card}>
-      <Link to={`/${props.id}`}>
+      <NavLink to={`/${props.id}`} className={Style.card_text}>
         <img src={props.image} alt={props.name} />
         <h2 title={props.name}>{props.name}</h2>
         <h3>{props.model}</h3>
         <h4 className={Style.card_price}>${props.price}</h4>
-      </Link>
+      </NavLink>
       <Button
         text="Añadir"
         onClick={() => console.log("añadido")}

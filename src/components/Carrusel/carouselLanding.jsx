@@ -14,12 +14,6 @@ const Carousel = () => {
   const [direction, setDirection] = useState(1);
   const [resetInterval, setResetInterval] = useState(false);
 
-  const goToPrevious = useCallback(() => {
-    setIndex((prevIndex) => (prevIndex - 1 + imagesLength) % imagesLength);
-    setDirection(-1);
-    handleResetInterval();
-  }, [imagesLength]);
-
   const goToNext = useCallback(() => {
     setIndex((prevIndex) => (prevIndex + 1) % imagesLength);
     setDirection(1);
@@ -81,17 +75,6 @@ const Carousel = () => {
         );
             
       })}
-      <button className={styles["catalogo-button"]} onClick={()=> window.location.href="/catalogo"}>
-          ir a catalogo
-        </button>
-      <div className={styles["buttons-container"]}>
-        <button className={styles["prev-button"]} onClick={goToPrevious}>
-          {"<"}
-        </button>
-        <button className={styles["next-button"]} onClick={goToNext}>
-          {">"}
-        </button>
-      </div>
     </div>
   );
 };

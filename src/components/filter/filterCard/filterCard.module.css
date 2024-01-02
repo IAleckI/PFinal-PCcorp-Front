@@ -1,0 +1,38 @@
+.filterCard summary {
+    list-style-type: none;
+    cursor: pointer;
+    margin: 10px;
+    
+}
+
+.filterCard_tittle {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filterCard_tittle h2{
+    font-size: 20px;
+    color: #7971EAdd;
+    font-family: sans-serif;
+}
+
+.filterCard_tittle span {
+    color: #000;
+    font-size: 18px;
+    margin-left: 50px;
+}
+
+.filterCard_list {
+    font-size: 20px;
+    padding: 10px;
+    margin-left: 10px;
+    font-family: sans-serif;
+}
+
+.label {
+    cursor: pointer;
+}
+
+.check:checked + .label {
+    color: #7971EA;
+}

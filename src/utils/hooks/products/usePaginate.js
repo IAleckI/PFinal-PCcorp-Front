@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 
 export const usePaginate = (totalProducts) => {
     const [currentPage, setCurrentPage] = useState(1)
-    const productsPerPage = 3
-    const totalPages = Math.ceil(totalProducts?.length / 3)
+    const productsPerPage = 10
+    const totalPages = Math.ceil(totalProducts?.length / 10)
     const lastIndex = currentPage * productsPerPage
     const firstIndex = lastIndex - productsPerPage
     return { firstIndex, lastIndex, currentPage, totalPages, setCurrentPage }
