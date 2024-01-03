@@ -13,6 +13,7 @@ import RegisterComponent from "./Register/registerComponent";
 import CardCarrousel from "./Carrusel/cardCarrussel/cardCarrusel";
 import MejorValorado from "./Carrusel/cardCarrussel/MejorValorados/mejorValorado";
 
+
 export {
   MejorValorado,
   Button,
