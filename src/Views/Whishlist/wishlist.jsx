@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavBar, Footer } from '../Index'
+import { NavBar, Footer } from '../../components/index'
 
 const Wishlist = () => {
   return (
