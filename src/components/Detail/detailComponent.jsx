@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
-import { Button } from "../index";
+import { Button } from "../Index";
 import { GET_PRODUCT_BY_ID } from "../../utils/graphql/querys/products/getProductById";
 import Style from "./detailComponent.module.css";
 
