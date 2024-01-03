@@ -10,7 +10,7 @@ import Filter from "./filter/filter";
 import Card from "./card/card";
 import ProductDetail from "./Detail/detailComponent";
 import CardCarrousel from "./Carrusel/cardCarrussel/cardCarrusel";
-import CardCarrouselTargetaGrafica from "./Carrusel/cardCarrussel/cardCarrusselTargetaGrafica/cardCarruselTargetaGrafica.jsx";
+
 
 export {
   Button,
@@ -24,6 +24,5 @@ export {
   Filter,
   ProductDetail,
   CardCarrousel,
-  Card,
-  CardCarrouselTargetaGrafica
+  Card
 };
