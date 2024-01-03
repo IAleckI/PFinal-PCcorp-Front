@@ -11,6 +11,7 @@ import Card from "./card/card";
 import ProductDetail from "./Detail/detailComponent";
 import CardCarrousel from "./Carrusel/cardCarrussel/cardCarrusel";
 
+
 export {
   Button,
   SearchBar,
