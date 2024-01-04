@@ -12,7 +12,7 @@ import ProductDetail from "./Detail/detailComponent";
 import RegisterComponent from "./Register/registerComponent";
 import CardCarrousel from "./Carrusel/cardCarrussel/cardCarrusel";
 import CardCarrouselProcesadores from "./Carrusel/cardCarrussel/cardCarousselProcesadores/cardCarousselProcesadores";
-import FormCreateComponent from "./FormCreateComponent/FormCreateComponent";
+
 
 export {
   Button,
@@ -28,6 +28,5 @@ export {
   ProductDetail,
   CardCarrousel,
   Card,
-  CardCarrouselProcesadores,
-  FormCreateComponent,
+  CardCarrouselProcesadores
 };
