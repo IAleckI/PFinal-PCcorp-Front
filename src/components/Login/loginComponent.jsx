@@ -1,29 +1,18 @@
-import React, { useState } from "react";
-import styles from "./loginComponent.module.css";
-import { GoogleLogin } from "react-google-login";
+import Style from './loginComponent.module.css'
+import { useGoogle } from '../../utils/hooks/network/google/useGoogle'
+import { useFacebook } from '../../utils/hooks/network/facebook/useFacebook'
+import { Link } from 'react-router-dom'
+import LoginData from './loginData/loginData'
+import GoogleLogin from 'react-google-login'
+import ReactFacebookLogin from 'react-facebook-login'
 
-import { useOnState } from "../../utils/hooks/user/login.js";
-
-const Login = () => {
-  const clientID = import.meta.env.VITE_GOOGLE_ID;
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-  };
-
-  const { onSuccess, onFailure } = useOnState(clientID);
+export default function LoginComponent() {
+  const clientId = useGoogle()
+  const { fbId, success, error } = useFacebook()
 
   return (
+
+
     <div className={styles.box}>
       <form className={styles.formContainer} onSubmit={handleFormSubmit}>
         <label className={styles.label} htmlFor="email">
@@ -54,18 +43,35 @@ const Login = () => {
           Login
         </button>
         <div className={styles.google}>
-          <GoogleLogin
-            clientId={clientID}
-            buttonText="Login with Google"
-            onSuccess={onSuccess}
-            onFailure={onFailure}
-            cookiePolicy={"single_host_origin"}
+        <GoogleLogin
+        
+        clientId={clientID}
+        buttonText="Login with Google"
+        onSuccess={onSuccess}
+        onFailure={onFailure}
+        cookiePolicy={'single_host_origin'}
+      /></div>
+       <div className={styles.facebook}>
+          <FacebookLogin
+            appId={facebookAppID}
+            autoLoad={false}
+            fields="name,email,picture"
+            callback={facebookResponse}
+            render={(renderProps) => (
+              <button onClick={renderProps.onClick} className={styles.facebookButton}>
+                Login with Facebook
+              </button>
+            )}
           />
+          <div className={Style.login_middle}/>
+          <LoginData/>
         </div>
+      
+       <p className={styles.signin}>¿You dont have an account yet? <a href="/register"> Sign In!</a> </p> 
+       
+      <button className={styles.button} onClick={() => window.history.back()}>go back</button>
       </form>
-      <button onClick={() => window.history.back()}>go back</button>
+    <LogoutButton className={styles.button}/>
     </div>
-  );
-};
-
-export default Login;
+  )
+}

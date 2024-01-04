@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useTransition, animated } from "react-spring";
 import styles from "../Carrusel/carouselLanding.module.css";
-import pc1 from "../../Assets/Img/CarruselImgs/pc1.jpeg";
+import pc1 from "../../Assets/Img/CarruselImgs/pc1.jpg";
 import pc2 from "../../Assets/Img/CarruselImgs/pc2.jpg";
-import pc3 from "../../Assets/Img/CarruselImgs/pc3.jpeg";
-import pc4 from "../../Assets/Img/CarruselImgs/pc4.jpeg";
+import pc3 from "../../Assets/Img/CarruselImgs/pc3.jpg";
+import pc4 from "../../Assets/Img/CarruselImgs/pc4.jpg";
 
 const images = [pc1, pc2, pc3, pc4];
 
