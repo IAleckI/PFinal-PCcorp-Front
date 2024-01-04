@@ -1,71 +1,47 @@
-import React, { useState } from "react";
-import styles from "./loginComponent.module.css";
-import { GoogleLogin } from "react-google-login";
+import Style from './loginComponent.module.css'
+import { useGoogle } from '../../utils/hooks/network/google/useGoogle'
+import { useFacebook } from '../../utils/hooks/network/facebook/useFacebook'
+import { Link } from 'react-router-dom'
+import LoginData from './loginData/loginData'
+import GoogleLogin from 'react-google-login'
+import ReactFacebookLogin from 'react-facebook-login'
 
-import { useOnState } from "../../utils/hooks/user/login.js";
-
-const Login = () => {
-  const clientID = import.meta.env.VITE_GOOGLE_ID;
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-  };
-
-  const { onSuccess, onFailure } = useOnState(clientID);
+export default function LoginComponent() {
+  const clientId = useGoogle()
+  const { fbId, success, error } = useFacebook()
 
   return (
-    <div className={styles.box}>
-      <form className={styles.formContainer} onSubmit={handleFormSubmit}>
-        <label className={styles.label} htmlFor="email">
-          Email
-        </label>
-        <input
-          className={styles.input}
-          type="email"
-          id="email"
-          name="email"
-          value={email}
-          onChange={handleEmailChange}
-        />
-
-        <label className={styles.label} htmlFor="password">
-          Password
-        </label>
-        <input
-          className={styles.input}
-          type="password"
-          id="password"
-          name="password"
-          value={password}
-          onChange={handlePasswordChange}
-        />
-
-        <button type="submit" className={styles.button}>
-          Login
-        </button>
-        <div className={styles.google}>
+    <div className={Style.login}>
+      <nav className={Style.login_nav}>
+        <Link to={'/'}>
+      
+        </Link>
+      </nav>
+      <section className={Style.template}>
+        <div className={Style.login_template}>
+          <h1>Login in to Make my PC</h1>
           <GoogleLogin
-            clientId={clientID}
+            clientId={clientId}
             buttonText="Login with Google"
-            onSuccess={onSuccess}
-            onFailure={onFailure}
-            cookiePolicy={"single_host_origin"}
+            onSuccess={responseGoogle => console.log(responseGoogle)}
+            onFailure={responseGoogle => console.log(responseGoogle)}
+            cookiePolicy={'single_host_origin'}
+            className={Style.login_google_button}
           />
+          <ReactFacebookLogin
+            appId={fbId}
+            callback={success}
+            onFailure={error}
+            autoLoad={false}
+            fields="name,email,picture"
+            textButton='Login with Facebook'
+            icon="fa-facebook"
+            cssClass={Style.login_facebook_button}
+          />
+          <div className={Style.login_middle}/>
+          <LoginData/>
         </div>
-      </form>
-      <button onClick={() => window.history.back()}>go back</button>
+      </section>
     </div>
-  );
-};
-
-export default Login;
+  )
+}
