@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useWindowSize } from '../../../utils/hooks/window/useWindow';
 import Style from './cardCarrussel.module.css'
 
-export default function CardCarrousel( { components, interval = 5000, tipo}) {
+export default function CardCarrousel( { components, interval = 10000, tipo}) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const width = useWindowSize();
   
