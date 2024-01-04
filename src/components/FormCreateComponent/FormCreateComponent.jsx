@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import Style from "./FormCreateComponent.module.css";
-import { createProduct } from "../../utils/hooks/validates/productSchema";
+// import { createProduct } from "../../utils/hooks/validates/productSchema";
 
 const FormCreateComponent = () => {
   const {
