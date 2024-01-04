@@ -23,7 +23,7 @@ const NavBar = () => {
         <LocationNav location="/catalogo" tittle='CATALOGO'/>
         <LocationNav location="/build" tittle='ARMA TU PC'/>
         <LocationNav location="/destacados" tittle='DESTACADOS'/>
-        <LocationNav location="/contacto" tittle='¿QUIENES SOMOS?'/>
+        <LocationNav location="/AboutUs" tittle='¿QUIENES SOMOS?'/>
       </div>
     </nav>
   );
