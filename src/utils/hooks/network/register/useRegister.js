@@ -16,8 +16,8 @@ export const useFormRegister = () => {
     const navigate = useNavigate();
   
     const onSubmit = async (data) => {
-        const { email, password, repeatPassword, username } = data;
-      
+        const { email, password, repeatPassword, userName } = data;
+      console.log("email: ", email, "password:", password, "userName:", userName, "data:",data)
         if (password !== repeatPassword) {
           setError('repeatPassword', { message: 'Passwords do not match' });
           return;
@@ -25,9 +25,9 @@ export const useFormRegister = () => {
       
         try {
           const result = await createUser({
-            variables: { email, passwordHash: password, username },
+            variables: { email: email, passwordHash: password, userName: userName },
           });
-      console.log(result)
+      console.log("result: ",result)
           if (result?.errors) {
             console.error(result.errors);
             throw new Error('GraphQL Error');
