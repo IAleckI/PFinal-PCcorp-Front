@@ -1,5 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
+import { Button } from "../Index";
 import { GET_PRODUCT_BY_ID } from "../../utils/graphql/querys/products/getProductById";
 import Style from "./detailComponent.module.css";
 
@@ -21,10 +22,22 @@ const ProductDetail = () => {
 
   return (
     <div className={Style.details}>
-      <img className={Style.img} src={getProductById.image} alt="imagen" />
-      <p>Nombre: {getProductById.name}</p>
-      <p>Precio: {getProductById.price}</p>
-      <p>Modelo: {getProductById.model}</p>
+      <div className={Style.imageContainer}>
+        <img className={Style.img} src={getProductById.image} alt="imagen" />
+      </div>
+      <div className={Style.infoContainer}>
+        <h1>{getProductById.name}</h1>
+        <h2>Marca: {getProductById.brand}</h2>
+        <h2>Precio: {getProductById.price}</h2>
+        <h2>Modelo: {getProductById.model}</h2>
+        <h2>Tipo: {getProductById.type}</h2>
+        <h2>Descripción: {getProductById.description}</h2>
+        <h2>Stock: {getProductById.stock}</h2>
+        <Button 
+          text={'Añadir al carrito'}
+          onClick={() => console.log('añadido al carrito')}
+          />
+      </div>
     </div>
   );
 };

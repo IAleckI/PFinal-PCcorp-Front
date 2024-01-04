@@ -9,7 +9,9 @@ import CardList from "./cardList/carList";
 import Filter from "./filter/filter";
 import Card from "./card/card";
 import ProductDetail from "./Detail/detailComponent";
+import RegisterComponent from "./Register/registerComponent";
 import CardCarrousel from "./Carrusel/cardCarrussel/cardCarrusel";
+
 
 export {
   Button,
@@ -17,6 +19,7 @@ export {
   Carousel,
   Footer,
   LoginComponent,
+  RegisterComponent,
   NavBar,
   Banner,
   CardList,
