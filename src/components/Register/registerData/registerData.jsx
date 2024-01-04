@@ -18,7 +18,7 @@ export default function RegisterData() {
             <Input info={register('repeatPassword')} error={errors.repeatPassword?.message} name={'Password'} type={'password'}/>
             <div className={Style.login_form_buttons}>
                 <PrimaryButton type='submit' text='Register'  />
-                <PrimaryButton type='button' text='Go Back' onClick={()=> window.history.back()}/>
+              
             </div>
         </form>
     )
