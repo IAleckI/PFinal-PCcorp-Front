@@ -11,37 +11,67 @@ export default function LoginComponent() {
   const { fbId, success, error } = useFacebook()
 
   return (
-    <div className={Style.login}>
-      <nav className={Style.login_nav}>
-        <Link to={'/'}>
-      
-        </Link>
-      </nav>
-      <section className={Style.template}>
-        <div className={Style.login_template}>
-          <h1>Login in to Make my PC</h1>
-          <GoogleLogin
-            clientId={clientId}
-            buttonText="Login with Google"
-            onSuccess={responseGoogle => console.log(responseGoogle)}
-            onFailure={responseGoogle => console.log(responseGoogle)}
-            cookiePolicy={'single_host_origin'}
-            className={Style.login_google_button}
-          />
-          <ReactFacebookLogin
-            appId={fbId}
-            callback={success}
-            onFailure={error}
+
+
+    <div className={styles.box}>
+      <form className={styles.formContainer} onSubmit={handleFormSubmit}>
+        <label className={styles.label} htmlFor="email">
+          Email
+        </label>
+        <input
+          className={styles.input}
+          type="email"
+          id="email"
+          name="email"
+          value={email}
+          onChange={handleEmailChange}
+        />
+
+        <label className={styles.label} htmlFor="password">
+          Password
+        </label>
+        <input
+          className={styles.input}
+          type="password"
+          id="password"
+          name="password"
+          value={password}
+          onChange={handlePasswordChange}
+        />
+
+        <button type="submit" className={styles.button}>
+          Login
+        </button>
+        <div className={styles.google}>
+        <GoogleLogin
+        
+        clientId={clientID}
+        buttonText="Login with Google"
+        onSuccess={onSuccess}
+        onFailure={onFailure}
+        cookiePolicy={'single_host_origin'}
+      /></div>
+       <div className={styles.facebook}>
+          <FacebookLogin
+            appId={facebookAppID}
             autoLoad={false}
             fields="name,email,picture"
-            textButton='Login with Facebook'
-            icon="fa-facebook"
-            cssClass={Style.login_facebook_button}
+            callback={facebookResponse}
+            render={(renderProps) => (
+              <button onClick={renderProps.onClick} className={styles.facebookButton}>
+                Login with Facebook
+              </button>
+            )}
           />
           <div className={Style.login_middle}/>
           <LoginData/>
         </div>
-      </section>
+      
+       <p className={styles.signin}>¿You dont have an account yet? <a href="/register"> Sign In!</a> </p> 
+       
+      <button className={styles.button} onClick={() => window.history.back()}>go back</button>
+      </form>
+    <LogoutButton className={styles.button}/>
     </div>
   )
 }
