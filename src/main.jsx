@@ -21,9 +21,11 @@ ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
     <ApolloProvider client={client}>
       <Provider store={store}>
+     
         <BrowserRouter>
          <App />
         </BrowserRouter>
+        
       </Provider>
     </ApolloProvider>
   </React.StrictMode>
