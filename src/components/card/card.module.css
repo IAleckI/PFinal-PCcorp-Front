@@ -1,6 +1,6 @@
 .card {
     width: 350px;
-    height: 400px;
+    height: 450px;
     box-shadow: 2px 2px 4px #bbb;
     display: flex;
     flex-direction: column;
@@ -25,7 +25,7 @@
 
 .card h2 {
     color: #7971EA;
-    font-size: 22px;
+    font-size: 18px;
     white-space: wrap;
     width: 200px;
     height: 80px;
@@ -42,6 +42,8 @@
 
 .card h3 {
     color: #8C92A0;
+    font-size: 16px;
+
 }
 
 @media only screen and (max-width: 1024px) {
@@ -49,3 +51,9 @@
         width: 100%;
     }
 }
+
+.corazon {
+    width: 60px !important;
+    height: 60px !important;
+    margin-left: 300px;
+  }
