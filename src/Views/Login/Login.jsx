@@ -6,6 +6,7 @@ const Login = () => {
       <NavBar/>
       <LoginComponent />
       <Footer/>
+      
     </div>
   )
 }
