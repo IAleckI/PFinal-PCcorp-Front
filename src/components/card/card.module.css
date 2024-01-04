@@ -1,6 +1,6 @@
 .card {
     width: 350px;
-    height: 400px;
+    height: 450px;
     box-shadow: 2px 2px 4px #bbb;
     display: flex;
     flex-direction: column;
@@ -49,3 +49,9 @@
         width: 100%;
     }
 }
+
+.corazon {
+    width: 60px !important;
+    height: 60px !important;
+    margin-left: 300px;
+  }

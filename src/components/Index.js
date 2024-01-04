@@ -13,6 +13,7 @@ import RegisterComponent from "./Register/registerComponent";
 import CardCarrousel from "./Carrusel/cardCarrussel/cardCarrusel";
 import CardCarrouselProcesadores from "./Carrusel/cardCarrussel/cardCarousselProcesadores/cardCarousselProcesadores";
 
+
 export {
   Button,
   SearchBar,

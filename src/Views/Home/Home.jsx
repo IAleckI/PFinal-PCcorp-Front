@@ -4,7 +4,6 @@ import {
   NavBar,
   Card,
   CardCarrousel,
-  CardCarrouselProcesadores,
 } from "../../components/Index";
 import { useProducts } from "../../utils/hooks/products/useProducts";
 import { useSelector } from "react-redux";
@@ -14,26 +13,33 @@ const Home = () => {
   const arrayOfComponents = data?.map((product) => (
     <Card key={product.id} props={product} />
   ));
-  const arrayOfProcessors = data?.map(
-    (product) =>
-      product.type === "Procesadores" && (
-        <Card key={product.id} props={product} />
-      )
-  );
+  const targetasGraficasDest = data
+    ?.filter((product) => product.type == "Tarjetas graficas")
+    .map((product) => <Card key={product.id} props={product} />);
+  const procesadores =data
+    ?.filter((product) => product.type == "Procesadores")
+    .map((product) => <Card key={product.id} props={product} />);
 
   useProducts();
-
-  if (!data) {
-    return <div>Loading...</div>;
-  }
   return (
     <div>
       <NavBar />
       <Carousel />
-
-      {arrayOfComponents && <CardCarrousel components={arrayOfComponents} />}
-      {arrayOfProcessors && <CardCarrousel components={arrayOfProcessors} />}
-
+      {arrayOfComponents && (
+        <CardCarrousel
+          components={arrayOfComponents}
+          tipo="Productos Destacados"
+        />
+      )}
+      {targetasGraficasDest && (
+        <CardCarrousel
+          components={targetasGraficasDest}
+          tipo="Targetas Graficas Destacadas"
+        />
+      )}
+      {procesadores && (
+        <CardCarrousel components={procesadores} tipo="Procesadores destacados" />
+      )}
       <Footer />
     </div>
   );
