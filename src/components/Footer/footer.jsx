@@ -9,7 +9,7 @@ const Footer = () => {
     <footer className={styles.footer}>
 
       <div className={styles.socialIcons}>
-        <p className={styles.clickableText}>Repositorio completo de la aplicacion en: </p>
+        <p className={styles.clickableText}>Repositorio completo de la pagina web en: </p>
         <a
           href="https://github.com/IAleckI/PFinal-PCcorp-Front"
           target="_blank"
