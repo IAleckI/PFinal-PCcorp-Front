@@ -15,5 +15,13 @@ export const useGoogle = () => {
         gapi.load('client:auth2', start)
     },[])
 
-    return clientId
+    function onSuccess (res) {
+        console.log(res);
+    }
+
+    function onFailure (err) {
+        console.log(err);
+    }
+
+    return {onSuccess, onFailure, clientId}
 }

@@ -3,7 +3,6 @@ import SearchBar from "./SearchBar/SearchBar";
 import Carousel from "./Carrusel/carouselLanding";
 import Footer from "./Footer/footer";
 import NavBar from "./NavBar/navbar";
-import LoginComponent from "./Login/loginComponent";
 import Banner from "./banner/banner";
 import CardList from "./cardList/carList";
 import Filter from "./filter/filter";
@@ -11,6 +10,8 @@ import Card from "./card/card";
 import ProductDetail from "./Detail/detailComponent";
 import RegisterComponent from "./Register/registerComponent";
 import CardCarrousel from "./Carrusel/cardCarrussel/cardCarrusel";
+import LoginTemplate from "./login/login";
+import GetToken from './token/token'
 
 
 export {
@@ -18,7 +19,6 @@ export {
   SearchBar,
   Carousel,
   Footer,
-  LoginComponent,
   RegisterComponent,
   NavBar,
   Banner,
@@ -26,5 +26,7 @@ export {
   Filter,
   ProductDetail,
   CardCarrousel,
-  Card
+  Card,
+  LoginTemplate,
+  GetToken
 };

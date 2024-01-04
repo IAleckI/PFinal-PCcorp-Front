@@ -1,0 +1,75 @@
+.login {
+    background: rgb(50,50,50);
+    background: #eee;
+    min-height: 100vh;
+    height: 100%;
+}
+
+.template {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 80px;
+}
+
+.login_template {
+    width: 650px;
+    height: 800px;
+    background-color: #7971EA;
+    margin-top: 60px;
+    border-radius: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    color: #fff;
+}
+
+.login_template h1 {
+    font-size: 30px;
+    margin-top: 40px;
+}
+
+.login_google_button {
+    width: 450px;
+    height: 60px;
+    font-size: 20px;
+}
+
+.login_facebook_button {
+    width: 450px;
+    height: 60px;
+    display: flex;
+    justify-content: start;
+    gap: 20px;
+    align-items: center;
+    font-size: 18px;
+    padding-left: 15px;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(80, 150, 255);
+    color: #fff;
+    border-radius: 4px;
+}
+
+.login_facebook_button:hover {
+    background-color: rgb(97, 160, 255)
+}
+
+.login_middle {
+    width: 80%;
+    height: 2px;
+    background-color: #fff;
+}
+
+
+@media only screen and (max-width: 800px) {
+    .login_template {
+        width: 100%;
+        margin-top: 0;
+        border-radius: 0;
+        background-color: #0008;
+    }
+}
