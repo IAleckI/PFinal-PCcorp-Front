@@ -24,7 +24,7 @@ const SearchBar = () => {
   return (
     <div className={Style.searchBar}>
       <img src={lupalogo} alt="lupa" />
-      <input type="search" placeholder="Buscar" value={search} onChange={(e) => setSearch(e.target.value)} onKeyDown={handleChange}/>
+      <input type="search" placeholder="Buscar" value={search} onChange={(e) => setSearch(e.target.value)} onKeyDown={handleChange} />
    </div>
   )
 }
