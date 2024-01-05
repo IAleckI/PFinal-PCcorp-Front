@@ -1,5 +1,5 @@
 .login {
-  background: rgb(255, 255, 255);
+  background: #fff;
   
   min-height: 100vh;
   height: 100%;
@@ -23,7 +23,7 @@
 .login_template {
   width: 650px;
   height: 800px;
-  background-color: #b9b4fa;
+  background-color: #7971EA;
   margin-top: 60px;
   border-radius: 35px;
   display: flex;
