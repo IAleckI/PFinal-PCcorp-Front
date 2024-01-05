@@ -7,14 +7,34 @@ const FormCreateComponent = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const [createProduct, { loading, error }] = useMutation(CREATE_PRODUCT, {
+    onCompleted: (data) => {
+      console.log("Product created successfully:", data);
+      // You can perform additional actions after successful creation
+    },
+    onError: (error) => {
+      console.error("Error creating product:", error);
+    },
+  });
 
-    console.log(watch("example"));
+  const onSubmit = (data) => {
+    console.log("Form data:", data);
+
+    // Call the mutation with the form data
+    createProduct({
+      variables: {
+        name: data.name,
+        model: data.model,
+        family: data.family,
+        brand: data.brand,
+        stock: parseInt(data.stock),
+        price: parseInt(data.price),
+        image: data.image,
+      },
+    });
   };
 
   return (
@@ -92,7 +112,7 @@ const FormCreateComponent = () => {
         />
         <hr />
 
-        <button onClick={handleSubmit(onSubmit)}>Submit</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

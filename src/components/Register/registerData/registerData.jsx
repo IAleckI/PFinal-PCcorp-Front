@@ -19,7 +19,6 @@ export default function RegisterData() {
             <div className={Style.login_form_buttons}>
                 <PrimaryButton type='submit' text='Register'  />
                 <PrimaryButton type='button' text='Go Back' onClick={()=> window.history.back()}/>
-
             </div>
         </form>
     )

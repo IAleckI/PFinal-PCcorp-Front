@@ -15,6 +15,7 @@ export default function LoginData() {
             <div className={Style.login_form_buttons}>
                 <PrimaryButton type='button' text='Register' onClick={() => navigate('/register?registered=false')}/>
                 <PrimaryButton type='submit' text='Login'/>
+                <PrimaryButton type='button' text='Go Back' onClick={()=> navigate('/')}/>
             </div>
         </form>
     )
