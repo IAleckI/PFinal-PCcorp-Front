@@ -1,0 +1,9 @@
+.cartList {
+    display: flex;
+    min-height: 100vh;
+    height: 100%;
+    flex-direction: column;
+    margin-top: 100px;
+    margin-left: 80px;
+    gap: 60px;
+}

@@ -1,12 +1,14 @@
 import Style from "./card.module.css";
-import React, { useState } from "react";
+import { useState } from "react";
 import {Button} from "../Index";
 import { NavLink } from "react-router-dom";
 import Corazon from '../../Assets/Logos/Corazon.png'
 import Corazon2 from "../../Assets/Logos/Corazon2.png";
+import { useAddProductToCart } from "../../utils/hooks/products/useMutationProducts";
 
 const Card = ({ props }) => {
   const [hovered, setHovered] = useState(false);
+  const { addProductToCart, addLoading } = useAddProductToCart(props.id)
   return (
     <figure className={Style.card}>
       <img
@@ -24,9 +26,10 @@ const Card = ({ props }) => {
       </NavLink>
       <Button
         text="Añadir"
-        onClick={() => console.log("añadido")}
+        onClick={addProductToCart}
         style={{ width: "80px", height: "40px", marginBottom: "6px" }}
       />
+      {addLoading && <p>Cargando...</p>}
     </figure>
   );
 };

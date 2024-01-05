@@ -12,6 +12,7 @@ import RegisterComponent from "./Register/registerComponent";
 import CardCarrousel from "./Carrusel/cardCarrussel/cardCarrusel";
 import LoginTemplate from "./login/login";
 import GetToken from './token/token'
+import CartList from "./cartList/cartList";
 
 
 export {
@@ -28,5 +29,6 @@ export {
   CardCarrousel,
   Card,
   LoginTemplate,
-  GetToken
+  GetToken,
+  CartList
 };
