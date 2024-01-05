@@ -11,6 +11,7 @@ import Card from "./card/card";
 import ProductDetail from "./Detail/detailComponent";
 import RegisterComponent from "./Register/registerComponent";
 import CardCarrousel from "./Carrusel/cardCarrussel/cardCarrusel";
+import AboutUs from "./AboutUs/aboutUs";
 
 
 export {
@@ -26,5 +27,6 @@ export {
   Filter,
   ProductDetail,
   CardCarrousel,
-  Card
+  Card,
+  AboutUs
 };

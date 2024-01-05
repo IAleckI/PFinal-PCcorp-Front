@@ -1,7 +1,8 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 
-import { Home, Detail, Login , Catalogo, Wishlist, RegisterComponent, AboutUs } from "./Views/Index";
+import { Home, Detail, Login , Catalogo, Wishlist, RegisterComponent } from "./Views/Index";
+import { AboutUs } from "./components/Index";
 
 function App() {
   return (
