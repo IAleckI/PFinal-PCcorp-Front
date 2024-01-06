@@ -1,3 +1,4 @@
+
 import Home from "./Home/Home";
 import Detail from "./Detail/Detail";
 import Login from "./Login/login";
@@ -6,6 +7,7 @@ import RegisterComponent from "./register/Register";
 import Wishlist from "./Whishlist/Wishlist";
 import FormCreate from "./FormCreate/FormCreate";
 import AboutUs from './AboutUs/AboutUs'
+import  RegisterComponent  from './register/Register'
 
 export {
   Home,
@@ -15,6 +17,7 @@ export {
   Wishlist,
   RegisterComponent,
   FormCreate,
-  AboutUs
+  AboutUs,
+  RegisterComponent
 };
 
