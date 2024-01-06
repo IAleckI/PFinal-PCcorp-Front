@@ -4,6 +4,9 @@ import { GET_ALL_USER_PRODUCTS, GET_TOTAL_PRICE } from '../../graphql/querys/pro
 import { DECREASE_PRODUCT } from '../../graphql/mutations/products/decreaseProduct'
 import { jwtDecode } from 'jwt-decode'
 import { useState } from 'react'
+import { useEffect } from 'react'
+import { useDispatch, useSelector  } from 'react-redux'
+import { getProductsRequest, getProducts } from '../../state/features/products/productSlice'
 
 
 export const useAddProductToCart = (id) => {
@@ -69,4 +72,20 @@ export const useDecreaseProduct = (id) => {
     }
 
     return { decreaseProductoOfCart, loading }   
+}
+
+export const useGetProducts = () => {
+    const dispatch = useDispatch()
+    const products = useSelector(state => state.products)
+    const email = jwtDecode(localStorage.getItem('USER_INFO')).email
+    const { data, loading, error } = useQuery(GET_ALL_USER_PRODUCTS, {
+        variables: { userId: email },
+    })
+    
+    useEffect(() => {
+        dispatch(getProductsRequest())
+        if (data) dispatch(getProducts(data.getAllUserProducts))
+    },[data, dispatch])
+
+    return { products, loading, error }
 }

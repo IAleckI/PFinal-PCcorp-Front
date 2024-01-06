@@ -8,6 +8,7 @@ export const GET_ALL_USER_PRODUCTS = gql`
       name
       total
       amount
+      price
   }
 }
 `

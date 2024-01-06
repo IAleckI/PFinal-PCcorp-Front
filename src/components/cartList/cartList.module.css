@@ -1,9 +1,24 @@
 .cartList {
     display: flex;
-    min-height: 100vh;
+    width: max-content;
     height: 100%;
     flex-direction: column;
     margin-top: 100px;
-    margin-left: 80px;
-    gap: 60px;
+    margin-left: 40px;
+    gap: 100px;
+    box-shadow: 2px 2px 8px #ccc;
+    border-radius: 14px;
+    padding: 50px;
+}
+.cartList_container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.cartList h1 {
+    padding: 10px;
+    font-size: 30px;
+    
+    border-bottom: 2px solid #ccc;
 }
