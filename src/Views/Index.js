@@ -6,8 +6,7 @@ import Catalogo from "./Catalogo/catalogo";
 import RegisterComponent from "./register/Register";
 import Wishlist from "./Whishlist/Wishlist";
 import FormCreate from "./FormCreate/FormCreate";
-import AboutUs from './AboutUs/AboutUs'
-import  RegisterComponent  from './register/Register'
+import AboutUs from "../components/AboutUs/AboutUs";
 
 export {
   Home,
@@ -17,7 +16,6 @@ export {
   Wishlist,
   RegisterComponent,
   FormCreate,
-  AboutUs,
-  RegisterComponent
+  AboutUs
 };
 
