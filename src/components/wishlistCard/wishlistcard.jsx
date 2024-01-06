@@ -20,7 +20,7 @@ const WishlistCard = ({ props, onRemove }) => {
         <Button
           text="Eliminar"
           onClick={onRemove}  // Llama a la función de eliminación
-          style={{ width: "80px", height: "40px", marginBottom: "6px" }}
+          style={{ width: "80px", height: "40px", marginLeft: "800px" }}
         />
       </div>
     </div>

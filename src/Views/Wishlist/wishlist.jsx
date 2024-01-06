@@ -15,12 +15,15 @@ const Wishlist = () => {
     // Puedes agregar más productos de ejemplo aquí...
   ]);
 
-  // Manejador de eliminación de tarjeta
-  const handleRemoveCard = (productId) => {
-    // Filtra las tarjetas, excluyendo la que tiene el ID a eliminar
-    const updatedWishlist = wishlistProducts.filter(product => product.id !== productId);
-    setWishlistProducts(updatedWishlist);
-  };
+    // Manejador de eliminación de tarjeta
+    const handleRemoveCard = (productId) => {
+      // Filtra las tarjetas, excluyendo la que tiene el ID a eliminar
+      const updatedWishlist = wishlistProducts.filter(product => product.id !== productId);
+      setWishlistProducts(updatedWishlist);
+  
+      // Muestra el alert después de eliminar el producto
+      alert("El producto se eliminó correctamente.");
+    };
 
   return (
     <div>
