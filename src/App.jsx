@@ -1,22 +1,21 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-
-
-import { Home, Detail, Login , Catalogo, Wishlist, RegisterComponent, FormCreate, AboutUs } from "./Views/Index";
+import { Home, Detail, Login , Catalogo, Wishlist, RegisterComponent, AboutUs, Cart } from "./Views/Index";
+import { GetToken } from "./components/Index";
 
 function App() {
   return (
       <Routes>
        
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<RegisterComponent/>} />
+        {!GetToken() ? <Route path="/login" element={<Login/>} /> : null}
         <Route path="/catalogo" element={<Catalogo />} />
         <Route path="/:id" element={<Detail />} />
         <Route path="/wishlist" element={<Wishlist/>} />
         <Route path="/createProduct" element={<FormCreate/>} />
         <Route path="/AboutUs" element={<AboutUs />} />
-
+        <Route path="/cart" element={<Cart />} />
       </Routes>
   );
 }

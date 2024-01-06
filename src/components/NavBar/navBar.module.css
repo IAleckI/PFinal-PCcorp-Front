@@ -50,7 +50,7 @@
 }
 
 .location {
-  font-size: 13px;
+  font-size: .7vw;
   font-family: sans-serif;
   border-bottom: 3px solid transparent;
 }
@@ -58,7 +58,7 @@
 .location a {
   text-decoration: none;
   color: #fff;
-  font-size: 13px;
+  font-size: .7vw;
 }
 
 .location_active {
@@ -68,7 +68,7 @@
 .location_active a {
   text-decoration: none;
   color: #7971EA;
-  font-size: 13px;
+  font-size: .7vw;
 }
 
 @media screen and (max-width: 768px) {

@@ -16,8 +16,8 @@ const RegisterComponent = ()=> {
             onFailure={responseGoogle => console.log(responseGoogle)}
             cookiePolicy={'single_host_origin'}
             className={Style.login_google_button}
-          /> /}
-          {/ <ReactFacebookLogin
+          /> */}
+          {/* <ReactFacebookLogin
             appId={fbId}
             callback={success}
             onFailure={error}
@@ -28,7 +28,7 @@ const RegisterComponent = ()=> {
             cssClass={Style.login_facebook_button}
           /> */}
           <div className={Style.login_middle}/>
-
+        
         <RegisterData/>
         </div>
         </section>
