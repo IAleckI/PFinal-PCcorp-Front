@@ -10,15 +10,15 @@ const FormCreateComponent = () => {
     formState: { errors },
   } = useForm();
 
-  const [createProduct, { loading, error }] = useMutation(CREATE_PRODUCT, {
-    onCompleted: (data) => {
-      console.log("Product created successfully:", data);
-      // You can perform additional actions after successful creation
-    },
-    onError: (error) => {
-      console.error("Error creating product:", error);
-    },
-  });
+  // const [createProduct, { loading, error }] = useMutation(CREATE_PRODUCT, {
+  //   onCompleted: (data) => {
+  //     console.log("Product created successfully:", data);
+  //     // You can perform additional actions after successful creation
+  //   },
+  //   onError: (error) => {
+  //     console.error("Error creating product:", error);
+  //   },
+  // });
 
   const onSubmit = (data) => {
     console.log("Form data:", data);

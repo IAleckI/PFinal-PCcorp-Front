@@ -1,7 +1,6 @@
 import Style from './loginComponent.module.css'
 import { useGoogle } from '../../utils/hooks/network/google/useGoogle'
 import { useFacebook } from '../../utils/hooks/network/facebook/useFacebook'
-import { Link } from 'react-router-dom'
 import LoginData from './loginData/loginData'
 import GoogleLogin from 'react-google-login'
 import ReactFacebookLogin from 'react-facebook-login'

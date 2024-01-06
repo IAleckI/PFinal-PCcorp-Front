@@ -6,5 +6,6 @@ import  RegisterComponent  from './register/Register'
 import Cart from './cart/cart'
 import Wishlist from './Whishlist/Wishlist'
 import AboutUs from './AboutUs/AboutUs'
+import FormCreate from "./FormCreate/FormCreate"
 
-export { Home, Detail, Login, Catalogo, Wishlist, RegisterComponent, AboutUs, Cart }
+export { Home, Detail, Login, Catalogo, Wishlist, RegisterComponent, AboutUs, Cart, FormCreate }

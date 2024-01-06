@@ -13,6 +13,7 @@ import CardCarrousel from "./Carrusel/cardCarrussel/cardCarrusel";
 import LoginTemplate from "./login/login";
 import GetToken from './token/token'
 import CartList from "./cartList/cartList";
+import FormCreateComponent from "./FormCreateComponent/FormCreateComponent";
 
 
 export {
@@ -30,5 +31,6 @@ export {
   Card,
   LoginTemplate,
   GetToken,
-  CartList
+  CartList, 
+  FormCreateComponent
 };
