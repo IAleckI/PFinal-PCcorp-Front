@@ -4,7 +4,7 @@
     margin-bottom: 10px;
   }
 
-  input {
+  .input {
     height: 30px;
     width: 300px;
     padding: 5px;
@@ -13,28 +13,7 @@
     margin-bottom: 10px;
   }
 
-  button {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #7971ea;
-    cursor: pointer;
-    transition: border-color 0.25s;
-    color: white;
-    display: block;
-    margin: 0 auto;
-  }
-
-  button:hover {
-    border-color: blue;
-  }
-  button:focus,
-  button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
-  }
+ 
 
   .container {
     margin: 100px;
@@ -62,7 +41,7 @@
     align-items: center;
     justify-content: center;
     padding-bottom: 80px;
-    flex-direction: column;
+    flex-direction: column; 
 }
   .tittle {
     padding: 10px;

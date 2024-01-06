@@ -49,27 +49,27 @@ const FormCreateComponent = () => {
   
     <form className={Style.form} onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor="image">Upload Image</label>
-      <input type="file" {...register("image")} />
+      <input className={Style.input}type="file" {...register("image")} />
   
       <label htmlFor="name">Name</label>
-      <input type="text" {...register("name")} />
+      <input className={Style.input} type="text" {...register("name")} />
   
       <label htmlFor="model">Model</label>
-      <input type="text" {...register("model")} />
+      <input className={Style.input}  type="text" {...register("model")} />
   
       <label htmlFor="family">Family</label>
-      <input type="text" {...register("family")} />
+      <input className={Style.input} type="text" {...register("family")} />
   
       <label htmlFor="brand">Brand</label>
-      <input type="text" {...register("brand")} />
+      <input className={Style.input} type="text" {...register("brand")} />
   
       <label htmlFor="stock">Stock</label>
-      <input type="number" {...register("stock")} />
+      <input className={Style.input} type="number" {...register("stock")} />
   
       <label htmlFor="price">Price</label>
-      <input type="number" {...register("price")} />
+      <input className={Style.input} type="number" {...register("price")} />
   
-      <button type="submit">Submit</button>
+      <button className={Style.input} type="submit">Submit</button>
     </form>
   </div>
   );

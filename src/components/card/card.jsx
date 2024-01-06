@@ -19,8 +19,7 @@ const Card = ({ props }) => {
   const [deleteFavMutation] = useMutation(DELETE_FAV, { refetchQueries: [{ query: GET_ALL_FAVS }] });
 
   const handleFavToggle = async () => {
-    console.log("userId:", "tuUserId");
-    console.log("productId:", props.id);
+    
     try {
       if (props.isFav) {
         await deleteFavMutation({ variables: {  productId: props.id } });
@@ -53,7 +52,7 @@ const Card = ({ props }) => {
         onClick={() => console.log("añadido al carrito")}
         style={{ width: "80px", height: "40px", marginBottom: "6px" }}
       />
-      {  <p>Cargando...</p>}
+      
     </figure>
   );
 };
