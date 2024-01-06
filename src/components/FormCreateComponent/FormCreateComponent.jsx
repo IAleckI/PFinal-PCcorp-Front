@@ -42,75 +42,26 @@ const FormCreateComponent = () => {
       <h1 className={Style.title}>FormCreateComponent</h1>
 
       <form className={Style.form}>
-        <Input
-          info={register("image")}
-          error={errors.image?.message}
-          name="image"
-          type={"text"}
-          placeholder="url imagen"
-          {...register("image")}
-        />
-        <hr />
+        <label htmlFor="">Url imagen</label>
+        <input type="text" {...register("image")} />
 
-        <Input
-          info={register("name")}
-          error={errors.name?.message}
-          name="name"
-          type={"text"}
-          placeholder="name"
-          {...register("name")}
-        />
-        <hr />
+        <label htmlFor="">Name</label>
+        <input type="text" {...register("name")} />
 
-        <Input
-          info={register("model")}
-          error={errors.model?.message}
-          name="model"
-          type={"text"}
-          placeholder="model"
-          {...register("model")}
-        />
-        <hr />
+        <label htmlFor="">Model</label>
+        <input type="text" {...register("model")} />
 
-        <Input
-          info={register("family")}
-          error={errors.family?.message}
-          name="family"
-          type={"text"}
-          placeholder="family"
-          {...register("family")}
-        />
-        <hr />
+        <label htmlFor="">Family</label>
+        <input type="text" {...register("family")} />
 
-        <Input
-          info={register("brand")}
-          error={errors.brand?.message}
-          name="brand"
-          type={"text"}
-          placeholder="brand"
-          {...register("brand")}
-        />
-        <hr />
+        <label htmlFor="">Brand</label>
+        <input type="text" {...register("brand")} />
 
-        <Input
-          info={register("description")}
-          error={errors.description?.message}
-          name="description"
-          type={"text"}
-          placeholder="description"
-          {...register("description")}
-        />
-        <hr />
+        <label htmlFor="">Stock</label>
+        <input type="number" {...register("stock")} />
 
-        <Input
-          info={register("price")}
-          error={errors.price?.message}
-          name="price"
-          type={"number"}
-          placeholder="price"
-          {...register("price")}
-        />
-        <hr />
+        <label htmlFor="">Price</label>
+        <input type="number" {...register("price")} />
 
         <button type="submit">Submit</button>
       </form>
