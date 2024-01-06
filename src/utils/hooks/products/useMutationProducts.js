@@ -13,6 +13,7 @@ export const useAddProductToCart = (id) => {
     let email = '';
   try {
     const userInfo = localStorage.getItem('USER_INFO');
+    console.log("user info:", userInfo, )
     if (userInfo) {
       const decodedToken = jwtDecode(userInfo);
       email = decodedToken.email;
@@ -91,9 +92,29 @@ export const useDecreaseProduct = (id) => {
 }
 
 export const useGetProducts = () => {
+    let email = '';
+  try {
+    const userInfo = localStorage.getItem('USER_INFO');
+    console.log("user info:", userInfo, )
+    if (userInfo) {
+      const decodedToken = jwtDecode(userInfo);
+      email = decodedToken.email;
+    } else {
+      console.warn("User is not logged in. USER_INFO not found in localStorage.");
+      
+      email = ''; 
+    }
+  } catch (error) {
+    console.error("Error decoding USER_INFO:", error);
+
+    email = ''; 
+  }
     const dispatch = useDispatch()
     const products = useSelector(state => state.products)
-    const email = jwtDecode(localStorage.getItem('USER_INFO')).email
+    
+   
+
+    
     const { data, loading, error } = useQuery(GET_ALL_USER_PRODUCTS, {
         variables: { userId: email },
     })
