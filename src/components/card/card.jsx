@@ -15,8 +15,8 @@ import { useAddProductToCart } from "../../utils/hooks/products/useMutationProdu
 
 const Card = ({ props }) => {
   const [hovered, setHovered] = useState(false);
-  const [addFavMutation] = useMutation(ADD_FAV, { refetchQueries: [{ query: GET_ALL_FAVS }] });
-  const [deleteFavMutation] = useMutation(DELETE_FAV, { refetchQueries: [{ query: GET_ALL_FAVS }] });
+  const [addFavMutation] = useMutation(ADD_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: "tuUserId" } }] });
+  const [deleteFavMutation] = useMutation(DELETE_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: "tuUserId" } }] });
 
   const handleFavToggle = async () => {
     
