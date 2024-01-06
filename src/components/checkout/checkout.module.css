@@ -1,0 +1,51 @@
+.checkout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    margin-top: 100px;
+    padding: 40px;
+    box-shadow: 2px 2px 8px #ccc;
+    border-radius: 14px;
+    gap: 40px;
+}
+.tittle {
+    font-size: 30px;
+}
+
+
+.checkout h2 {
+    align-self: self-start;
+}
+
+.checkout_info {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.button_pay {
+    width: 400px;
+    height: 60px;
+    background-color: #7971EAbb;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 25px;
+}
+
+.button_pay_d {
+    width: 400px;
+    height: 60px;
+    background-color: #7971EA88;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 25px;
+}

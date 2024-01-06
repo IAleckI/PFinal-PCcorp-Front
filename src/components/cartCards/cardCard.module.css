@@ -1,0 +1,46 @@
+.card {
+    display: flex;
+    min-width: 800px;
+    width: 80%;
+    justify-content: space-between;
+    border-bottom: 2px solid #aaa;
+    
+}
+
+.card_name {
+    display: flex;
+    align-items: center;
+}
+
+.card_name h2 {
+    font-size: 20px;
+}
+
+.card_name img {
+    width: 100px;
+}
+
+.card_data {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.card_amount {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card_amount button {
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.card_amount button:hover {
+    background-color: #eee;
+}

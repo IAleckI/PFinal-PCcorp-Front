@@ -13,12 +13,12 @@
     margin: 10px;
     border-radius: 4px;
     border: none;
-    outline: 2px solid #050505;
+    outline: 2px solid #ddd;
     transition: outline 200ms ease-out;
     padding-left: 10px;
     background-color: transparent;
-    color: #080808;
     font-size: 20px;
+    color: #fff;
   }
   
   .label {
@@ -28,24 +28,24 @@
     transition: all 150ms ease-out;
     padding-left: 10px;
     padding-right: 10px;
-    color: #000000;
+    color: #fff;
     font-size: 18px;
   }
   
   .input:hover + .label,
   .input:not(:placeholder-shown) + .label {
-    transform: translateY(-40px);
-   
+    transform: translateY(-32px);
+    background-color: #7971EA;
   }
   
   .input:hover,
   .input:not(:placeholder-shown) {
-    outline-color: #7648ffc7;
+    outline-color: #fff;
     transition: outline 200ms ease-in;
   }
   
   .group span {
-    color: #7648ffc7;
+    color: #fff;
     align-self: center;
     bottom: -15px;
     left: 10px;
