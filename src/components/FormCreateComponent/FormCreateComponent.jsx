@@ -2,50 +2,68 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import Style from "./FormCreateComponent.module.css";
 // import { createProduct } from "../../utils/hooks/validates/productSchema";
-
+import Input from "../input/input";
 const FormCreateComponent = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
+  const [createProduct, { loading, error }] = useMutation(CREATE_PRODUCT, {
+    onCompleted: (data) => {
+      console.log("Product created successfully:", data);
+      // You can perform additional actions after successful creation
+    },
+    onError: (error) => {
+      console.error("Error creating product:", error);
+    },
+  });
+
   const onSubmit = (data) => {
-    console.log(data);
+    console.log("Form data:", data);
 
-
-
-    console.log(watch("example"));
+    // Call the mutation with the form data
+    createProduct({
+      variables: {
+        name: data.name,
+        model: data.model,
+        family: data.family,
+        brand: data.brand,
+        stock: parseInt(data.stock),
+        price: parseInt(data.price),
+        image: data.image,
+      },
+    });
   };
 
   return (
     <div>
       <h1 className={Style.title}>FormCreateComponent</h1>
 
-      <form className={Style.form}>
+      <form className={Style.form} onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="">Url imagen</label>
-        <input type="text" {...register("image")} />
+        <Input type="text" {...register("image")} />
 
         <label htmlFor="">Name</label>
-        <input type="text" {...register("name")} />
+        <Input type="text" {...register("name")} />
 
         <label htmlFor="">Model</label>
-        <input type="text" {...register("model")} />
+        <Input type="text" {...register("model")} />
 
         <label htmlFor="">Family</label>
-        <input type="text" {...register("family")} />
+        <Input type="text" {...register("family")} />
 
         <label htmlFor="">Brand</label>
-        <input type="text" {...register("brand")} />
+        <Input type="text" {...register("brand")} />
 
         <label htmlFor="">Stock</label>
-        <input type="number" {...register("stock")} />
+        <Input type="number" {...register("stock")} />
 
         <label htmlFor="">Price</label>
-        <input type="number" {...register("price")} />
+        <Input type="number" {...register("price")} />
 
-        <button onClick={handleSubmit(onSubmit)}>Submit</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
