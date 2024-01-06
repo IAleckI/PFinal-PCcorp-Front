@@ -1,23 +1,19 @@
-import Style from './loginComponent.module.css'
+import Style from './login.module.css'
 import { useGoogle } from '../../utils/hooks/network/google/useGoogle'
 import { useFacebook } from '../../utils/hooks/network/facebook/useFacebook'
-import { Link } from 'react-router-dom'
 import LoginData from './loginData/loginData'
 import GoogleLogin from 'react-google-login'
 import ReactFacebookLogin from 'react-facebook-login'
 
-export default function LoginComponent() {
+export default function LoginTemplate() {
   const clientId = useGoogle()
   const { fbId, success, error } = useFacebook()
 
   return (
     <div className={Style.login}>
-      <nav className={Style.login_nav}>
-      
-      </nav>
       <section className={Style.template}>
         <div className={Style.login_template}>
-          <h1>Login in to Make my PC</h1>
+          <h1>Login in to Links Music</h1>
           <GoogleLogin
             clientId={clientId}
             buttonText="Login with Google"

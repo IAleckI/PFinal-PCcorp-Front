@@ -2,14 +2,15 @@
     width: 200px;
     height: 60px;
     background-color: transparent;
-    border: 2px solid #323232;
+    border: 2px solid #aaa;
     border-radius: 16px;
     color: #000000;
     cursor: pointer;
     font-size: 20px;
     transition: border 150ms ease-out;
+    color: #fff;
 }
 
 .button:hover {
-    border-color: #7648ffc7;
+    border-color: #fff;
 }

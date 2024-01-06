@@ -1,53 +1,77 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import Style from "./FormCreateComponent.module.css";
-// import { createProduct } from "../../utils/hooks/validates/productSchema";
+import { useMutation } from "@apollo/client"
+import { CREATE_PRODUCT } from "../../utils/graphql/mutations/product/createProduct";
+
 
 const FormCreateComponent = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const [createProduct, { loading, error }] = useMutation(CREATE_PRODUCT, {
+    onCompleted: (data) => {
+      console.log("Product created successfully:", data);
+      // You can perform additional actions after successful creation
+    },
+    onError: (error) => {
+      console.error("Error creating product:", error);
+      
 
+    },
+  });
 
-
-    console.log(watch("example"));
+  const onSubmit = async (data) => {
+    try {
+      console.log(data)
+      await createProduct({
+        
+          name: data.name,
+          model: data.model,
+          family: data.family,
+          brand: data.brand,
+          stock: parseInt(data.stock),
+          price: parseInt(data.price),
+          image: data.image,
+       
+      });
+    } catch (error) {
+      console.error("Error in createProduct mutation:", error);
+    }
   };
 
   return (
-    <div>
-      <h1 className={Style.title}>FormCreateComponent</h1>
-
-      <form className={Style.form}>
-        <label htmlFor="">Url imagen</label>
-        <input type="text" {...register("image")} />
-
-        <label htmlFor="">Name</label>
-        <input type="text" {...register("name")} />
-
-        <label htmlFor="">Model</label>
-        <input type="text" {...register("model")} />
-
-        <label htmlFor="">Family</label>
-        <input type="text" {...register("family")} />
-
-        <label htmlFor="">Brand</label>
-        <input type="text" {...register("brand")} />
-
-        <label htmlFor="">Stock</label>
-        <input type="number" {...register("stock")} />
-
-        <label htmlFor="">Price</label>
-        <input type="number" {...register("price")} />
-
-        <button onClick={handleSubmit(onSubmit)}>Submit</button>
-      </form>
-    </div>
+    <div className={Style.template}>
+    <h1 className={Style.title}>FormCreateComponent</h1>
+  
+    <form className={Style.form} onSubmit={handleSubmit(onSubmit)}>
+      <label htmlFor="image">Upload Image</label>
+      <input className={Style.input}type="file" {...register("image")} />
+  
+      <label htmlFor="name">Name</label>
+      <input className={Style.input} type="text" {...register("name")} />
+  
+      <label htmlFor="model">Model</label>
+      <input className={Style.input}  type="text" {...register("model")} />
+  
+      <label htmlFor="family">Family</label>
+      <input className={Style.input} type="text" {...register("family")} />
+  
+      <label htmlFor="brand">Brand</label>
+      <input className={Style.input} type="text" {...register("brand")} />
+  
+      <label htmlFor="stock">Stock</label>
+      <input className={Style.input} type="number" {...register("stock")} />
+  
+      <label htmlFor="price">Price</label>
+      <input className={Style.input} type="number" {...register("price")} />
+  
+      <button className={Style.input} type="submit">Submit</button>
+    </form>
+  </div>
   );
 };
 

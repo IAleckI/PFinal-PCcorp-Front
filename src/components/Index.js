@@ -3,7 +3,6 @@ import SearchBar from "./SearchBar/SearchBar";
 import Carousel from "./Carrusel/carouselLanding";
 import Footer from "./Footer/footer";
 import NavBar from "./NavBar/navbar";
-import LoginComponent from "./Login/loginComponent";
 import Banner from "./banner/banner";
 import CardList from "./cardList/carList";
 import Filter from "./filter/filter";
@@ -13,13 +12,17 @@ import RegisterComponent from "./Register/registerComponent";
 import CardCarrousel from "./Carrusel/cardCarrussel/cardCarrusel";
 import CardCarrouselProcesadores from "./Carrusel/cardCarrussel/cardCarousselProcesadores/cardCarousselProcesadores";
 import FormCreateComponent from "./FormCreateComponent/FormCreateComponent";
+import AboutUS from "./AboutUs/AboutUs";
+import LoginTemplate from "./login/login";
+import GetToken from './token/token'
+import CartList from "./cartList/cartList";
+
 
 export {
   Button,
   SearchBar,
   Carousel,
   Footer,
-  LoginComponent,
   RegisterComponent,
   NavBar,
   Banner,
@@ -28,6 +31,11 @@ export {
   ProductDetail,
   CardCarrousel,
   Card,
+  LoginTemplate,
+  GetToken,
+  CartList,
   CardCarrouselProcesadores,
   FormCreateComponent,
+  AboutUS
+
 };
