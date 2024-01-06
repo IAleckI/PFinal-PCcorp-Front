@@ -15,17 +15,17 @@ import { useAddProductToCart } from "../../utils/hooks/products/useMutationProdu
 
 const Card = ({ props }) => {
   const [hovered, setHovered] = useState(false);
-  const [addFavMutation] = useMutation(ADD_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: "tuUserId" } }] });
-  const [deleteFavMutation] = useMutation(DELETE_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: "tuUserId" } }] });
+  const [addFavMutation] = useMutation(ADD_FAV, { refetchQueries: [{ query: GET_ALL_FAVS }] });
+  const [deleteFavMutation] = useMutation(DELETE_FAV, { refetchQueries: [{ query: GET_ALL_FAVS }] });
 
   const handleFavToggle = async () => {
     console.log("userId:", "tuUserId");
     console.log("productId:", props.id);
     try {
       if (props.isFav) {
-        await deleteFavMutation({ variables: { userId: "tuUserId", productId: props.id } });
+        await deleteFavMutation({ variables: {  productId: props.id } });
       } else {
-        await addFavMutation({ variables: { userId: "tuUserId", productId: props.id } });
+        await addFavMutation({ variables: {  productId: props.id } });
       }
     } catch (error) {
       console.error("Error al añadir/eliminar de favoritos:", error);
@@ -53,7 +53,7 @@ const Card = ({ props }) => {
         onClick={() => console.log("añadido al carrito")}
         style={{ width: "80px", height: "40px", marginBottom: "6px" }}
       />
-      {addLoading && <p>Cargando...</p>}
+      {  <p>Cargando...</p>}
     </figure>
   );
 };
