@@ -1,4 +1,4 @@
-import { Button} from "./Button/button";
+import { Button } from "./Button/button";
 import SearchBar from "./SearchBar/SearchBar";
 import Carousel from "./Carrusel/carouselLanding";
 import Footer from "./Footer/footer";
@@ -12,7 +12,8 @@ import ProductDetail from "./Detail/detailComponent";
 import RegisterComponent from "./Register/registerComponent";
 import CardCarrousel from "./Carrusel/cardCarrussel/cardCarrusel";
 import AboutUs from "./AboutUs/aboutUs";
-
+import CardCarrouselProcesadores from "./Carrusel/cardCarrussel/cardCarousselProcesadores/cardCarousselProcesadores";
+import FormCreateComponent from "./FormCreateComponent/FormCreateComponent";
 
 export {
   Button,
@@ -28,5 +29,7 @@ export {
   ProductDetail,
   CardCarrousel,
   Card,
-  AboutUs
+  AboutUs,
+  CardCarrouselProcesadores,
+  FormCreateComponent
 };
