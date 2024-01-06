@@ -13,6 +13,8 @@ import RegisterComponent from "./Register/registerComponent";
 import CardCarrousel from "./Carrusel/cardCarrussel/cardCarrusel";
 import CardCarrouselProcesadores from "./Carrusel/cardCarrussel/cardCarousselProcesadores/cardCarousselProcesadores";
 import FormCreateComponent from "./FormCreateComponent/FormCreateComponent";
+import WishlistCard from './wishlistCard/wishlistcard';
+
 
 export {
   Button,
@@ -30,4 +32,5 @@ export {
   Card,
   CardCarrouselProcesadores,
   FormCreateComponent,
+  WishlistCard
 };

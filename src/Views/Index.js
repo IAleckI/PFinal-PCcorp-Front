@@ -3,18 +3,16 @@ import Detail from "./Detail/Detail";
 import Login from "./Login/login";
 import Catalogo from "./Catalogo/catalogo";
 import RegisterComponent from "./register/Register";
-import Wishlist from "./Whishlist/Wishlist";
 import FormCreate from "./FormCreate/FormCreate";
-import AboutUs from './AboutUs/AboutUs'
-
+import AboutUs from './AboutUs/AboutUs';
+import Wishlist from './Wishlist/wishlist'; 
 export {
   Home,
   Detail,
   Login,
   Catalogo,
-  Wishlist,
   RegisterComponent,
   FormCreate,
-  AboutUs
+  AboutUs,
+  Wishlist,  
 };
-

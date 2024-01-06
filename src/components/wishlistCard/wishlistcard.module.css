@@ -1,0 +1,54 @@
+
+
+.wishlistCard {
+    display: flex;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .wishlistCard img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+  }
+  
+  .wishlistCardDetails {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    width: 100%;
+  }
+  
+  .cardText {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+  }
+  
+  .cardInfo {
+    margin-left: 16px;
+  }
+  
+  .cardInfo h2,
+  .cardInfo h3,
+  .cardInfo h4 {
+    margin: 0;
+  }
+  
+  .corazon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+  
+  .cardPrice {
+    color: #e74c3c;
+  }
+  
+  /* Add any additional styles as needed */
+  
