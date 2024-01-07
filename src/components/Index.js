@@ -16,7 +16,7 @@ import AboutUS from "./AboutUs/AboutUs";
 import LoginTemplate from "./login/login";
 import GetToken from './token/token'
 import CartList from "./cartList/cartList";
-
+import WishlistCard from "./wishlistCard/wishlistcard";
 
 export {
   Button,
@@ -36,6 +36,7 @@ export {
   CartList,
   CardCarrouselProcesadores,
   FormCreateComponent,
-  AboutUS
+  AboutUS,
+  WishlistCard
 
 };
