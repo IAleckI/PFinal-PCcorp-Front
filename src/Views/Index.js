@@ -4,7 +4,7 @@ import Detail from "./Detail/Detail";
 import Login from "./login/login";
 import Catalogo from "./Catalogo/catalogo";
 import RegisterComponent from "./register/Register";import Cart from './cart/cart'
-import Wishlist from "./Whishlist/Wishlist";
+import Wishlist from "./Whishlist/wishlist";
 import FormCreate from "./FormCreate/FormCreate";
 import AboutUs from "../components/AboutUs/AboutUs";
 
