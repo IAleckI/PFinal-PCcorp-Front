@@ -34,7 +34,7 @@ const Footer = () => {
           </div>
 
           <div className={styles.column}>
-            <a href={()=>window.location.href='/AboutUs'} className={styles.clickableText}>
+            <a onClick={()=>window.location.href='/AboutUs'} className={styles.clickableText}>
               About us
             </a>
           </div>
