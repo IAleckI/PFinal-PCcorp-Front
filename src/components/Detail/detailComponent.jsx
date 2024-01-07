@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Button } from "../Index";
 import { GET_PRODUCT_BY_ID } from "../../utils/graphql/querys/products/getProductById";
 import Style from "./detailComponent.module.css";
+import { Magnifier } from 'react-image-magnifiers';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -23,7 +24,15 @@ const ProductDetail = () => {
   return (
     <div className={Style.details}>
       <div className={Style.imageContainer}>
-        <img className={Style.img} src={getProductById.image} alt="imagen" />
+        {/* <img className={Style.img} src={getProductById.image} alt="imagen" /> */}
+
+        <Magnifier
+          imageSrc={getProductById.image}
+          imageAlt="Detalle del producto"
+          largeImageSrc={getProductById.image}
+          style={{ maxWidth: '100%', maxHeight: '500px' }}
+        />
+
       </div>
       <div className={Style.infoContainer}>
         <h1>{getProductById.name}</h1>

@@ -5,14 +5,14 @@ import { NavBar, Footer } from "../../components/Index";
 const AboutUs = () => {
   // Datos para las filas
   const data = [
-    { nombre: 'Alexander Nombre 1', linkedin: 'Enlace 1' },
+    { nombre: 'Heiler Alexander Salguero Vargas', linkedin: 'Enlace 1' },
     { nombre: 'Julian Sotelo', linkedin: 'Enlace 2' },
-    { nombre: 'Santiago Nombre 3', linkedin: 'Enlace 3' },
-    { nombre: 'Tomas Idalgo', linkedin: 'Enlace 4' },
-    { nombre: 'Santiago Sheuerman', linkedin: 'Enlace 5' },
-    { nombre: 'Guillermo Bayona Querevalu', linkedin: 'Enlace 6' },
-    { nombre: 'Valentín Sheuerman', linkedin: 'Enlace 7' },
-    { nombre: 'Robert Holguín', linkedin: 'Enlace 8' },
+    { nombre: 'Carlos Santiago Ruggeri', linkedin: 'Enlace 3' },
+    { nombre: 'Tomas Santiago Idalgo', linkedin: 'Enlace 4' },
+    { nombre: 'Santiago Sheuermann', linkedin: 'Enlace 5' },
+    { nombre: 'Guillermo Bayona Querevalu', linkedin: 'https://www.arimetrics.com/blog' },
+    { nombre: 'Valentín Sheuermann', linkedin: 'Enlace 7' },
+    { nombre: 'Robert Andres Holguin Caruso', linkedin: 'Enlace 8' },
   ];
 
   return (
