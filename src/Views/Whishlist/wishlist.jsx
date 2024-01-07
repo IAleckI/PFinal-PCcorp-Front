@@ -14,7 +14,7 @@ const Wishlist = ({ userId }) => {
       <div>
         <NavBar/>
         <h1>Wishlist</h1>
-        <p>Cargando favoritos...</p>
+        <p>Cargando favoritos..</p>
         <Footer/>
       </div>
     );
