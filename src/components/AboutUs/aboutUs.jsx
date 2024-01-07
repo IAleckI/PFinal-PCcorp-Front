@@ -1,9 +1,7 @@
 import React from 'react';
 import Style from './aboutUs.module.css'
-import { NavBar, Footer } from "../../components/Index";
+const AboutUsComponent=()=> {
 
-const AboutUs = () => {
-  // Datos para las filas
   const data = [
     { nombre: 'Alexander Nombre 1', linkedin: 'Enlace 1' },
     { nombre: 'Julian Sotelo', linkedin: 'Enlace 2' },
@@ -18,10 +16,7 @@ const AboutUs = () => {
   return (
     
     <div>
-      <NavBar />
-     
       <article className={Style.AboutUs}>
-      {/* ---------------- aqui debe ir la renderizacion del aboutus --------------- */}
       <h1>Quiénes somos</h1>
       <p>
         Bienvenido a nuestra aplicación. Somos un equipo apasionado comprometido
@@ -65,12 +60,8 @@ const AboutUs = () => {
         </table>
         </div>
       </article>
-      
-      <Footer />
-      
     </div>
     
   );
 };
-
-export default AboutUs;
+export default AboutUsComponent

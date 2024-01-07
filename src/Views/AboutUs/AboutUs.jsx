@@ -1,8 +1,9 @@
-import { NavBar, Footer } from "../../components/Index";
+import { NavBar, Footer, AboutUsComponent } from "../../components/Index";
 const AboutUs = () => {
   return (
     <div>
       <NavBar />
+      <AboutUsComponent />
       <Footer />
     </div>
   );

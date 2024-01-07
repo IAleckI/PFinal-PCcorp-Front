@@ -12,10 +12,10 @@ import RegisterComponent from "./Register/registerComponent";
 import CardCarrousel from "./Carrusel/cardCarrussel/cardCarrusel";
 import CardCarrouselProcesadores from "./Carrusel/cardCarrussel/cardCarousselProcesadores/cardCarousselProcesadores";
 import FormCreateComponent from "./FormCreateComponent/FormCreateComponent";
-import AboutUS from "./AboutUs/AboutUs";
-import LoginTemplate from "./login/login";
+import LoginTemplate from "./Login/login";
 import GetToken from './token/token'
 import CartList from "./cartList/cartList";
+import AboutUsComponent from "./AboutUs/AboutUs";
 
 export {
   Button,
@@ -35,5 +35,5 @@ export {
   CartList,
   CardCarrouselProcesadores,
   FormCreateComponent,
-  AboutUS,
+  AboutUsComponent
 };

@@ -1,8 +1,8 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 
-import { Home, Detail , Catalogo, Wishlist, RegisterComponent, FormCreate, AboutUs, Cart } from "./Views/Index";
-import { GetToken, LoginTemplate } from "./components/Index";
+import { Home, Detail , Catalogo, Wishlist, RegisterComponent, FormCreate, AboutUs, Cart, Login } from "./Views/Index";
+import { GetToken} from "./components/Index";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
        
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<RegisterComponent/>} />
-        {!GetToken() ? <Route path="/login" element={<LoginTemplate/>} /> : null}
+        {!GetToken() ? <Route path="/login" element={<Login/>} /> : null}
         <Route path="/catalogo" element={<Catalogo />} />
         <Route path="/:id" element={<Detail />} />
         <Route path="/wishlist" element={<Wishlist/>} />
