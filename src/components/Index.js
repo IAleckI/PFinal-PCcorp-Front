@@ -15,7 +15,7 @@ import FormCreateComponent from "./FormCreateComponent/FormCreateComponent";
 import LoginTemplate from "./Login/login";
 import GetToken from './token/token'
 import CartList from "./cartList/cartList";
-import AboutUsComponent from "./AboutUs/AboutUs";
+import AboutUsComponent from "./AboutUs/aboutUs";
 
 export {
   Button,
