@@ -19,7 +19,8 @@ const Card = ({ props }) => {
   const [deleteFavMutation] = useMutation(DELETE_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: "tuUserId" } }] });
 
   const handleFavToggle = async () => {
-    
+    console.log("userId:");
+    console.log("productId:", props.id);
     try {
       if (props.isFav) {
         await deleteFavMutation({ variables: {  productId: props.id } });

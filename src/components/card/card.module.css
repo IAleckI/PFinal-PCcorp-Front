@@ -25,7 +25,7 @@
 
 .card h2 {
     color: #7971EA;
-    font-size: 18px;
+    font-size: 16px;
     white-space: wrap;
     width: 200px;
     height: 80px;
@@ -37,11 +37,14 @@
 
 .card_price {
     color: #7971EA;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .card h3 {
     color: #8C92A0;
+    font-size: 16px;
+    margin-bottom: 5px;
+
 }
 
 @media only screen and (max-width: 1024px) {

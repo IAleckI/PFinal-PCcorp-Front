@@ -13,9 +13,7 @@ export {
   Detail,
   Login,
   Catalogo,
-  Wishlist,
   RegisterComponent,
   FormCreate,
   AboutUs, Cart
 };
-
