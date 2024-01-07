@@ -34,7 +34,7 @@ const Footer = () => {
           </div>
 
           <div className={styles.column}>
-            <a onClick={()=>window.location.href='/AboutUs'} className={styles.clickableText}>
+            <a onClick={()=>window.location.href='/AboutUs'} className={styles.clickableText} style={{cursor:'pointer'}}>
               About us
             </a>
           </div>
