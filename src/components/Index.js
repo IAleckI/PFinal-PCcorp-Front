@@ -2,7 +2,7 @@ import { Button } from "./Button/button";
 import SearchBar from "./SearchBar/SearchBar";
 import Carousel from "./Carrusel/carouselLanding";
 import Footer from "./Footer/footer";
-import NavBar from "./NavBar/navbar";
+import NavBar from "./NavBar/navBar";
 import Banner from "./banner/banner";
 import CardList from "./cardList/carList";
 import Filter from "./filter/filter";
