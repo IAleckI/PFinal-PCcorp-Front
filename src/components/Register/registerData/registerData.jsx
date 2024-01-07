@@ -1,4 +1,4 @@
-import Style from './RegisterData.module.css'
+import Style from './registerData.module.css'
 import Input from '../../input/input'
 import { useFormRegister } from '../../../utils/hooks/network/register/useRegister'
 import PrimaryButton from '../../Button/primaryButton/primaryButton'
