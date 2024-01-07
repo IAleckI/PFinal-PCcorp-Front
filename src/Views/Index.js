@@ -1,7 +1,7 @@
 
 import Home from "./Home/Home";
 import Detail from "./Detail/Detail";
-import LoginTemplate from "./login/login";
+import LoginTemplate from "./Login/Login";
 import Catalogo from "./Catalogo/catalogo";
 import RegisterComponent from "./register/Register";import Cart from './cart/cart'
 import Wishlist from "./Wishlist/wishlist";
@@ -15,5 +15,7 @@ export {
   Catalogo,
   RegisterComponent,
   FormCreate,
-  AboutUs, Cart, Wishlist
+  AboutUs,
+  Cart, 
+  Wishlist
 };

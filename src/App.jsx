@@ -1,7 +1,7 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 
-import { Home, Detail, Login , Catalogo, Wishlist, RegisterComponent, FormCreate, AboutUs, Cart } from "./Views/Index";
+import { Home, Detail , Catalogo, Wishlist, RegisterComponent, FormCreate, AboutUs, Cart } from "./Views/Index";
 import { GetToken, LoginTemplate } from "./components/Index";
 
 function App() {
