@@ -1,9 +1,9 @@
-import { NavBar, Footer } from "../../components/Index";
+import { NavBar, Footer, AboutUsComponent } from "../../components/Index";
 const AboutUs = () => {
   return (
     <div>
       <NavBar />
-      /* ---------------- aqui debe ir la renderizacion del aboutus --------------- */
+      <AboutUsComponent />
       <Footer />
     </div>
   );

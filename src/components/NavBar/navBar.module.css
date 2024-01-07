@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  height: 150px;
+  height: 110px;
   background-color: #7971EA99;
 }
 
@@ -17,8 +17,8 @@
 }
 
 .logo {
-  width: 75px;
-  height: 75px;
+  width: 50px;
+  height: 50px;
   object-fit: contain;
   filter: brightness(0) saturate(100%) invert(100%) sepia(1%) saturate(7477%) hue-rotate(37deg) brightness(97%) contrast(118%);
 }
@@ -30,8 +30,8 @@
 }
 
 .navbar_user img {
-  width: 35px;
-  height: 35px;
+  width: 24px;
+  height: 24px;
   filter: brightness(0) saturate(100%) invert(95%) sepia(0%) saturate(9%) hue-rotate(186deg) brightness(97%) contrast(87%);
   cursor: pointer;
 }
@@ -43,14 +43,14 @@
 .secondNavbar {
   display: flex;
   width: 100%;
-  height: 100%;
+  height: 60%;
   justify-content: center;
   align-items: center;
   gap: 20px;
 }
 
 .location {
-  font-size: 13px;
+  font-size: .7vw;
   font-family: sans-serif;
   border-bottom: 3px solid transparent;
 }
@@ -58,7 +58,7 @@
 .location a {
   text-decoration: none;
   color: #fff;
-  font-size: 13px;
+  font-size: 9px;
 }
 
 .location_active {
@@ -68,7 +68,7 @@
 .location_active a {
   text-decoration: none;
   color: #7971EA;
-  font-size: 13px;
+  font-size: 9px;
 }
 
 @media screen and (max-width: 768px) {
