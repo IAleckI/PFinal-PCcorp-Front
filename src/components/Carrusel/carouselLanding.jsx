@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useTransition, animated } from "react-spring";
-import styles from "../Carrusel/carouselLanding.module.css";
+import styles from "./carousellanding.module.css";
 import pc1 from "../../Assets/Img/CarruselImgs/pc1.jpg";
 import pc2 from "../../Assets/Img/CarruselImgs/pc2.jpg";
 import pc3 from "../../Assets/Img/CarruselImgs/pc3.jpg";
