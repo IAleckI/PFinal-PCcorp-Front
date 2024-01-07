@@ -11,13 +11,11 @@ const SearchBar = () => {
   const { data } = useSelector(state => state.products)
   const navigate = useNavigate()
   function handleChange(e) {
-    
     if(e.key === 'Enter') {
       const searchProducts = data.filter(product => product.name.toLowerCase().includes(search.toLowerCase()))
       dispatch(setFiltered(searchProducts))
       setSearch('')
       navigate('/catalogo')
-      return false;
     }
   }
 
