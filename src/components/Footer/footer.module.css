@@ -1,17 +1,9 @@
 .footer {
-  padding: 30px;
-  background-color: rgba(121, 113, 234, 0.5);
+  padding: 20px;
+  background-color: #7c7a7a;
   right: 0%;
   left: 0%;
   bottom: 0;
-  margin-top: 50px ;
-}
-
-.socialIcons {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 0px;
-  margin-right: 2%;
 }
 
 .copyrightText {
@@ -20,7 +12,12 @@
   color: #fff;
 }
 
-
+.socialIcons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0px;
+  margin-right: 2%;
+}
 
 .githubIcon {
   width: 20px;
@@ -32,7 +29,7 @@
   border: none;
   height: 1px;
   width: 100%;
-  background-color: #ffffff;
+  background-color: #ccc;
   margin: 5px 0;
   margin-bottom: 20px;
 }
