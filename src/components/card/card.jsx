@@ -13,7 +13,7 @@ import { useAddProductToCart } from "../../utils/hooks/products/useMutationProdu
 const Card = ({ props, isWishlist, onDelete }) => {
   // Hardcodea el userId para propósitos de prueba
   const hardcodedUserId = "pepona@pepona.com";
-  console.log("isWishlist:", isWishlist);
+
 
   const [hovered, setHovered] = useState(false);
   const [addFavMutation] = useMutation(ADD_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: hardcodedUserId } }] });
