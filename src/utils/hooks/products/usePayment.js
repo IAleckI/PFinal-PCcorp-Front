@@ -23,7 +23,7 @@ export const usePayment = () => {
                 id: p.id,
                 name: p.name,
                 price: p.price,
-                amount: p.amount,
+                amount: 1,
             }
         })
         const data = async () => {
