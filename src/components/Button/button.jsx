@@ -1,11 +1,8 @@
-import React from 'react';
 import Style from "./button.module.css";
 
-export const Button = ({ text, onClick, style, isDeleteButton }) => {
-  const buttonClassName = isDeleteButton ? `${Style.button} ${Style.deleteButton}` : Style.button;
-
+export const Button = ({ text, onClick, style }) => {
   return (
-    <button onClick={onClick} style={style} className={buttonClassName}>
+    <button onClick={onClick} style={style} className={Style.button}>
       {text}
     </button>
   );
