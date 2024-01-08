@@ -40,7 +40,6 @@ const Wishlist = () => {
     <div>
       <NavBar/>
       <h1>Wishlist</h1>
-      
       <div className={Style.wishcard}>
         {favs.map((product) => (
           <Card
@@ -49,9 +48,8 @@ const Wishlist = () => {
             isFav={true}
           />
         ))}
-      </div>
-      
       <Footer/>
+      </div>
     </div>
   );
 };
