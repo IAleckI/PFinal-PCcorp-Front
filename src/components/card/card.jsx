@@ -3,29 +3,27 @@ import React, { useState } from "react";
 import { Button } from "../Index";
 import { NavLink } from "react-router-dom";
 import { useMutation } from "@apollo/client";
-import {ADD_FAV} from "../../utils/graphql/querys/products/favs/addFav";
-import {DELETE_FAV} from "../../utils/graphql/querys/products/favs/deleteFav";
-import {GET_ALL_FAVS} from "../../utils/graphql/querys/products/favs/getAllFavs";
-
-
+import { ADD_FAV } from "../../utils/graphql/querys/products/favs/addFav";
+import { DELETE_FAV } from "../../utils/graphql/querys/products/favs/deleteFav";
+import { GET_ALL_FAVS } from "../../utils/graphql/querys/products/favs/getAllFavs";
 
 import Corazon from '../../Assets/Logos/Corazon.png';
 import Corazon2 from "../../Assets/Logos/Corazon2.png";
 import { useAddProductToCart } from "../../utils/hooks/products/useMutationProducts";
 
-const Card = ({ props }) => {
+const Card = ({ props, userId }) => {
   const [hovered, setHovered] = useState(false);
-  const [addFavMutation] = useMutation(ADD_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: "tuUserId" } }] });
-  const [deleteFavMutation] = useMutation(DELETE_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: "tuUserId" } }] });
+  const [addFavMutation] = useMutation(ADD_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId } }] });
+  const [deleteFavMutation] = useMutation(DELETE_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId } }] });
 
   const handleFavToggle = async () => {
-    console.log("userId:");
+    console.log("userId:", userId);
     console.log("productId:", props.id);
     try {
       if (props.isFav) {
-        await deleteFavMutation({ variables: {  productId: props.id } });
+        await deleteFavMutation({ variables: { productId: props.id, userId } });
       } else {
-        await addFavMutation({ variables: {  productId: props.id } });
+        await addFavMutation({ variables: { productId: props.id, userId } });
       }
     } catch (error) {
       console.error("Error al añadir/eliminar de favoritos:", error);
@@ -49,11 +47,10 @@ const Card = ({ props }) => {
         <h4 className={Style.card_price}>${props.price}</h4>
       </NavLink>
       <Button
-        text="HOLA"
+        text="Añadir al Carrito"
         onClick={() => console.log("añadido al carrito")}
         style={{ width: "80px", height: "40px", marginBottom: "6px" }}
       />
-      
     </figure>
   );
 };
