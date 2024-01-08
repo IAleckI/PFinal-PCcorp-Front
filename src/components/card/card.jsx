@@ -50,7 +50,11 @@ const Card = ({ props, isFav, isWishList, onDelete }) => {
         <h3>{props.model}</h3>
         <h4 className={Style.card_price}>${props.price}</h4>
       </NavLink>
-
+      <Button
+        text="Añadir al Carrito"
+        onClick={() => console.log("añadido al carrito")}
+        style={{ width: "80px", height: "40px", marginBottom: "6px" }}
+      />
       {isWishList && (
         <Button
           text="Eliminar"
