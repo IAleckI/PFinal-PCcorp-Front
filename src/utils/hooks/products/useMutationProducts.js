@@ -27,7 +27,7 @@ export const useAddProductToCart = (id) => {
 
     email = ''; 
   }
-
+  const [products, setProducts] = useState([]);
   const [addLoading, setLoading] = useState(false);
   const [addProduct] = useMutation(ADD_PRODUCT_TO_CART);
   const getPrice = useQuery(GET_TOTAL_PRICE, {
@@ -43,16 +43,20 @@ export const useAddProductToCart = (id) => {
       await addProduct({
         variables: {
           userId: email,
-          addUserProductId: id
-        }
+          addUserProductId: id,
+        },
       });
       const product = await getProductsQuery.refetch();
       const price = await getPrice.refetch();
-      if (!product.loading && !price.loading) setLoading(false);
+      if (!product.loading && !price.loading) {
+        setLoading(false);
+        setProducts(product.data.getAllUserProducts); 
+      }
     } catch (error) {
       console.error(error);
     }
   };
+  
 
   return { addProductToCart, addLoading };
 };
@@ -61,6 +65,7 @@ export const useAddProductToCart = (id) => {
 export const useDecreaseProduct = (id) => {
     const email = jwtDecode(localStorage.getItem('USER_INFO')).email
     const [loading, setLoading] = useState(false)
+    const [products, setProducts] = useState([]);
     const [decreaseProduct] = useMutation(DECREASE_PRODUCT)
     const getPrice = useQuery(GET_TOTAL_PRICE, {
         variables: { userId: email }
@@ -70,23 +75,25 @@ export const useDecreaseProduct = (id) => {
     })
 
     const decreaseProductoOfCart  = async () => {
-        setLoading(true)
-        try {
-            await decreaseProduct({
-                variables: {
-                    userId: email,
-                    deleteUserProductId: id
-                }
-            })
-            const product = await getProducts.refetch()
-            
-            const price = await getPrice.refetch()
-
-            if (!product.loading && !price.loading) setLoading(false)
-        } catch (error) {
-            console.log(error);
+      setLoading(true);
+      try {
+        await decreaseProduct({
+          variables: {
+            userId: email,
+            deleteUserProductId: id,
+          },
+        });
+        const product = await getProducts.refetch();
+        const price = await getPrice.refetch();
+        if (!product.loading && !price.loading) {
+          setLoading(false);
+          setProducts(product.data.getAllUserProducts); 
         }
-    }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    
 
     return { decreaseProductoOfCart, loading }   
 }
