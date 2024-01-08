@@ -49,7 +49,7 @@ const Card = ({ props }) => {
         <h4 className={Style.card_price}>${props.price}</h4>
       </NavLink>
       <Button
-        text="Añadir al Carrito"
+        text="HOLA"
         onClick={() => console.log("añadido al carrito")}
         style={{ width: "80px", height: "40px", marginBottom: "6px" }}
       />
