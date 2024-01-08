@@ -80,6 +80,7 @@
 
 
 .popup {
+    background-color: #7971EA !important;
     position: fixed;
     top: 50%;
     left: 50%;
