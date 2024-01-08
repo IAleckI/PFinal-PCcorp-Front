@@ -4,9 +4,9 @@ import { GET_ALL_USER_PRODUCTS, GET_TOTAL_PRICE } from '../../graphql/querys/pro
 import { DECREASE_PRODUCT } from '../../graphql/mutations/products/decreaseProduct'
 import {jwtDecode} from 'jwt-decode';
 import { useState } from 'react'
-import { useEffect } from 'react'
-import { useDispatch, useSelector  } from 'react-redux'
+
 import { getProductsRequest, getProducts } from '../../state/features/products/productSlice'
+import { useDispatch } from 'react-redux';
 
 
 export const useAddProductToCart = (id) => {
@@ -27,7 +27,7 @@ export const useAddProductToCart = (id) => {
 
     email = ''; 
   }
- 
+ const dispatch = useDispatch()
   const [addLoading, setLoading] = useState(false);
   const [addProduct] = useMutation(ADD_PRODUCT_TO_CART);
   const getPrice = useQuery(GET_TOTAL_PRICE, {
@@ -38,7 +38,6 @@ export const useAddProductToCart = (id) => {
   });
 
   const addProductToCart = async () => {
-    setLoading(true);
     try {
       await addProduct({
         variables: {
@@ -46,12 +45,16 @@ export const useAddProductToCart = (id) => {
           addUserProductId: id,
         },
       });
-  
-      
+
       await getProductsQuery.refetch();
       await getPrice.refetch();
-  
+
       setLoading(false);
+      
+      // Use the Redux actions to update the state
+      dispatch(getProductsRequest());
+      const product = await getProductsQuery.refetch();
+      dispatch(getProducts(product.data.getAllUserProducts));
     } catch (error) {
       console.error(error);
     }
@@ -65,7 +68,7 @@ export const useAddProductToCart = (id) => {
 export const useDecreaseProduct = (id) => {
     const email = jwtDecode(localStorage.getItem('USER_INFO')).email
     const [loading, setLoading] = useState(false)
-    
+    const dispatch = useDispatch()
     const [decreaseProduct] = useMutation(DECREASE_PRODUCT)
     const getPrice = useQuery(GET_TOTAL_PRICE, {
         variables: { userId: email }
@@ -83,12 +86,16 @@ export const useDecreaseProduct = (id) => {
             deleteUserProductId: id,
           },
         });
-    
-        
+  
         await getProducts.refetch();
         await getPrice.refetch();
-    
+  
         setLoading(false);
+        
+        // Use the Redux actions to update the state
+        dispatch(getProductsRequest());
+        const product = await getProducts.refetch();
+        dispatch(getProducts(product.data.getAllUserProducts));
       } catch (error) {
         console.log(error);
       }
