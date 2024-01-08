@@ -22,13 +22,9 @@ const Card = ({ props }) => {
     console.log("userId:", hardcodedUserId);
     console.log("productId:", props.id);
     try {
-      if (props.isFav) {
-        await deleteFavMutation({ variables: { productId: props.id, userId: hardcodedUserId } });
-      } else {
-        await addFavMutation({ variables: { productId: props.id, userId: hardcodedUserId } });
-      }
+      await addFavMutation({ variables: { productId: props.id, userId: hardcodedUserId } });
     } catch (error) {
-      console.error("Error al añadir/eliminar de favoritos:", error);
+      console.error("Error al añadir a favoritos:", error);
     }
   };
 
