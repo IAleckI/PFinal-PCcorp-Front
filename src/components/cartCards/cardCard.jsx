@@ -7,7 +7,7 @@ export default function CardCard(props) {
     const { id, name, image, total, amount} = props.props
     const { addProductToCart, addLoading } = useAddProductToCart(id)
     const { decreaseProductoOfCart, loading } = useDecreaseProduct(id)
-
+console.log("props:", props)
     return (
         <div className={Style.card}>
             <div className={Style.card_name}>
