@@ -37,22 +37,25 @@ export const useAddProductToCart = (id) => {
     variables: { userId: email }
   });
 
-  const addProductToCart  = async () => {
-    setLoading(true)
+  const addProductToCart = async () => {
+    setLoading(true);
     try {
-        await addProduct({
-            variables: {
-                userId: email,
-                addUserProductId: id
-            }
-        })
-        const product = await getProducts.refetch()
-        const price = await getPrice.refetch()
-        if (!product.loading && !price.loading) setLoading(false)
+      await addProduct({
+        variables: {
+          userId: email,
+          addUserProductId: id,
+        },
+      });
+  
+      
+      await getProductsQuery.refetch();
+      await getPrice.refetch();
+  
+      setLoading(false);
     } catch (error) {
-        console.log(error);
+      console.error(error);
     }
-}
+  };
   
 
   return { addProductToCart, addLoading };
@@ -71,24 +74,25 @@ export const useDecreaseProduct = (id) => {
         variables: { userId: email }
     })
 
-    const decreaseProductoOfCart  = async () => {
-      setLoading(true)
+    const decreaseProductoOfCart = async () => {
+      setLoading(true);
       try {
-          await decreaseProduct({
-              variables: {
-                  userId: email,
-                  deleteUserProductId: id
-              }
-          })
-          const product = await getProducts.refetch()
-          
-          const price = await getPrice.refetch()
-
-          if (!product.loading && !price.loading) setLoading(false)
+        await decreaseProduct({
+          variables: {
+            userId: email,
+            deleteUserProductId: id,
+          },
+        });
+    
+        
+        await getProducts.refetch();
+        await getPrice.refetch();
+    
+        setLoading(false);
       } catch (error) {
-          console.log(error);
+        console.log(error);
       }
-  }
+    };
     
 
     return { decreaseProductoOfCart, loading }   
