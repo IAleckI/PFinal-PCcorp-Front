@@ -32,7 +32,6 @@ const Wishlist = () => {
     return (
       <div>
         <NavBar/>
-        <h1>Wishlist</h1>
         <p>Cargando favoritos...</p>
         <Footer/>
       </div>
@@ -43,7 +42,6 @@ const Wishlist = () => {
     return (
       <div>
         <NavBar/>
-        <h1>Wishlist</h1>
         <p>Error al cargar favoritos: {error.message}</p>
         <Footer/>
       </div>

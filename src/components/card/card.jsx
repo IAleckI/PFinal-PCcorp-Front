@@ -1,5 +1,5 @@
 import Style from "./card.module.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "../Index";
 import { NavLink } from "react-router-dom";
 import { useMutation } from "@apollo/client";
@@ -11,33 +11,40 @@ import Corazon2 from "../../Assets/Logos/Corazon2.png";
 import { useAddProductToCart } from "../../utils/hooks/products/useMutationProducts";
 
 const Card = ({ props, isWishlist, onDelete }) => {
-  // Hardcodea el userId para propósitos de prueba
   const hardcodedUserId = "pepona@pepona.com";
 
   const { addProductToCart, addLoading } = useAddProductToCart(props.id)
   const [hovered, setHovered] = useState(false);
+  const [isInWishlist, setIsInWishlist] = useState(false);
   const [addFavMutation] = useMutation(ADD_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: hardcodedUserId } }] });
   const [deleteFavMutation] = useMutation(DELETE_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: hardcodedUserId } }] });
   const [showPopup, setShowPopup] = useState(false);
+  const [showDeletePopup, setShowDeletePopup] = useState(false);
+  const [showDeletePopupFromButton, setShowDeletePopupFromButton] = useState(false);
+
+  useEffect(() => {
+    // Actualiza el estado isInWishlist cuando cambia la prop isWishlist
+    setIsInWishlist(isWishlist);
+  }, [isWishlist]);
 
   const handleFavToggle = async () => {
-    console.log("userId:", hardcodedUserId);
-    console.log("productId:", props.id);
-  
     try {
-      if (isWishlist) {
-        await deleteFavMutation({ variables: { userId: hardcodedUserId, productId: props.id } });
+      if (isInWishlist) {
+        await deleteFavMutation({ variables: { productId: props.id, userId: hardcodedUserId } });
+        setShowDeletePopup(true);
+        setShowDeletePopupFromButton(false);
       } else {
         await addFavMutation({ variables: { productId: props.id, userId: hardcodedUserId } });
+        setShowPopup(true);
       }
-  
-      // Mostrar el pop-up
-      setShowPopup(true);
-  
-      // Ocultar el pop-up después de unos segundos
+
+      // Actualiza el estado isInWishlist después de la mutación
+      setIsInWishlist(!isInWishlist);
+
       setTimeout(() => {
         setShowPopup(false);
-      }, 2000); // Puedes ajustar el tiempo según tus preferencias
+        setShowDeletePopup(false);
+      }, 2000);
     } catch (error) {
       console.error("Error al añadir/eliminar de favoritos:", error);
     }
@@ -47,7 +54,7 @@ const Card = ({ props, isWishlist, onDelete }) => {
     <figure className={Style.card}>
       <img
         className={Style.corazon}
-        src={hovered ? Corazon2 : Corazon}
+        src={hovered || isInWishlist ? Corazon2 : Corazon}
         alt="Corazón"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
@@ -59,19 +66,25 @@ const Card = ({ props, isWishlist, onDelete }) => {
         <h3>{props.model}</h3>
         <h4 className={Style.card_price}>${props.price}</h4>
       </NavLink>
+     
       <Button
         text="Añadir al carrito"
         onClick={addProductToCart}
         style={{ width: "80px", height: "40px", marginBottom: "6px" }}
       />
 
-        {showPopup && ( 
-          <div className={Style.popup}>
-            <p>Agregado a Favoritos</p>
-          </div>
-        )}
+      {showPopup && ( 
+        <div className={Style.popup}>
+          <p>Agregado a Favoritos</p>
+        </div>
+      )}
+
+      {(showDeletePopup || showDeletePopupFromButton) && ( 
+        <div className={Style.popupDel}>
+          <p>Eliminado de Favoritos</p>
+        </div>
+      )}
     </figure>
-    
   );
 };
 
