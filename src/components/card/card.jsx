@@ -11,7 +11,6 @@ import Corazon from '../../Assets/Logos/Corazon.png';
 import Corazon2 from "../../Assets/Logos/Corazon2.png";
 import { useAddProductToCart } from "../../utils/hooks/products/useMutationProducts";
 
-console.log("tuUserId en el componente padre:", tuUserId);
 const Card = ({ props, userId }) => {
   console.log("userId in Card:", userId);
   const [hovered, setHovered] = useState(false);
