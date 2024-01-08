@@ -14,7 +14,7 @@ const Card = ({ props, isWishlist, onDelete }) => {
   // Hardcodea el userId para propósitos de prueba
   const hardcodedUserId = "pepona@pepona.com";
 
-
+  const { addProductToCart, addLoading } = useAddProductToCart(props.id)
   const [hovered, setHovered] = useState(false);
   const [addFavMutation] = useMutation(ADD_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: hardcodedUserId } }] });
   const [deleteFavMutation] = useMutation(DELETE_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: hardcodedUserId } }] });
@@ -58,8 +58,8 @@ const Card = ({ props, isWishlist, onDelete }) => {
         />
       )}
       <Button
-        text="Añadir al Carrito"
-        onClick={() => console.log("añadido al carrito")}
+        text="Añadir al carrito"
+        onClick={addProductToCart}
         style={{ width: "80px", height: "40px", marginBottom: "6px" }}
       />
     </figure>
