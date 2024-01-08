@@ -13,7 +13,6 @@ import { useAddProductToCart } from "../../utils/hooks/products/useMutationProdu
 const Card = ({ props }) => {
   const hardcodedUserId = "pepona@pepona.com";
 
-  const [hovered, setHovered] = useState(false);
   const [isFav, setIsFav] = useState(props.isFav || false); // Nuevo estado para manejar si el producto es favorito
 
   const [addFavMutation] = useMutation(ADD_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: hardcodedUserId } }] });
@@ -34,10 +33,8 @@ const Card = ({ props }) => {
     <figure className={Style.card}>
       <img
         className={Style.corazon}
-        src={isFav ? Corazon2 : hovered ? Corazon2 : Corazon}
+        src={isFav ? Corazon2 : Corazon}
         alt="Corazón"
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
         onClick={handleFavToggle}
       />
       <NavLink to={`/${props.id}`} className={Style.card_text}>
