@@ -52,6 +52,7 @@ const Card = ({ props, isWishlist, onDelete }) => {
       </NavLink>
       {isWishlist && (
         <Button
+        className={`${Style.button} ${Style.deleteButton}`}
           text="Eliminar"
           onClick={() => onDelete && onDelete(props.id)}
           style={{ width: "80px", height: "40px", marginBottom: "6px" }}
