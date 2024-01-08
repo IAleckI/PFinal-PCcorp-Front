@@ -66,7 +66,16 @@ const Card = ({ props, isWishlist, onDelete }) => {
         <h3>{props.model}</h3>
         <h4 className={Style.card_price}>${props.price}</h4>
       </NavLink>
-     
+      {isWishlist && (
+        <Button
+          className={Style.deleteButton}
+          text="Eliminar"
+          onClick={() => {
+            onDelete && onDelete(props.id);
+            setShowDeletePopupFromButton(true);
+          }}
+        />
+      )}
       <Button
         text="Añadir al carrito"
         onClick={addProductToCart}
