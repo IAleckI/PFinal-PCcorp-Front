@@ -61,8 +61,7 @@ const Wishlist = () => {
           <Card
             key={product.id}
             props={product}
-            isFav={true}
-            isWishList={true}  // Nueva prop para indicar que está en la lista de deseos
+            isWishList={true} 
             onDelete={handleDelete}
           />
         ))}
