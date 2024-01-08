@@ -40,7 +40,7 @@ const Wishlist = () => {
     <div>
       <NavBar />
       <h1>Wishlist</h1>
-      <figure className={Style.Card}>
+      <figure className={Style.Wishcard}>
       {favs.map((product) => (
         <Card key={product.id} product={product} isFav={true} />
       ))}
