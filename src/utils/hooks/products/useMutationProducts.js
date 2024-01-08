@@ -27,7 +27,7 @@ export const useAddProductToCart = (id) => {
 
     email = ''; 
   }
-  const [products, setProducts] = useState([]);
+ 
   const [addLoading, setLoading] = useState(false);
   const [addProduct] = useMutation(ADD_PRODUCT_TO_CART);
   const getPrice = useQuery(GET_TOTAL_PRICE, {
@@ -46,12 +46,12 @@ export const useAddProductToCart = (id) => {
           addUserProductId: id,
         },
       });
-      const product = await getProductsQuery.refetch();
-      const price = await getPrice.refetch();
-      if (!product.loading && !price.loading) {
-        setLoading(false);
-        setProducts(product.data.getAllUserProducts); 
-      }
+  
+      // Refetch data directly and update the component
+      await getProductsQuery.refetch();
+      await getPrice.refetch();
+  
+      setLoading(false);
     } catch (error) {
       console.error(error);
     }
@@ -65,7 +65,7 @@ export const useAddProductToCart = (id) => {
 export const useDecreaseProduct = (id) => {
     const email = jwtDecode(localStorage.getItem('USER_INFO')).email
     const [loading, setLoading] = useState(false)
-    const [products, setProducts] = useState([]);
+    
     const [decreaseProduct] = useMutation(DECREASE_PRODUCT)
     const getPrice = useQuery(GET_TOTAL_PRICE, {
         variables: { userId: email }
@@ -74,7 +74,7 @@ export const useDecreaseProduct = (id) => {
         variables: { userId: email }
     })
 
-    const decreaseProductoOfCart  = async () => {
+    const decreaseProductoOfCart = async () => {
       setLoading(true);
       try {
         await decreaseProduct({
@@ -83,12 +83,12 @@ export const useDecreaseProduct = (id) => {
             deleteUserProductId: id,
           },
         });
-        const product = await getProducts.refetch();
-        const price = await getPrice.refetch();
-        if (!product.loading && !price.loading) {
-          setLoading(false);
-          setProducts(product.data.getAllUserProducts); 
-        }
+    
+        // Refetch data directly and update the component
+        await getProducts.refetch();
+        await getPrice.refetch();
+    
+        setLoading(false);
       } catch (error) {
         console.log(error);
       }
