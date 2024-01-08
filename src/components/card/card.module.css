@@ -59,13 +59,8 @@
     margin-left: 300px;
   }
 
-  .deleteIcon {
-    width: 40px !important; 
-    height: 40px !important; 
-    cursor: pointer;
-  }
 
-  button .deleteButton {
+  .deleteButton {
     background-color: #f44336 !important;
     color: white;
     border: none;
@@ -76,7 +71,6 @@
     font-size: 16px;
     cursor: pointer;
     border-radius: 4px;
-  
  
     position: absolute;
     top: 0;
