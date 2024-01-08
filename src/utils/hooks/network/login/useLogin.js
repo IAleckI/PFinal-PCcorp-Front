@@ -15,24 +15,25 @@ export const useFormHook = () => {
     const navigate = useNavigate()
 
     async function onSubmit(data) {
-        const { email, password } = data;
         try {
             const result = await getToken({ variables: {
-                email: email,
-                passwordHash: password
+                email: data.email,
+                passwordHash: data.password
             } });
-
-            if (result?.error?.message) throw new Error(result.error.message)
-
-            if (remind) {
-                localStorage.setItem('USER_INFO', result.data.getUserLogin.token)
-            } else {
-                sessionStorage.setItem('USER_INFO', result.data.getUserLogin.token)
-            }
-            navigate('/')
-            window.location.reload()
+    
+            if (result?.error?.message) throw new Error(result.error.message);
+    
+            // Store user information in localStorage
+            const userInfo = result.data.getUserLogin.token;
+            localStorage.setItem('USER_INFO', userInfo);
+            
+            // Log user information for debugging
+            console.log('User Info:', userInfo);
+    
+            // Redirect or perform other actions after successful login
+            navigate('/');
         } catch (error) {
-            setError('password', { message: error.message })
+            setError('password', { message: error.message });
         }
     }
     return { register, handleSubmit, onSubmit, errors, setRemind, remind }
