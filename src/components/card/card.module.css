@@ -65,7 +65,7 @@
     cursor: pointer;
   }
 
-  .deleteButton {
+  button .deleteButton {
     background-color: #f44336 !important;
     color: white;
     border: none;
