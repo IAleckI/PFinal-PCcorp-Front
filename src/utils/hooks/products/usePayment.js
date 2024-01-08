@@ -34,9 +34,14 @@ export const usePayment = () => {
                     return;
                 }
         
+                const itemsWithAmount = mapped.map(item => ({
+                    ...item,
+                    amount: 1, // You can set the amount based on your logic or use a default value
+                }));
+        
                 const result = await getPayment({
                     variables: {
-                        items: mapped,
+                        items: itemsWithAmount,
                     },
                 });
         
@@ -54,6 +59,7 @@ export const usePayment = () => {
                 setLoading(false);
             }
         };
+        
         
         
         data()
