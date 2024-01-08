@@ -1,17 +1,33 @@
 import React from "react";
 import Card from "../../components/card/card";
 import { NavBar, Footer } from '../../components/Index'
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { GET_ALL_FAVS } from "../../utils/graphql/querys/products/favs/getAllFavs";
+import { DELETE_FAV } from "../../utils/graphql/querys/products/favs/deleteFav";
 import Style from "./wishlist.module.css"
 
 const Wishlist = () => {
   const hardcodedUserId = "pepona@pepona.com";
 
-  const { loading, error, data } = useQuery(GET_ALL_FAVS, {
+  const { loading, error, data, refetch } = useQuery(GET_ALL_FAVS, {
     variables: { userId: hardcodedUserId },
   });
-  
+
+  const [deleteFavMutation] = useMutation(DELETE_FAV, {
+    refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: hardcodedUserId } }],
+  });
+
+  const handleDelete = async (productId) => {
+    try {
+      // Lógica para eliminar el producto de la lista de deseos
+      await deleteFavMutation({ variables: { userId: hardcodedUserId, productId } });
+      // Luego, refetch para actualizar la lista después de eliminar
+      await refetch();
+    } catch (error) {
+      console.error("Error al eliminar de favoritos:", error);
+    }
+  };
+
   if (loading) {
     return (
       <div>
@@ -46,6 +62,8 @@ const Wishlist = () => {
             key={product.id}
             props={product}
             isFav={true}
+            isWishlist={true}  // Nueva prop para indicar que está en la lista de deseos
+            onDelete={handleDelete}
           />
         ))}
       </div>
@@ -53,4 +71,5 @@ const Wishlist = () => {
     </div>
   );
 }
+
 export default Wishlist;
