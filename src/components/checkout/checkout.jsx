@@ -4,8 +4,11 @@ import { usePayment } from '../../utils/hooks/products/usePayment'
 export default function CheckOut () {
     const { loading, paymentId, result, products } = usePayment()
     
-    if (result.loading || paymentId.length === 0) return <p>Cargando...</p>
-    const price = result.data.getTotalPrice * 0.1 / 100
+    if (loading || !paymentId || paymentId.length === 0) {
+        return <p>Cargando...</p>;
+      }
+      
+      const price = result.data.getTotalPrice * 0.1 / 100;
 
     return (
         <div className={Style.checkout}>
