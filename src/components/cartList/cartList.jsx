@@ -5,7 +5,8 @@ import { useGetProducts } from '../../utils/hooks/products/useMutationProducts'
 
 export default function CartList() {
     const { products, loading, error } = useGetProducts()
-    console.log(products)
+    console.log("products:",products)
+    
     if (loading ) return <p>Cargando...</p>
     if (error) return <p>Error: {error.message}</p>    
 
@@ -13,7 +14,7 @@ export default function CartList() {
         <div className={Style.cartList_container}>
           <div className={Style.cartList}>
           <h1>Carrito</h1>
-            {products.data?.map(p => (
+            {products.map(p => (
                 <CardCard key={p.id} props={p}/>
             ))}
           </div>
