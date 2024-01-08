@@ -53,7 +53,7 @@ const Card = ({ props, isWishlist, onDelete }) => {
       {isWishlist && (
         <Button
         className={Style.deleteButton}
-          text="Eliminar"
+          text="Eliminar."
           onClick={() => onDelete && onDelete(props.id)}
         />
       )}
