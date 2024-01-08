@@ -60,8 +60,7 @@
   }
 
   .deleteIcon {
-    position: absolute;
-    top: 10px; 
-    right: 10px; 
+    top: 10px !important; 
+    right: 10px !important; 
     cursor: pointer;
   }
