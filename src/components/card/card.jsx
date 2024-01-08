@@ -10,10 +10,10 @@ import Corazon from '../../Assets/Logos/Corazon.png';
 import Corazon2 from "../../Assets/Logos/Corazon2.png";
 import { useAddProductToCart } from "../../utils/hooks/products/useMutationProducts";
 
-const Card = ({ props, isWishList, onDelete }) => {
+const Card = ({ props, isWishlist, onDelete }) => {
   // Hardcodea el userId para propósitos de prueba
   const hardcodedUserId = "pepona@pepona.com";
-  console.log("isWishList:", isWishList);
+  console.log("isWishlist:", isWishlist);
 
   const [hovered, setHovered] = useState(false);
   const [addFavMutation] = useMutation(ADD_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: hardcodedUserId } }] });
@@ -50,7 +50,7 @@ const Card = ({ props, isWishList, onDelete }) => {
         <h3>{props.model}</h3>
         <h4 className={Style.card_price}>${props.price}</h4>
       </NavLink>
-      {isWishList && (
+      {isWishlist && (
         <Button
           text="Eliminar"
           onClick={() => onDelete && onDelete(props.id)}

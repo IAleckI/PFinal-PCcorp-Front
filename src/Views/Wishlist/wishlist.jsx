@@ -61,7 +61,7 @@ const Wishlist = () => {
           <Card
             key={product.id}
             props={product}
-            isWishList={true} 
+            isWishlist={true} 
             onDelete={handleDelete}
           />
         ))}
