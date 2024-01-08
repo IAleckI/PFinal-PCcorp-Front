@@ -12,3 +12,14 @@
 .button:hover {
     background-color: #7971EAcc;
 }
+
+.deleteButton {
+    background-color: #f44336; 
+    color: #fff;
+    
+}
+
+.deleteButton:hover {
+    background-color: #d32f2f; 
+    
+}
