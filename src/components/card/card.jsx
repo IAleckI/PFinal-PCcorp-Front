@@ -13,7 +13,6 @@ import { useAddProductToCart } from "../../utils/hooks/products/useMutationProdu
 const Card = ({ props, isFav, isWishList, onDelete }) => {
   // Hardcodea el userId para propósitos de prueba
   const hardcodedUserId = "pepona@pepona.com";
-  console.log("isWishList:", isWishList);
 
   const [hovered, setHovered] = useState(false);
   const [addFavMutation] = useMutation(ADD_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: hardcodedUserId } }] });
@@ -50,11 +49,6 @@ const Card = ({ props, isFav, isWishList, onDelete }) => {
         <h3>{props.model}</h3>
         <h4 className={Style.card_price}>${props.price}</h4>
       </NavLink>
-      <Button
-        text="Añadir al Carrito"
-        onClick={() => console.log("añadido al carrito")}
-        style={{ width: "80px", height: "40px", marginBottom: "6px" }}
-      />
       {isWishList && (
         <Button
           text="Eliminar"
@@ -62,6 +56,11 @@ const Card = ({ props, isFav, isWishList, onDelete }) => {
           style={{ width: "80px", height: "40px", marginBottom: "6px" }}
         />
       )}
+      <Button
+        text="Añadir al Carrito"
+        onClick={() => console.log("añadido al carrito")}
+        style={{ width: "80px", height: "40px", marginBottom: "6px" }}
+      />
     </figure>
   );
 };
