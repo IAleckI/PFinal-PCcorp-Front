@@ -55,7 +55,6 @@ const Wishlist = () => {
   return (
     <div>
       <NavBar/>
-      <h1>Wishlist</h1>
       <div className={Style.cardContainer}>
         {favs.map((product) => (
           <Card
