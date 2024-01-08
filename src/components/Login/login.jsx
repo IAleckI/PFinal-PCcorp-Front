@@ -13,7 +13,7 @@ export default function LoginTemplate() {
     <div className={Style.login}>
       <section className={Style.template}>
         <div className={Style.login_template}>
-          <h1>Login in to Links Music</h1>
+          <h1>Login in to Make My PC app</h1>
           <GoogleLogin
             clientId={clientId}
             buttonText="Login with Google"
