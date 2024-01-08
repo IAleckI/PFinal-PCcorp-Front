@@ -1,0 +1,10 @@
+.Card {
+        width: 350px;
+        height: 450px;
+        box-shadow: 2px 2px 4px #bbb;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        justify-content: space-between;
+}
