@@ -16,7 +16,7 @@ export const usePayment = () => {
     })
 
     useEffect(() => {
-        if (products.data === null) return;
+        if (!products.data) return;
         setLoading(true)
         const mapped = products.data.map(p => {
             return {
