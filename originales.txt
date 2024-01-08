@@ -115,3 +115,16 @@ const Wishlist = () => {
   );
 }
 export default Wishlist;
+
+
+linea de boton eliminar en wishlist 
+{isWishlist && (
+        <Button
+          className={Style.deleteButton}
+          text="Eliminar"
+          onClick={() => {
+            onDelete && onDelete(props.id);
+            setShowDeletePopupFromButton(true);
+          }}
+        />
+      )}
