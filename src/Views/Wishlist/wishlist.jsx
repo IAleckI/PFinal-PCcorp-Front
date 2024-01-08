@@ -4,9 +4,11 @@ import { NavBar, Footer } from '../../components/Index'
 import { useQuery } from "@apollo/client";
 import { GET_ALL_FAVS } from "../../utils/graphql/querys/products/favs/getAllFavs";
 
-const Wishlist = ({ userId }) => {
+const Wishlist = () => {
+  const hardcodedUserId = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicGVwb25hMTIzIiwiZW1haWwiOiJwZXBvbmFAcGVwb25hLmNvbSIsImlhdCI6MTcwNDY4MDA5NH0.zUurH4ngJNYSRaQc6DXPfSR0lc0oLdEniiTsQf9uwJE";
+
   const { loading, error, data } = useQuery(GET_ALL_FAVS, {
-    variables: { userId: "tuUserId" },
+    variables: { userId: hardcodedUserId },
   });
   
   if (loading) {

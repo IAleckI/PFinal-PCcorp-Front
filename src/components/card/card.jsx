@@ -6,7 +6,6 @@ import { useMutation } from "@apollo/client";
 import { ADD_FAV } from "../../utils/graphql/querys/products/favs/addFav";
 import { DELETE_FAV } from "../../utils/graphql/querys/products/favs/deleteFav";
 import { GET_ALL_FAVS } from "../../utils/graphql/querys/products/favs/getAllFavs";
-
 import Corazon from '../../Assets/Logos/Corazon.png';
 import Corazon2 from "../../Assets/Logos/Corazon2.png";
 import { useAddProductToCart } from "../../utils/hooks/products/useMutationProducts";
