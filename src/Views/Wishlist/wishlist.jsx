@@ -41,13 +41,15 @@ const Wishlist = () => {
       <NavBar/>
       <h1>Wishlist</h1>
       
-      {favs.map((product) => (
-        <Card className={Style.wishcard}
-          key={product.id}
-          props={product}
-          isFav={true}
-        />
-      ))}
+      <div className={Style.wishcard}>
+        {favs.map((product) => (
+          <Card
+            key={product.id}
+            props={product}
+            isFav={true}
+          />
+        ))}
+      </div>
       
       <Footer/>
     </div>
