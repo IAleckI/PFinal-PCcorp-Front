@@ -15,7 +15,6 @@ const Card = ({ props }) => {
   // Hardcodea el userId para propósitos de prueba
   const hardcodedUserId = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicGVwb25hMTIzIiwiZW1haWwiOiJwZXBvbmFAcGVwb25hLmNvbSIsImlhdCI6MTcwNDY4MDA5NH0.zUurH4ngJNYSRaQc6DXPfSR0lc0oLdEniiTsQf9uwJE";
 
-  console.log("userId in Card:", hardcodedUserId);
   const [hovered, setHovered] = useState(false);
   const [addFavMutation] = useMutation(ADD_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: hardcodedUserId } }] });
   const [deleteFavMutation] = useMutation(DELETE_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: hardcodedUserId } }] });
