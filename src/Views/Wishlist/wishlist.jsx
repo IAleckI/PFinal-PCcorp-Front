@@ -1,11 +1,9 @@
 import React from "react";
 import Card from "../../components/card/card";
-import { NavBar, Footer } from "../../components/Index";
+import { NavBar, Footer } from '../../components/Index'
 import { useQuery } from "@apollo/client";
 import { GET_ALL_FAVS } from "../../utils/graphql/querys/products/favs/getAllFavs";
-import Style from "./wishlist.module.css";
-
-
+import Style from "./wishlist.module.css"
 
 const Wishlist = () => {
   const hardcodedUserId = "pepona@pepona.com";
@@ -13,14 +11,14 @@ const Wishlist = () => {
   const { loading, error, data } = useQuery(GET_ALL_FAVS, {
     variables: { userId: hardcodedUserId },
   });
-
+  
   if (loading) {
     return (
       <div>
-        <NavBar />
+        <NavBar/>
         <h1>Wishlist</h1>
         <p>Cargando favoritos...</p>
-        <Footer />
+        <Footer/>
       </div>
     );
   }
@@ -28,26 +26,15 @@ const Wishlist = () => {
   if (error) {
     return (
       <div>
-        <NavBar />
+        <NavBar/>
         <h1>Wishlist</h1>
         <p>Error al cargar favoritos: {error.message}</p>
-        <Footer />
+        <Footer/>
       </div>
     );
   }
 
   const favs = data.getAllFavs;
-
-  if (favs.length === 0) {
-    return (
-      <div>
-        <NavBar />
-        <h1>Wishlist</h1>
-        <p>No hay productos en la lista de deseos.</p>
-        <Footer />
-      </div>
-    );
-  }
 
   return (
     <div>
