@@ -77,6 +77,7 @@ const Card = ({ props, isWishlist, onDelete }) => {
             <p>Agregado a Favoritos</p>
           </div>
         )}
+        {console.log(showDeletePopup)}
         {showDeletePopup && ( 
           <div className={Style.popup}>
           <p>Eliminado de Favoritos</p>
