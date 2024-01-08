@@ -28,6 +28,12 @@ export const usePayment = () => {
         })
         const data = async () => {
             try {
+                if (!mapped.length) {
+                    console.error('Error creating payment: No items to pay');
+                    setLoading(false);
+                    return;
+                }
+        
                 const result = await getPayment({
                     variables: {
                         items: mapped,
@@ -48,6 +54,7 @@ export const usePayment = () => {
                 setLoading(false);
             }
         };
+        
         
         data()
     },[products.data, getPayment, result.data])
