@@ -1,10 +1,7 @@
-.wishcard {
-        width: 350px;
-        height: 450px;
-        box-shadow: 2px 2px 4px #bbb;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center;
-        gap: 6px;
-        justify-content: space-between;
-}
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap; /* Para que las cards se envuelvan si no caben en una línea */
+    gap: 20px; /* Espaciado entre las cards, ajusta según sea necesario */
+    justify-content: space-around; /* Ajusta según tus preferencias de alineación */
+  }
+  
