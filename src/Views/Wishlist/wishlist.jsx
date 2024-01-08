@@ -3,7 +3,6 @@ import Card from "../../components/card/card";
 import { NavBar, Footer } from '../../components/Index'
 import { useQuery } from "@apollo/client";
 import { GET_ALL_FAVS } from "../../utils/graphql/querys/products/favs/getAllFavs";
-import Style from "./wishlist.module.css"
 
 const Wishlist = () => {
   const hardcodedUserId = "pepona@pepona.com";
@@ -38,14 +37,16 @@ const Wishlist = () => {
 
   return (
     <div>
-      <NavBar />
+      <NavBar/>
       <h1>Wishlist</h1>
-      <figure className={Style.Wishcard}>
       {favs.map((product) => (
-        <Card key={product.id} product={product} isFav={true} />
+        <Card 
+          key={product.id}
+          props={product}
+          isFav={true}
+        />
       ))}
-      </figure>
-      <Footer />
+      <Footer/>
     </div>
   );
 };
