@@ -38,14 +38,18 @@ const Wishlist = () => {
 
   return (
     <div>
-      <NavBar />
+      <NavBar/>
       <h1>Wishlist</h1>
-      <figure className={Style.Wishcard}>
+      <figure>
       {favs.map((product) => (
-        <Card key={product.id} product={product} isFav={true} />
+        <Card
+          key={product.id}
+          props={product}
+          isFav={true}
+        />
       ))}
       </figure>
-      <Footer />
+      <Footer/>
     </div>
   );
 };
