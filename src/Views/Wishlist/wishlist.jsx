@@ -62,7 +62,7 @@ const Wishlist = () => {
             key={product.id}
             props={product}
             isFav={true}
-            isWishlist={true}  // Nueva prop para indicar que está en la lista de deseos
+            isWishList={true}  // Nueva prop para indicar que está en la lista de deseos
             onDelete={handleDelete}
           />
         ))}
