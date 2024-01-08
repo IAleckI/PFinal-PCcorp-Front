@@ -12,6 +12,7 @@ import Corazon2 from "../../Assets/Logos/Corazon2.png";
 import { useAddProductToCart } from "../../utils/hooks/products/useMutationProducts";
 
 const Card = ({ props, userId }) => {
+  console.log("userId in Card:", userId);
   const [hovered, setHovered] = useState(false);
   const [addFavMutation] = useMutation(ADD_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId } }] });
   const [deleteFavMutation] = useMutation(DELETE_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId } }] });
