@@ -1,8 +1,8 @@
 .cardContainer {
     display: flex;
-    flex-wrap: wrap; /* Para que las cards se envuelvan si no caben en una línea */
-    gap: 20px; /* Espaciado entre las cards, ajusta según sea necesario */
-    justify-content: space-around; /* Ajusta según tus preferencias de alineación */
+    flex-wrap: wrap; 
+    gap: 20px; 
+    justify-content: space-around; 
     margin-bottom: 20px;
   }
   
