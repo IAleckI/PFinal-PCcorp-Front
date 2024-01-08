@@ -27,14 +27,20 @@ export const usePayment = () => {
             }
         })
         const data = async () => {
-          const result = await getPayment({
-          variables: {
-            items: mapped,
+            try {
+                const result = await getPayment({
+                    variables: {
+                        items: mapped,
+                    },
+                });
+                setPaymentId(result.data.createPayment);
+                setLoading(false);
+            } catch (error) {
+                // Handle errors, log, or set appropriate state
+                console.error('Error creating payment:', error);
+                setLoading(false);
             }
-          })
-          setPaymentId(result.data.createPayment);
-          setLoading(false)
-        }
+        };
         data()
     },[products.data, getPayment, result.data])
 
