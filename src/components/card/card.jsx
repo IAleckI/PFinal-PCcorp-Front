@@ -11,10 +11,11 @@ import Corazon2 from "../../Assets/Logos/Corazon2.png";
 import { useAddProductToCart } from "../../utils/hooks/products/useMutationProducts";
 
 const Card = ({ props }) => {
-  // Hardcodea el userId para propósitos de prueba
   const hardcodedUserId = "pepona@pepona.com";
 
   const [hovered, setHovered] = useState(false);
+  const [isFav, setIsFav] = useState(props.isFav || false); // Nuevo estado para manejar si el producto es favorito
+
   const [addFavMutation] = useMutation(ADD_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: hardcodedUserId } }] });
   const [deleteFavMutation] = useMutation(DELETE_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: hardcodedUserId } }] });
 
@@ -23,6 +24,7 @@ const Card = ({ props }) => {
     console.log("productId:", props.id);
     try {
       await addFavMutation({ variables: { productId: props.id, userId: hardcodedUserId } });
+      setIsFav(!isFav); // Cambiar el estado de isFav cuando se añade/elimina de favoritos
     } catch (error) {
       console.error("Error al añadir a favoritos:", error);
     }
@@ -32,7 +34,7 @@ const Card = ({ props }) => {
     <figure className={Style.card}>
       <img
         className={Style.corazon}
-        src={hovered ? Corazon2 : Corazon}
+        src={isFav ? Corazon2 : hovered ? Corazon2 : Corazon}
         alt="Corazón"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
