@@ -8,9 +8,14 @@ import Style from "./wishlist.module.css"
 const Wishlist = () => {
   const hardcodedUserId = "pepona@pepona.com";
 
-  const { loading, error, data } = useQuery(GET_ALL_FAVS, {
+  const { loading, error, data, refetch } = useQuery(GET_ALL_FAVS, {
     variables: { userId: hardcodedUserId },
   });
+
+  const handleDelete = (productId) => {
+    // Actualiza la lista de favoritos después de la eliminación
+    refetch();
+  };
   
   if (loading) {
     return (
@@ -42,11 +47,13 @@ const Wishlist = () => {
       <h1>Wishlist</h1>
       <div className={Style.cardContainer}>
         {favs.map((product) => (
-          <Card
-            key={product.id}
-            props={product}
-            isFav={true}
-          />
+         <Card
+         key={product.id}
+         props={product}
+         isFav={true}
+         isWishlist={true} // Pasa la prop isWishlist
+         onDelete={handleDelete}
+       />
         ))}
       </div>
       <Footer/>
