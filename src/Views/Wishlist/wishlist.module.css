@@ -3,5 +3,6 @@
     flex-wrap: wrap; /* Para que las cards se envuelvan si no caben en una línea */
     gap: 20px; /* Espaciado entre las cards, ajusta según sea necesario */
     justify-content: space-around; /* Ajusta según tus preferencias de alineación */
+    margin-bottom: 20px;
   }
   
