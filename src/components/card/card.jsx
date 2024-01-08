@@ -18,17 +18,26 @@ const Card = ({ props, isWishlist, onDelete }) => {
   const [hovered, setHovered] = useState(false);
   const [addFavMutation] = useMutation(ADD_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: hardcodedUserId } }] });
   const [deleteFavMutation] = useMutation(DELETE_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: hardcodedUserId } }] });
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleFavToggle = async () => {
     console.log("userId:", hardcodedUserId);
     console.log("productId:", props.id);
-
+  
     try {
       if (isWishlist) {
         await deleteFavMutation({ variables: { userId: hardcodedUserId, productId: props.id } });
       } else {
         await addFavMutation({ variables: { productId: props.id, userId: hardcodedUserId } });
       }
+  
+      // Mostrar el pop-up
+      setShowPopup(true);
+  
+      // Ocultar el pop-up después de unos segundos
+      setTimeout(() => {
+        setShowPopup(false);
+      }, 2000); // Puedes ajustar el tiempo según tus preferencias
     } catch (error) {
       console.error("Error al añadir/eliminar de favoritos:", error);
     }
@@ -62,7 +71,14 @@ const Card = ({ props, isWishlist, onDelete }) => {
         onClick={addProductToCart}
         style={{ width: "80px", height: "40px", marginBottom: "6px" }}
       />
+
+        {showPopup && ( 
+          <div className={Style.popup}>
+            <p>Agregado a Favoritos</p>
+          </div>
+        )}
     </figure>
+    
   );
 };
 
