@@ -40,7 +40,7 @@ const Wishlist = () => {
     <div>
       <NavBar/>
       <h1>Wishlist</h1>
-      <div className={Style.wishcard}>
+      <div className={Style.cardContainer}>
         {favs.map((product) => (
           <Card
             key={product.id}
@@ -48,10 +48,9 @@ const Wishlist = () => {
             isFav={true}
           />
         ))}
-      <Footer/>
       </div>
+      <Footer/>
     </div>
   );
-};
-
+}
 export default Wishlist;
