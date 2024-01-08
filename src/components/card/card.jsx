@@ -14,7 +14,6 @@ const Card = ({ props, isWishlist, onDelete }) => {
   // Hardcodea el userId para propósitos de prueba
   const hardcodedUserId = "pepona@pepona.com";
 
-
   const [hovered, setHovered] = useState(false);
   const [addFavMutation] = useMutation(ADD_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: hardcodedUserId } }] });
   const [deleteFavMutation] = useMutation(DELETE_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: hardcodedUserId } }] });
@@ -22,12 +21,10 @@ const Card = ({ props, isWishlist, onDelete }) => {
   const [showDeletePopup, setShowDeletePopup] = useState(false);
 
   const handleFavToggle = async () => {
-    console.log("userId:", hardcodedUserId);
-    console.log("productId:", props.id);
   
     try {
       if (isWishlist) {
-        await deleteFavMutation({ variables: { userId: hardcodedUserId, productId: props.id } });
+        await deleteFavMutation({ variables: {  productId: props.id, userId: hardcodedUserId, } });
         setShowDeletePopup(true);
       } else {
         await addFavMutation({ variables: { productId: props.id, userId: hardcodedUserId } });
@@ -77,9 +74,9 @@ const Card = ({ props, isWishlist, onDelete }) => {
             <p>Agregado a Favoritos</p>
           </div>
         )}
-        {console.log(showDeletePopup)}
+
         {showDeletePopup && ( 
-          <div className={Style.popup}>
+          <div className={Style.popupDel}>
           <p>Eliminado de Favoritos</p>
           </div>
 )}
