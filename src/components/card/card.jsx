@@ -34,7 +34,6 @@ const Card = ({ props, isWishlist, onDelete }) => {
         setShowPopup(true);
       }
   
-      // Ocultar el pop-up después de unos segundos
       setTimeout(() => {
         setShowPopup(false);
         setShowDeletePopup(false);
