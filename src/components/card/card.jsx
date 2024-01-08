@@ -10,7 +10,7 @@ import Corazon from '../../Assets/Logos/Corazon.png';
 import Corazon2 from "../../Assets/Logos/Corazon2.png";
 import { useAddProductToCart } from "../../utils/hooks/products/useMutationProducts";
 
-const Card = ({ props, isFav, isWishList, onDelete }) => {
+const Card = ({ props, isWishList, onDelete }) => {
   // Hardcodea el userId para propósitos de prueba
   const hardcodedUserId = "pepona@pepona.com";
 
