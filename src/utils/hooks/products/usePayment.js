@@ -33,7 +33,14 @@ export const usePayment = () => {
                         items: mapped,
                     },
                 });
-                setPaymentId(result.data.createPayment);
+        
+                // Check if result.data is defined before accessing properties
+                if (result.data && result.data.createPayment) {
+                    setPaymentId(result.data.createPayment);
+                } else {
+                    console.error('Error creating payment: Unexpected data structure', result);
+                }
+        
                 setLoading(false);
             } catch (error) {
                 // Handle errors, log, or set appropriate state
@@ -41,6 +48,7 @@ export const usePayment = () => {
                 setLoading(false);
             }
         };
+        
         data()
     },[products.data, getPayment, result.data])
 
