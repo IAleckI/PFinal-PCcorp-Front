@@ -66,8 +66,7 @@
   }
 
   .deleteButton {
-
-    background-color: #f44336;
+    background-color: #f44336 !important;
     color: white;
     border: none;
     padding: 10px 20px;
