@@ -62,18 +62,18 @@
 
   .deleteButton {
     background-color: #f44336 !important;
-    color: white;
+    color: white !important;
     border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
+    padding: 10px 20px !important;
+    text-align: center !important;
+    text-decoration: none !important ;
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
     border-radius: 4px;
  
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 10px;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    margin: 10px !important;
   }
