@@ -10,6 +10,8 @@ import Corazon from '../../Assets/Logos/Corazon.png';
 import Corazon2 from "../../Assets/Logos/Corazon2.png";
 import { useAddProductToCart } from "../../utils/hooks/products/useMutationProducts";
 import { jwtDecode } from "jwt-decode";
+
+
 const Card = ({ props, isWishlist, onDelete }) => {
   let email = '';
   try {
