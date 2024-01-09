@@ -34,7 +34,7 @@ const Home = () => {
       {targetasGraficasDest && (
         <CardCarrousel
           components={targetasGraficasDest}
-          tipo="Targetas Graficas Destacadas"
+          tipo="Tarjetas Graficas Destacadas"
         />
       )}
       {procesadores && (
