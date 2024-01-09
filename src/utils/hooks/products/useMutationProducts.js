@@ -27,38 +27,32 @@ export const useAddProductToCart = (id) => {
 
     email = ''; 
   }
- const dispatch = useDispatch()
+ 
   const [addLoading, setLoading] = useState(false);
   const [addProduct] = useMutation(ADD_PRODUCT_TO_CART);
   const getPrice = useQuery(GET_TOTAL_PRICE, {
     variables: { userId: email }
   });
-  const getProductsQuery = useQuery(GET_ALL_USER_PRODUCTS, {
+  const getProducts = useQuery(GET_ALL_USER_PRODUCTS, {
     variables: { userId: email }
   });
 
-  const addProductToCart = async () => {
+  const addProductToCart  = async () => {
+    setLoading(true)
     try {
-      await addProduct({
-        variables: {
-          userId: email,
-          addUserProductId: id,
-        },
-      });
-
-      await getProductsQuery.refetch();
-      await getPrice.refetch();
-
-      setLoading(false);
-      
-      // Use the Redux actions to update the state
-      dispatch(getProductsRequest());
-      const product = await getProductsQuery.refetch();
-      dispatch(getProducts(product.data.getAllUserProducts));
+        await addProduct({
+            variables: {
+                userId: email,
+                addUserProductId: id
+            }
+        })
+        const product = await getProducts.refetch()
+        const price = await getPrice.refetch()
+        if (!product.loading && !price.loading) setLoading(false)
     } catch (error) {
-      console.error(error);
+        console.log(error);
     }
-  };
+}
   
 
   return { addProductToCart, addLoading };
@@ -68,7 +62,7 @@ export const useAddProductToCart = (id) => {
 export const useDecreaseProduct = (id) => {
     const email = jwtDecode(localStorage.getItem('USER_INFO')).email
     const [loading, setLoading] = useState(false)
-    const dispatch = useDispatch()
+    
     const [decreaseProduct] = useMutation(DECREASE_PRODUCT)
     const getPrice = useQuery(GET_TOTAL_PRICE, {
         variables: { userId: email }
@@ -77,29 +71,24 @@ export const useDecreaseProduct = (id) => {
         variables: { userId: email }
     })
 
-    const decreaseProductoOfCart = async () => {
-      setLoading(true);
+    const decreaseProductoOfCart  = async () => {
+      setLoading(true)
       try {
-        await decreaseProduct({
-          variables: {
-            userId: email,
-            deleteUserProductId: id,
-          },
-        });
-  
-        await getProducts.refetch();
-        await getPrice.refetch();
-  
-        setLoading(false);
-        
-        // Use the Redux actions to update the state
-        dispatch(getProductsRequest());
-        const product = await getProducts.refetch();
-        dispatch(getProducts(product.data.getAllUserProducts));
+          await decreaseProduct({
+              variables: {
+                  userId: email,
+                  deleteUserProductId: id
+              }
+          })
+          const product = await getProducts.refetch()
+          
+          const price = await getPrice.refetch()
+
+          if (!product.loading && !price.loading) setLoading(false)
       } catch (error) {
-        console.log(error);
+          console.log(error);
       }
-    };
+  }
     
 
     return { decreaseProductoOfCart, loading }   
