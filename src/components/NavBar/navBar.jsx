@@ -5,8 +5,11 @@ import bolsalogo from "../../Assets/Logos/bolsa.png";
 import usuario from "../../Assets/Logos/usuario.png";
 import wishlist from "../../Assets/Logos/wishlist.png";
 import { NavLink, Link, useLocation } from "react-router-dom";
+import LogoutButton from "../Logout/LogoutComponent";
 
 const NavBar = () => {
+  
+  
   return (
     <nav className={Style.navbar}>
       <div className={Style.firstNavbar}>
@@ -16,6 +19,7 @@ const NavBar = () => {
           <Link to={"/wishlist"}><img src={wishlist} alt="wishlist" /></Link>
           <Link to={"/cart"}><img src={bolsalogo} alt="bolsa" /></Link>
           <Link to={"/login"}><img src={usuario} alt="user" /></Link>
+          <LogoutButton />
         </div>
       </div>
       <div className={Style.secondNavbar}>
