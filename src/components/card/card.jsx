@@ -9,17 +9,32 @@ import { GET_ALL_FAVS } from "../../utils/graphql/querys/products/favs/getAllFav
 import Corazon from '../../Assets/Logos/Corazon.png';
 import Corazon2 from "../../Assets/Logos/Corazon2.png";
 import { useAddProductToCart } from "../../utils/hooks/products/useMutationProducts";
-
+import { jwtDecode } from "jwt-decode";
 const Card = ({ props, isWishlist, onDelete }) => {
-  const hardcodedUserId = "pepona@pepona.com";
+  let email = '';
+  try {
+    const userInfo = localStorage.getItem('USER_INFO');
+    console.log("user info:", userInfo, )
+    if (userInfo) {
+      const decodedToken = jwtDecode(userInfo);
+      email = decodedToken.email;
+    } else {
+      console.warn("User is not logged in. USER_INFO not found in localStorage.");
+      
+      email = ''; 
+    }
+  } catch (error) {
+    console.error("Error decoding USER_INFO:", error);
 
+    email = ''; 
+  }
 
   
   const { addProductToCart, addLoading } = useAddProductToCart(props.id)
   const [hovered, setHovered] = useState(false);
   const [isInWishlist, setIsInWishlist] = useState(false);
-  const [addFavMutation] = useMutation(ADD_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: hardcodedUserId } }] });
-  const [deleteFavMutation] = useMutation(DELETE_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: hardcodedUserId } }] });
+  const [addFavMutation] = useMutation(ADD_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: email } }] });
+  const [deleteFavMutation] = useMutation(DELETE_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: email } }] });
   const [showPopup, setShowPopup] = useState(false);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [showDeletePopupFromButton, setShowDeletePopupFromButton] = useState(false);
@@ -33,11 +48,11 @@ const Card = ({ props, isWishlist, onDelete }) => {
   const handleFavToggle = async () => {
     try {
       if (isInWishlist) {
-        await deleteFavMutation({ variables: { productId: props.id, userId: hardcodedUserId } });
+        await deleteFavMutation({ variables: { productId: props.id, userId: email } });
         setShowDeletePopup(true);
         setShowDeletePopupFromButton(false);
       } else {
-        await addFavMutation({ variables: { productId: props.id, userId: hardcodedUserId } });
+        await addFavMutation({ variables: { productId: props.id, userId: email } });
         setShowPopup(true);
       }
 
