@@ -13,9 +13,6 @@ import { useAddProductToCart } from "../../utils/hooks/products/useMutationProdu
 const Card = ({ props, isWishlist, onDelete }) => {
   const hardcodedUserId = "pepona@pepona.com";
 
-
-  const textoCambiante = addProductToCart ? 'Añadido' : 'Añadir';
-
   const { addProductToCart, addLoading } = useAddProductToCart(props.id)
   const [hovered, setHovered] = useState(false);
   const [isInWishlist, setIsInWishlist] = useState(false);
@@ -80,7 +77,7 @@ const Card = ({ props, isWishlist, onDelete }) => {
         />
       )}
       <Button
-        text= {textoCambiante}
+        text= "Agregar al carrito"
         onClick={addProductToCart}
         style={{ width: "80px", height: "40px", marginBottom: "6px" }}
       />
