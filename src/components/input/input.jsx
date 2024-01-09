@@ -14,7 +14,9 @@ export default function Input({ info, name, type, error, style}) {
         <label htmlFor={name} className={Style.label}>
           {name}
         </label>
+       <div>
         <span> { error } </span>
+        </div>
       </div>
     )
 }
