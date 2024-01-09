@@ -14,8 +14,7 @@ const Card = ({ props, isWishlist, onDelete }) => {
   const hardcodedUserId = "pepona@pepona.com";
 
 
-  const textoCambiante = addProductToCart ? 'Añadido' : 'Añadir';
-
+  
   const { addProductToCart, addLoading } = useAddProductToCart(props.id)
   const [hovered, setHovered] = useState(false);
   const [isInWishlist, setIsInWishlist] = useState(false);
@@ -24,12 +23,13 @@ const Card = ({ props, isWishlist, onDelete }) => {
   const [showPopup, setShowPopup] = useState(false);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [showDeletePopupFromButton, setShowDeletePopupFromButton] = useState(false);
-
+  
   useEffect(() => {
     // Actualiza el estado isInWishlist cuando cambia la prop isWishlist
     setIsInWishlist(isWishlist);
   }, [isWishlist]);
-
+  
+ 
   const handleFavToggle = async () => {
     try {
       if (isInWishlist) {
@@ -52,7 +52,7 @@ const Card = ({ props, isWishlist, onDelete }) => {
       console.error("Error al añadir/eliminar de favoritos:", error);
     }
   };
-
+  
   return (
     <figure className={Style.card}>
       <img
@@ -80,7 +80,7 @@ const Card = ({ props, isWishlist, onDelete }) => {
         />
       )}
       <Button
-        text= {textoCambiante}
+        text= "Agregar a carrito"
         onClick={addProductToCart}
         style={{ width: "80px", height: "40px", marginBottom: "6px" }}
       />
