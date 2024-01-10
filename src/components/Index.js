@@ -17,6 +17,8 @@ import GetToken from './token/token'
 import CartList from "./cartList/cartList";
 import AboutUsComponent from "./AboutUs/aboutUs";
 import Verify from "./verify/verify";
+import ReviewCard from "./ReviewCard/reviewCard";
+
 
 export {
   Button,
