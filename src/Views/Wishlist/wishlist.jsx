@@ -9,10 +9,26 @@ import { Link } from "react-router-dom";
 import InterrogationPC from "../../Assets/Img/InterrogationPC.jpeg";
 
 const Wishlist = () => {
-  const hardcodedUserId = "pepona@pepona.com";
+  let email = '';
+  try {
+    const userInfo = localStorage.getItem('USER_INFO');
+    console.log("user info:", userInfo, )
+    if (userInfo) {
+      const decodedToken = jwtDecode(userInfo);
+      email = decodedToken.email;
+    } else {
+      console.warn("User is not logged in. USER_INFO not found in localStorage.");
+      
+      email = ''; 
+    }
+  } catch (error) {
+    console.error("Error decoding USER_INFO:", error);
+
+    email = ''; 
+  }
 
   const { loading, error, data, refetch } = useQuery(GET_ALL_FAVS, {
-    variables: { userId: hardcodedUserId },
+    variables: { userId: email },
   });
 
   const [deleteFavMutation] = useMutation(DELETE_FAV, {
