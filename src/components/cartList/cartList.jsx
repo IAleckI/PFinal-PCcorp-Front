@@ -16,7 +16,7 @@ export default function CartList() {
       <div>
         <p className={Style.noProducts}>Aún no agregas productos a tu carrito, entra al catalogo para agregarlos</p>
         <Link to="/catalogo">
-          <button>Ir a la tienda</button>
+          <button>Ir al catalogo</button>
         </Link>
       </div>
     );

@@ -6,6 +6,7 @@ import { GET_ALL_FAVS } from "../../utils/graphql/querys/products/favs/getAllFav
 import { DELETE_FAV } from "../../utils/graphql/querys/products/favs/deleteFav";
 import Style from "./wishlist.module.css";
 import { Link } from "react-router-dom";
+import InterrogationPC from "../../Assets/Img/InterrogationPC.jpeg";
 
 const Wishlist = () => {
   const hardcodedUserId = "pepona@pepona.com";
@@ -58,13 +59,19 @@ const Wishlist = () => {
     return (
       <div>
         <NavBar />
-        <p className={Style.noFavs}>
-          Vaya, parece que aun no tienes favoritos, vuelve al catalogo para
-          agregarlos.
+        <p className={Style.noFavsText}>
+          Vaya, parece que aun no tienes favoritos,
         </p>
-        <Link to="/catalogo">
-          <button className={Style.noFavsButton}>Volver al catalogo</button>
-        </Link>
+        <p className={Style.noFavsText}> vuelve al catalogo para agregarlos.</p>
+        <img className={Style.imgConfused} src={InterrogationPC} alt="" />
+
+        <button className={Style.noFavsButton}>
+          {" "}
+          <Link className={Style.link} to="/catalogo">
+            Volver al catalogo{" "}
+          </Link>
+        </button>
+
         <Footer />
       </div>
     );
