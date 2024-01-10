@@ -21,7 +21,6 @@ export default function CartList() {
       </div>
     );
   }
-
   return (
     <div className={Style.cartList_container}>
         <div className={Style.cartList}>
