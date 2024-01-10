@@ -24,13 +24,13 @@ export default function CartList() {
 
   return (
     <div className={Style.cartList_container}>
-      <div className={Style.cartList}>
-        <h1>Carrito</h1>
-        {products.map(p => (
-                    <CardCard key={p.id} props={p} />
-                ))}
-            </div>
-            <CheckOut cartProducts={products} />
+        <div className={Style.cartList}>
+            <h1>Carrito</h1>
+            {products.map(p => (
+                <CardCard key={p.id} props={p} />
+            ))}
         </div>
-    );
+        <CheckOut cartProducts={products} />
+    </div>
+);
 }
