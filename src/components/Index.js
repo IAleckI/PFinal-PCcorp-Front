@@ -16,9 +16,11 @@ import LoginTemplate from "./Login/login";
 import GetToken from './token/token'
 import CartList from "./cartList/cartList";
 import AboutUsComponent from "./AboutUs/aboutUs";
+import Verify from "./verify/verify";
 
 export {
   Button,
+  Verify,
   SearchBar,
   Carousel,
   Footer,
