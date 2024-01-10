@@ -7,6 +7,7 @@ import { DELETE_FAV } from "../../utils/graphql/querys/products/favs/deleteFav";
 import Style from "./wishlist.module.css";
 import { Link } from "react-router-dom";
 import InterrogationPC from "../../Assets/Img/InterrogationPC.jpeg";
+import { jwtDecode } from "jwt-decode";
 
 const Wishlist = () => {
   let email = '';
@@ -33,7 +34,7 @@ const Wishlist = () => {
 
   const [deleteFavMutation] = useMutation(DELETE_FAV, {
     refetchQueries: [
-      { query: GET_ALL_FAVS, variables: { userId: hardcodedUserId } },
+      { query: GET_ALL_FAVS, variables: { userId: email } },
     ],
   });
 
@@ -41,7 +42,7 @@ const Wishlist = () => {
     try {
       // Lógica para eliminar el producto de la lista de deseos
       await deleteFavMutation({
-        variables: { userId: hardcodedUserId, productId },
+        variables: { userId: email, productId },
       });
       // Luego, refetch para actualizar la lista después de eliminar
       await refetch();
@@ -59,7 +60,7 @@ const Wishlist = () => {
       </div>
     );
   }
-  const favs = data.getAllFavs;
+  const favs = data?.getAllFavs;
 
   if (error) {
     return (
