@@ -33,6 +33,7 @@ const ProductDetail = () => {
         <h2>Tipo: {getProductById.type}</h2>
         <h2>Descripción: {getProductById.description}</h2>
         <h2>Stock: {getProductById.stock}</h2>
+        
         <Button 
           text={'Añadir al carrito'}
           onClick={() => console.log('añadido al carrito')}

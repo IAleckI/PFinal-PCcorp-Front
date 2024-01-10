@@ -1,0 +1,75 @@
+.reviewsContainer {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .cardContainer {
+    border: 2px solid #ccc; /* Grosor del borde y color */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    display: inline-block; /* Ajuste de ancho al contenido */
+    margin: 30px auto 50px; /* Márgenes superior e inferior de 30px y 50px respectivamente, centrado horizontalmente */
+    width: 70%; /* Ajusta según sea necesario */
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+  
+  .reviewsTitle {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #7971ea8d;
+  }
+
+  .reviewsTitle1 {
+    font-size: 28px;
+    margin-top: 30px;
+    color: #000000df;
+    text-align: center;
+  }
+
+  .reseñasTitle {
+    font-size: 24px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+text-align: center;  }
+  
+  .starsContainer {
+    margin-bottom: 20px;
+  }
+  
+  .starContainer {
+    display: inline-block; /* Mantener el tamaño de las estrellas */
+  }
+  
+  .star {
+    font-size: 24px;
+    margin: 0 5px;
+    cursor: pointer;
+    color: #000;
+  }
+  
+  .starFilled {
+    color: gold; /* Color de estrellas llenas */
+    font-size: 24px;
+  }
+  
+  .formContainer {
+    flex-direction: column;
+    align-items: center;
+    margin: 5px 50px; /* Margen de 5px arriba y abajo, 50px a la izquierda y derecha */
+
+  }
+  
+  .titleInput,
+  .descriptionInput {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .titleInput::placeholder,
+  .descriptionInput::placeholder {
+    color: #888;
+  }

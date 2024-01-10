@@ -97,7 +97,7 @@ const Card = ({ props, isWishlist, onDelete }) => {
         />
       )}
       <Button
-        text= "Agregar a carrito"
+        text= "Añadir"
         onClick={addProductToCart}
         style={{ width: "80px", height: "40px", marginBottom: "6px" }}
       />
