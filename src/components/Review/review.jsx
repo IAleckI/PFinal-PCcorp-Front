@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { useParams } from "react-router-dom";  // Importa useParams
+import { useParams } from "react-router-dom";
+import {jwtDecode} from 'jwt-decode';
 import { CREATE_USER_REVIEW_MUTATION } from "../../utils/graphql/mutations/review/review";
 import { Button, ReviewCard } from "../Index";
 import Style from "./review.module.css";
 
 const Reviews = () => {
-  const { id: productId } = useParams();  // Obtén el id del producto desde la ruta
+  const { id: productId } = useParams();
   const [rating, setRating] = useState(0);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const [tittle, setTitle] = useState("");
+  const [comment, setDescription] = useState("");
   const [reviews, setReviews] = useState([]);
-  
+
   const [createUserReview] = useMutation(CREATE_USER_REVIEW_MUTATION);
 
   const handleStarClick = (star) => {
@@ -27,22 +28,38 @@ const Reviews = () => {
   };
 
   const handleReviewSubmit = async () => {
-    if (!rating || !title || !description) {
+    if (!rating || !tittle || !comment) {
       alert("Por favor, complete todos los campos.");
       return;
     }
 
     try {
-      // Utiliza el productId obtenido de la ruta
-      const userId = "your-user-id";
+      // Obtén userId desde el localStorage
+      let userId = "";
+      try {
+        const userInfo = localStorage.getItem("USER_INFO");
+        if (userInfo) {
+          const decodedToken = jwtDecode(userInfo);
+          userId = decodedToken.email;
+        } else {
+          console.warn(
+            "User is not logged in. USER_INFO not found in localStorage."
+          );
+        }
+      } catch (error) {
+        console.error("Error decoding USER_INFO:", error);
+      }
+
+      console.log("productId:", productId);
+      console.log("userId:", userId);
 
       const { data } = await createUserReview({
         variables: {
           userId,
           productId,
           rating,
-          tittle: title,  // Corrige el nombre de la variable
-          comment: description,
+          tittle: tittle,
+          comment: comment,
         },
       });
 
@@ -70,7 +87,9 @@ const Reviews = () => {
             {[1, 2, 3, 4, 5].map((star) => (
               <span
                 key={star}
-                className={star <= rating ? Style.starFilled : Style.star}
+                className={
+                  star <= rating ? Style.starFilled : Style.star
+                }
                 onClick={() => handleStarClick(star)}
               >
                 &#9733;
@@ -81,14 +100,14 @@ const Reviews = () => {
             <input
               type="text"
               placeholder="Título de tu reseña"
-              value={title}
+              value={tittle}
               onChange={handleTitleChange}
               maxLength={30}
               className={Style.titleInput}
             />
             <textarea
               placeholder="Descripción de tu reseña"
-              value={description}
+              value={comment}
               onChange={handleDescriptionChange}
               maxLength={50}
               className={Style.descriptionInput}
