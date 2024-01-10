@@ -1,9 +1,52 @@
 .cardContainer {
-    display: flex;
-    flex-wrap: wrap; 
-    gap: 20px; 
-    justify-content: space-around; 
-    margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-around;
+  margin-top: 20px;
+}
 
-  }
-  
+.noFavsText {
+  text-align: center;
+  font-size: 20px;
+  padding: 10px;
+  font-weight: 500;
+}
+
+.imgConfused {
+  display: flex;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  margin: auto; /* Agrega esta línea */
+  padding-bottom: 20px;
+}
+
+.noFavsButton {
+  font-family: "Sora", sans-serif;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 50px;
+  background-color: #7971ea;
+  color: #fff;
+  letter-spacing: 3px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  margin: auto;
+  text-decoration: none;
+}
+
+.noFavsButton:hover {
+  background-color: #7971eacc;
+}
+
+.link {
+  text-decoration: none;
+}
