@@ -1,20 +1,168 @@
-.AboutUs {
+.AboutUsWrapper {
+    position: relative;
+    margin: 20px;
+  }
+  
+  .BannerImage {
     width: 100%;
-    height: 600px;
-    background-image: url('../../Assets/Img/AboutUsImgs/reu5.jpg');
-    background-position: center;
+    height: auto;
+  }
+  
+  .RowContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .AboutUsText {
+    color: rgba(201, 201, 201, 0.725);
+    font-weight: bold;
+    margin: 0;
+    font-size: 42px;
+    margin-bottom: 950px; 
+  }
+  
+  .text {
+    color: #505050ce;
+  }
+
+  .TextOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 20px;
-    padding-top: 80px;
-}
-.AboutUs h1, AboutUs h2 {
-    font-size: 50px;
-    color: #5a0bb4;
-}
-.AboutUs p, .AboutUs button {
-    margin-left: 30px;
-    font-size: 30px;
-    color: #5a0bb4;
-} 
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .SectionsContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .Section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(48% - 20px); 
+    margin: 10px; 
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease-in-out;
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+  }
+  
+  .Section:hover {
+    transform: scale(1.03);
+  }
+  
+  .SectionIcon {
+    width: 90px;
+    height: auto;
+    margin-bottom: 15px;
+    fill: #7971ea;
+  }
+  
+  .SectionContent {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .SectionTitle {
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 30px;
+  }
+  
+  .SectionTitle::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #7971ea;
+    transition: width 1s ease, right 1s ease;
+  }
+  
+  .SectionTitle:hover::before {
+    width: 100%;
+  }
+  
+  .Section:hover .SectionTitle::before {
+    width: 100%;
+    left: unset;
+  }
+  
+  .Section:nth-child(even):hover .SectionTitle::before {
+    left: unset;
+    right: 0;
+  }
+  
+  .Section:nth-child(even) .SectionTitle::before {
+    right: 0;
+    left: unset;
+  }
+  
+  .Section:hover .SectionTitle::before {
+    width: 100%;
+    left: 0;
+  }
+
+  .TeamMembers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .TeamRow {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 800px; 
+  }
+  .TeamSection {
+    margin: 20px;
+    text-align: center;
+  }
+
+  .SectionTitle {
+    font-size: 28px;
+
+  }
+  
+ 
+  .TeamMember {
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .TeamMemberPhoto {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #7971ea; /* Color del círculo */
+    display: block;
+    margin: 5px auto; /* Ajusta el margen entre la imagen y el círculo */
+    padding: 3px; /* Ajusta el padding entre la imagen y el círculo */
+    box-shadow: 0 0 0 10px white; /* Ajusta el ancho y el color del espacio entre la imagen y el círculo */
+  }
+  
+  .TeamMemberName {
+    font-weight:bolder;
+    font-size: 16px;
+    margin-top: 10px;
+    max-width: 120px; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  

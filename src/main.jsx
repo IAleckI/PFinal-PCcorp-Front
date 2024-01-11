@@ -6,12 +6,13 @@ import { ApolloClient, HttpLink, ApolloProvider , InMemoryCache } from '@apollo/
 import { Provider } from "react-redux";
 import { store } from "./utils/state/store.js";
 
+const URL = import.meta.env.VITE_URL
 
 const client = new ApolloClient({
     connectToDevTools: true,
     cache: new InMemoryCache(),
     link: new HttpLink({
-      uri:'https://back-mans.onrender.com/graphql'
+      uri: URL
     })
 })
 

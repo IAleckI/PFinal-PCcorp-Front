@@ -11,20 +11,18 @@ const SearchBar = () => {
   const { data } = useSelector(state => state.products)
   const navigate = useNavigate()
   function handleChange(e) {
-    
     if(e.key === 'Enter') {
       const searchProducts = data.filter(product => product.name.toLowerCase().includes(search.toLowerCase()))
       dispatch(setFiltered(searchProducts))
       setSearch('')
       navigate('/catalogo')
-      return false;
     }
   }
 
   return (
     <div className={Style.searchBar}>
       <img src={lupalogo} alt="lupa" />
-      <input type="search" placeholder="Buscar" value={search} onChange={(e) => setSearch(e.target.value)} onKeyDown={handleChange}/>
+      <input type="search" placeholder="Buscar" value={search} onChange={(e) => setSearch(e.target.value)} onKeyDown={handleChange} />
    </div>
   )
 }

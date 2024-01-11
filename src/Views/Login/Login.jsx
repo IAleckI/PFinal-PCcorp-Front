@@ -1,13 +1,11 @@
-import { LoginComponent, Footer, NavBar } from '../../components/Index'
+import { NavBar, Footer, LoginTemplate } from '../../components/Index'
 
-const Login = () => {
-  return (
-    <div>
-      <NavBar/>
-      <LoginComponent />
-      <Footer/>
-    </div>
-  )
+export default function Login () {
+    return (
+        <div>
+            <NavBar/>
+            <LoginTemplate/>
+            <Footer/>
+        </div>
+    )
 }
-
-export default Login

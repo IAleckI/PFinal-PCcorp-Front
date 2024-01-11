@@ -25,7 +25,7 @@
 
 .card h2 {
     color: #7971EA;
-    font-size: 18px;
+    font-size: 16px;
     white-space: wrap;
     width: 200px;
     height: 80px;
@@ -37,11 +37,14 @@
 
 .card_price {
     color: #7971EA;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .card h3 {
     color: #8C92A0;
+    font-size: 16px;
+    margin-bottom: 5px;
+
 }
 
 @media only screen and (max-width: 1024px) {
@@ -54,4 +57,61 @@
     width: 60px !important;
     height: 60px !important;
     margin-left: 300px;
+  }
+
+
+  .deleteButton {
+    background-color: #f44336 !important;
+    color: white !important;
+    border: none;
+    padding: 10px 20px !important;
+    text-align: center !important;
+    text-decoration: none !important ;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+ 
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    margin: 10px !important;
+  }
+
+
+.popup {
+    background-color: #7971EA !important;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+  }
+
+  .popupDel {
+    background-color: #7971EA !important;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+  }
+
+  .carritoIcon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px; /* Ajusta el margen según sea necesario */
+  }
+  
+  .addToCartButton {
+    display: flex;
+    align-items: center;
   }

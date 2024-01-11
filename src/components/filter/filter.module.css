@@ -1,15 +1,23 @@
 .filter {
     min-width: 350px;
-    height: 800px;
+    height: 1150px;
     box-shadow: 2px 2px 6px #ccc;
     margin: 20px;
     display: flex;
     flex-direction: column;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid #7971EA;
+}
+.filter > * {
+    margin-bottom: 10px;
 }
 
-.filter h2 {
+.filter h2  {
     color: #666;
     font-family: sans-serif;
+    text-align: center;
+    padding-top: 15px;
 }
 
 .tittle {
@@ -18,15 +26,24 @@
     margin-top: 5px;
     color: #666;
     font-family: sans-serif;
+    text-align: center;
 }
 
+.search{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    padding: 10px, 10px, 10px;
+  
+}
 .button {
     background-color: transparent;
     height: 40px;
     font-size: 20px;
     border-radius: 8px;
     border-color: #7971EA;
-    margin-right: 10px;
+    margin-top: 10px; /* Ajusta según tus preferencias */
+    margin-bottom: 20px; /* Ajusta según tus preferencias */
     cursor: pointer;
-    margin-top: 20px;
 }
