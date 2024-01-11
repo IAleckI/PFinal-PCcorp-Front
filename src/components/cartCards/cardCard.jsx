@@ -15,7 +15,7 @@ export default function CardCard(props) {
               <h2>{name}</h2>
             </div>
             <div className={Style.card_data}>
-            <h3 className={Style.preciocart}> ${total.toLocaleString('es-ES', { maximumFractionDigits: 0 })}</h3>
+            <h3 className={Style.preciocart}> $ {total.toLocaleString('es-ES', { maximumFractionDigits: 0 })}</h3>
               <div className={Style.card_amount}>
                 <button onClick={decreaseProductoOfCart} >-</button>
                 <h3>{amount}</h3>
