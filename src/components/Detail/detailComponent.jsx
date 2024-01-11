@@ -12,6 +12,10 @@ const ProductDetail = () => {
   });
   const { addProductToCart } = useAddProductToCart(id)
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   if (loading) return <h1 className={Style.loading}>Cargando...</h1>;
   if (error)
     return (
