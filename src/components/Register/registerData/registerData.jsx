@@ -13,13 +13,12 @@ export default function RegisterData() {
             <Input info={register("userName")} error={errors.userName?.message} name={ "User name"}/>
             <Input info={register('email')} error={errors.email?.message} name={'Email adress'} type={'email'}/>
             <Input info={register('repeatEmail')} error={errors.repeatEmail?.message} name={'Repeat email'} type={'email'}/>
-           
+
             <Input info={register('password')} error={errors.password?.message} name={'Password'} type={'password'}/>
             <Input info={register('repeatPassword')} error={errors.repeatPassword?.message} name={'Password'} type={'password'}/>
             <div className={Style.login_form_buttons}>
                 <PrimaryButton type='submit' text='Register'  />
-                <PrimaryButton type='button' text='Go Back' onClick={()=> navigate('/')}/>
-              
+                <PrimaryButton type='button' text='Go Back' onClick={()=> window.history.back()}/>
             </div>
         </form>
     )
