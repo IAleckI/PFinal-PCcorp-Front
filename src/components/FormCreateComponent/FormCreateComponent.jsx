@@ -49,9 +49,13 @@ const FormCreateComponent = () => {
     <div className={Style.template}>
     <h1 className={Style.title}>FormCreateComponent</h1>
   
-    <form className={Style.form} onSubmit={handleSubmit(onSubmit)}>
+    <form method="POST" className={Style.form} onSubmit={handleSubmit(onSubmit)}>
+  
       <label htmlFor="name">Name</label>
       <input className={Style.input} type="text" {...register("name")} />
+
+      {/* <label htmlFor="description">Description</label>
+      <textarea className={Style.input} name="description" id="" cols="50" rows="50"></textarea> */}
   
       <label htmlFor="model">Model</label>
       <input className={Style.input}  type="text" {...register("model")} />
@@ -66,15 +70,10 @@ const FormCreateComponent = () => {
       <input className={Style.input} type="number" min="1" {...register("stock")} />
   
       <label htmlFor="price">Price</label>
-      <input className={Style.input} type="number" min="1" {...register("price")} />
-
-      {/* <label htmlFor="image">Upload Image</label>
-      <input className={Style.input}type="file" {...register("image")} /> */}
-      
-      <label htmlFor="image">Upload Image</label>
-      <input className={Style.input} type="text" {...register("image")}/>
-
-      {/* {console.log(register)} */}
+      <input className={Style.input} type="number" {...register("price")} />
+  
+    <label htmlFor="image">Upload Image</label>
+    <input className={Style.input}type="file" {...register("image")} />
 
       <button className={Style.input} type="submit">Submit</button>
     </form>

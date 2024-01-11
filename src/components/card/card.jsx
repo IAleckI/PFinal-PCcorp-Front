@@ -16,7 +16,6 @@ const Card = ({ props, isWishlist, onDelete }) => {
   let email = '';
   try {
     const userInfo = localStorage.getItem('USER_INFO');
-    console.log("user info:", userInfo, )
     if (userInfo) {
       const decodedToken = jwtDecode(userInfo);
       email = decodedToken.email;
@@ -97,7 +96,7 @@ const Card = ({ props, isWishlist, onDelete }) => {
         />
       )}
       <Button
-        text= "Agregar a carrito"
+        text= "Añadir"
         onClick={addProductToCart}
         style={{ width: "80px", height: "40px", marginBottom: "6px" }}
       />
