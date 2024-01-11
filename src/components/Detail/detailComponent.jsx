@@ -36,16 +36,16 @@ const ProductDetail = () => {
       <div className={Style.infoContainer}>
         <h1>{getProductById.name}</h1>
         <h2>Marca: {getProductById.brand}</h2>
-        <h2>Precio: {getProductById.price}</h2>
+        <h2>Precio: $ {getProductById.price.toLocaleString('es-ES', { maximumFractionDigits: 0 })}</h2>
         <h2>Modelo: {getProductById.model}</h2>
         <h2>Tipo: {getProductById.type}</h2>
         <h2>Descripción: {getProductById.description}</h2>
         <h2>Stock: {getProductById.stock}</h2>
-
+  
         <Button text={"Añadir al carrito"} onClick={addProductToCart} />
       </div>
     </div>
   );
-};
+  }  
 
 export default ProductDetail;

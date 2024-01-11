@@ -14,7 +14,7 @@
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .cartList h1 {
