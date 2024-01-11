@@ -5,9 +5,9 @@ import { useGetProducts } from "../../utils/hooks/products/useMutationProducts";
 import { Link } from "react-router-dom";
 
 export default function CartList() {
-  const { products, loading, error } = useGetProducts();
+  const { products, error } = useGetProducts();
 
-  if (loading) return <p>Cargando...</p>;
+  // if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
   if (!products || products.length === 0) {
