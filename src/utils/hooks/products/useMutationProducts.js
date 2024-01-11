@@ -13,7 +13,6 @@ export const useAddProductToCart = (id) => {
     let email = '';
   try {
     const userInfo = localStorage.getItem('USER_INFO');
-    console.log("user info:", userInfo, )
     if (userInfo) {
       const decodedToken = jwtDecode(userInfo);
       email = decodedToken.email;
