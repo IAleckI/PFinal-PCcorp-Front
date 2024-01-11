@@ -22,15 +22,15 @@ export default function CartList() {
   }
   return (
     <div className={Style.cartList_container}>
-        <div className={Style.cartList}>
-            <h1>Carrito</h1>
-            {products.map(p => (
-                <CardCard key={p.id} props={p} />
-            ))}
-        </div>
-        <div className={Style.checkout}>
+      <div className={Style.cartList}>
+        <h1>Carrito</h1>
+        {products.map(p => (
+          <CardCard key={p.id} props={p} />
+        ))}
+      </div>
+      <div className={`${Style.cartList_container} ${Style.checkout}`}>
         <CheckOut cartProducts={products} />
-        </div>
+      </div>
     </div>
-);
+  );
 }
