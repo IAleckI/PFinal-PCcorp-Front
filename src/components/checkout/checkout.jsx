@@ -23,7 +23,7 @@ export default function CheckOut({ cartProducts }) {
             </div>
             <div className={Style.checkout_info}>
                 <h2>total</h2>
-                <h2>$ {result.data.getTotalPrice + price}</h2>
+                <h2>$ {Math.floor(result.data.getTotalPrice + price)}</h2>
             </div>
 
             {loading
