@@ -28,7 +28,9 @@ export default function CartList() {
                 <CardCard key={p.id} props={p} />
             ))}
         </div>
+        <div className={Style.checkout}>
         <CheckOut cartProducts={products} />
+        </div>
     </div>
 );
 }
