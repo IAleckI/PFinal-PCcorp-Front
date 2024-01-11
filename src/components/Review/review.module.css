@@ -73,3 +73,16 @@ text-align: center;  }
   .descriptionInput::placeholder {
     color: #888;
   }
+
+
+  .reviewCardSection {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 10px; /* Ajusta el espaciado según sea necesario */
+    margin-bottom: 20px; /* Ajusta el margen según sea necesario */
+  }
+  
+  .reviewCardSection > * {
+    margin-right: 10px; /* Ajusta el margen entre las tarjetas según sea necesario */
+  }

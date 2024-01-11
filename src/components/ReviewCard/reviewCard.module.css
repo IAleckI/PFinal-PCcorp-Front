@@ -1,15 +1,27 @@
 .reviewCard {
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 20px;
-  }
-  
-  .starsContainer {
-    margin-bottom: 10px;
-  }
-  
-  .starFilled {
-    color: gold;
-    font-size: 18px;
-  }
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  width: 500px;
+  height: 130px;
+  margin: 15px;
+  position: relative;
+}
+
+.starsContainer {
+  position: relative;
+  top: 5px;
+}
+
+.starFilled {
+  color: gold;
+  font-size: 24px;
+}
+
+/* Agrega estilo para usar display flex en las tarjetas de revisión */
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

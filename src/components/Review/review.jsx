@@ -87,9 +87,7 @@ const Reviews = () => {
             {[1, 2, 3, 4, 5].map((star) => (
               <span
                 key={star}
-                className={
-                  star <= rating ? Style.starFilled : Style.star
-                }
+                className={star <= rating ? Style.starFilled : Style.star}
                 onClick={() => handleStarClick(star)}
               >
                 &#9733;
@@ -125,9 +123,12 @@ const Reviews = () => {
         </div>
       </div>
 
-      {reviews.map((review, index) => (
-        <ReviewCard key={index} {...review} />
-      ))}
+      {/* Nueva sección para las ReviewCards */}
+      <div className={Style.reviewCardSection}>
+        {reviews.map((review, index) => (
+          <ReviewCard key={index} {...review} />
+        ))}
+      </div>
     </div>
   );
 };
