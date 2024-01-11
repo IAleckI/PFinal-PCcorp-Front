@@ -27,8 +27,8 @@ const FormCreateComponent = () => {
   const onSubmit = async (data) => {
     try {
       console.log(data)
-      await createProduct({
-        
+      const result = await createProduct({
+        variables:{
           name: data.name,
           model: data.model,
           family: data.family,
@@ -36,8 +36,10 @@ const FormCreateComponent = () => {
           stock: parseInt(data.stock),
           price: parseInt(data.price),
           image: data.image,
-       
+          
+        }
       });
+      console.log("Mutation result:", result)
     } catch (error) {
       console.error("Error in createProduct mutation:", error);
     }
@@ -48,9 +50,6 @@ const FormCreateComponent = () => {
     <h1 className={Style.title}>FormCreateComponent</h1>
   
     <form className={Style.form} onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="image">Upload Image</label>
-      <input className={Style.input}type="file" {...register("image")} />
-  
       <label htmlFor="name">Name</label>
       <input className={Style.input} type="text" {...register("name")} />
   
@@ -64,13 +63,22 @@ const FormCreateComponent = () => {
       <input className={Style.input} type="text" {...register("brand")} />
   
       <label htmlFor="stock">Stock</label>
-      <input className={Style.input} type="number" {...register("stock")} />
+      <input className={Style.input} type="number" min="1" {...register("stock")} />
   
       <label htmlFor="price">Price</label>
-      <input className={Style.input} type="number" {...register("price")} />
-  
+      <input className={Style.input} type="number" min="1" {...register("price")} />
+
+      {/* <label htmlFor="image">Upload Image</label>
+      <input className={Style.input}type="file" {...register("image")} /> */}
+      
+      <label htmlFor="image">Upload Image</label>
+      <input className={Style.input} type="text" {...register("image")}/>
+
+      {/* {console.log(register)} */}
+
       <button className={Style.input} type="submit">Submit</button>
     </form>
+
   </div>
   );
 };
