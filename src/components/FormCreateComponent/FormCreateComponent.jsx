@@ -26,7 +26,7 @@ const FormCreateComponent = () => {
 
   const onSubmit = async (data) => {
     try {
-      console.log(data)
+      console.log(data)   
       const result = await createProduct({
         variables:{
           name: data.name,
@@ -56,7 +56,7 @@ const FormCreateComponent = () => {
 
       {/* <label htmlFor="description">Description</label>
       <textarea className={Style.input} name="description" id="" cols="50" rows="50"></textarea> */}
-  
+      
       <label htmlFor="model">Model</label>
       <input className={Style.input}  type="text" {...register("model")} />
   
@@ -70,12 +70,12 @@ const FormCreateComponent = () => {
       <input className={Style.input} type="number" min="1" {...register("stock")} />
   
       <label htmlFor="price">Price</label>
-      <input className={Style.input} type="number" {...register("price")} />
+      <input className={Style.input} type="number" min="1" {...register("price")} />
   
     <label htmlFor="image">Upload Image</label>
-    <input className={Style.input}type="file" {...register("image")} />
+    <input className={Style.input} type="file" {...register("image")} />
 
-      <button className={Style.input} type="submit">Submit</button>
+      <button className={Style.input} type="submit" >Submit</button>
     </form>
 
   </div>
