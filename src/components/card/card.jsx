@@ -83,7 +83,7 @@ const Card = ({ props, isWishlist, onDelete }) => {
         <img src={props.image} alt={props.name} />
         <h2 title={props.name}>{props.name}</h2>
         <h3>{props.model}</h3>
-        <h4 className={Style.card_price}>${props.price}</h4>
+        <h4 className={Style.card_price}>${props.price.toLocaleString('es-ES', { maximumFractionDigits: 0 })}</h4>
       </NavLink>
       {isWishlist && (
         <Button

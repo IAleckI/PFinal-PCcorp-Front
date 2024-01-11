@@ -5,7 +5,7 @@ import { useDecreaseProduct } from '../../utils/hooks/products/useMutationProduc
 
 export default function CardCard(props) {
     const { id, name, image, total, amount} = props.props
-    const { addProductToCart, addLoading } = useAddProductToCart(id)
+    const { addProductToCart } = useAddProductToCart(id)
     const { decreaseProductoOfCart, loading } = useDecreaseProduct(id)
 
     return (
@@ -17,11 +17,10 @@ export default function CardCard(props) {
             <div className={Style.card_data}>
               <h3>{total}</h3>
               <div className={Style.card_amount}>
-                {loading && <h3>Cargando...</h3>}
                 <button onClick={decreaseProductoOfCart} >-</button>
                 <h3>{amount}</h3>
                 <button onClick={addProductToCart}>+</button>
-                {addLoading && <h3>Cargando...</h3>}
+                
               </div>
             </div>
         </div>
