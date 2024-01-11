@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { Button } from "../Index";
@@ -10,9 +11,10 @@ const ProductDetail = () => {
   const { loading, error, data } = useQuery(GET_PRODUCT_BY_ID, {
     variables: { id },
   });
-  const { addProductToCart } = useAddProductToCart(id)
+  const { addProductToCart } = useAddProductToCart(id);
 
   useEffect(() => {
+  
     window.scrollTo(0, 0);
   }, []);
 
@@ -39,11 +41,8 @@ const ProductDetail = () => {
         <h2>Tipo: {getProductById.type}</h2>
         <h2>Descripción: {getProductById.description}</h2>
         <h2>Stock: {getProductById.stock}</h2>
-        
-        <Button 
-          text={'Añadir al carrito'}
-          onClick={addProductToCart}
-          />
+
+        <Button text={"Añadir al carrito"} onClick={addProductToCart} />
       </div>
     </div>
   );
