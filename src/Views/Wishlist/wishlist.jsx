@@ -72,7 +72,7 @@ const Wishlist = () => {
     );
   }
 
-  if (!favs || favs.length === 0) {
+  if (!favs || favs?.length === 0) {
     return (
       <div>
         <NavBar />

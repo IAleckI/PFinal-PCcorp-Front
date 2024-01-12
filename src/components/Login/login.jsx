@@ -1,13 +1,26 @@
-import Style from './login.module.css'
-import { useGoogle } from '../../utils/hooks/network/google/useGoogle'
-import { useFacebook } from '../../utils/hooks/network/facebook/useFacebook'
-import LoginData from './loginData/loginData'
-import GoogleLogin from 'react-google-login'
-
+import Style from "./login.module.css";
+import { useGoogle } from "../../utils/hooks/network/google/useGoogle";
+import { useFacebook } from "../../utils/hooks/network/facebook/useFacebook";
+import LoginData from "./loginData/loginData";
+import GoogleLogin from "react-google-login";
+import swal from "sweetalert";
 
 export default function LoginTemplate() {
-  const clientId = useGoogle()
-  
+  const clientId = useGoogle();
+
+  const mostrarAlerta = () => {
+    swal({
+      title: "Login exitoso",
+      text: "Bienvenido a Make My PC",
+      icon: "success",
+      button: "Continuar",
+    });
+  };
+
+  const handlerGoogleLoginSucces = (responseGoogle) => {
+    mostrarAlerta();
+    console.log(responseGoogle);
+  };
 
   return (
     <div className={Style.login}>
@@ -17,16 +30,16 @@ export default function LoginTemplate() {
           <GoogleLogin
             clientId={clientId}
             buttonText="Login with Google"
-            onSuccess={responseGoogle => console.log(responseGoogle)}
-            onFailure={responseGoogle => console.log(responseGoogle)}
-            cookiePolicy={'single_host_origin'}
+            onSuccess={handlerGoogleLoginSucces}
+            onFailure={(responseGoogle) => console.log(responseGoogle)}
+            cookiePolicy={"single_host_origin"}
             className={Style.login_google_button}
           />
-          
-          <div className={Style.login_middle}/>
-          <LoginData/>
+
+          <div className={Style.login_middle} />
+          <LoginData />
         </div>
       </section>
     </div>
-  )
+  );
 }

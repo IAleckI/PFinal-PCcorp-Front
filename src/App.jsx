@@ -1,7 +1,7 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 
-import { Home, Detail , Catalogo, Wishlist, RegisterComponent, FormCreate, AboutUs, Cart, Login } from "./Views/Index";
+import {ArmaTuPC,  Home, Detail , Catalogo, Wishlist, RegisterComponent, FormCreate, AboutUs, Cart, Login } from "./Views/Index";
 import { GetToken} from "./components/Index";
 
 function App() {
@@ -17,6 +17,7 @@ function App() {
         <Route path="/create" element={<FormCreate/>} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/build" element={<ArmaTuPC />}/>
 
       </Routes>
   );

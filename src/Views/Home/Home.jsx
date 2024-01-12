@@ -7,6 +7,7 @@ import {
 } from "../../components/Index";
 import { useProducts } from "../../utils/hooks/products/useProducts";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const { data } = useSelector((state) => state.products);
@@ -16,7 +17,7 @@ const Home = () => {
   const targetasGraficasDest = data
     ?.filter((product) => product.type == "Tarjetas graficas")
     .map((product) => <Card key={product.id} props={product} />);
-  const procesadores =data
+  const procesadores = data
     ?.filter((product) => product.type == "Procesadores")
     .map((product) => <Card key={product.id} props={product} />);
 
@@ -38,8 +39,18 @@ const Home = () => {
         />
       )}
       {procesadores && (
-        <CardCarrousel components={procesadores} tipo="Procesadores destacados" />
+        <CardCarrousel
+          components={procesadores}
+          tipo="Procesadores destacados"
+        />
       )}
+
+      <p>
+        ¿Quieres ver más?, Entrá en nuestro catalogo y consigue lo que querés
+      </p>
+      <button>
+        <Link to="/catalogo">Ir al catalogo</Link>
+      </button>
       <Footer />
     </div>
   );

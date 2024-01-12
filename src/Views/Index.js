@@ -1,3 +1,4 @@
+import ArmaTuPC from "./ArmaTuPC/ArmaTuPC";
 import Home from "./Home/Home";
 import Detail from "./Detail/Detail";
 import Login from "./Login/Login";
@@ -9,6 +10,7 @@ import FormCreate from "./FormCreate/FormCreate";
 import AboutUs from "./AboutUs/AboutUs";
 
 export {
+  ArmaTuPC,
   Home,
   Detail,
   Login,
