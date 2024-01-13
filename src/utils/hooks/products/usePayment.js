@@ -34,7 +34,9 @@ export const usePayment = () => {
                 })
                 
                 const paymentResult = await getPayment({
-                    variables: { items: mapped }, 
+                    variables: { 
+                        userId: email,
+                        items: mapped }, 
                 })
 
                 setPaymentId(paymentResult.data.createPayment)
