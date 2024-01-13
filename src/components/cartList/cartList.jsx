@@ -35,7 +35,7 @@ export default function CartList() {
         ))}
 
         {products.length > 3 && (
-          <button onClick={() => setIsExpanded(!isExpanded)}>
+          <button className={Style.button} onClick={() => setIsExpanded(!isExpanded)}>
             {isExpanded ? "Contraer" : "Expandir"}
           </button>
         )}
