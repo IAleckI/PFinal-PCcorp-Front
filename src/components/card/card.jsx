@@ -31,7 +31,7 @@ const Card = ({ props, isWishlist, onDelete }) => {
   const [isInWishlist, setIsInWishlist] = useState(false);
   const [addFavMutation] = useMutation(ADD_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: email } }] });
   const [deleteFavMutation] = useMutation(DELETE_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: email } }] });
-  const { addProductToCart } = useAddProductToCart(props.id);
+  const { addProductToCart, addLoading } = useAddProductToCart(props.id);
   const [showPopup, setShowPopup] = useState(false);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [showDeletePopupFromButton, setShowDeletePopupFromButton] = useState(false);
@@ -40,13 +40,6 @@ const Card = ({ props, isWishlist, onDelete }) => {
   useEffect(() => {
     setIsInWishlist(isWishlist);
   }, [isWishlist]);
-
-  useEffect(() => {
-    setShowCartPopup(false); 
-    return () => {
-      setShowCartPopup(false); 
-    };
-  }, []);
 
   const handleFavToggle = async () => {
     try {
@@ -64,7 +57,7 @@ const Card = ({ props, isWishlist, onDelete }) => {
       setTimeout(() => {
         setShowPopup(false);
         setShowDeletePopup(false);
-      }, 2000);
+      }, 1500);
     } catch (error) {
       console.error("Error al añadir/eliminar de favoritos:", error);
     }
@@ -73,6 +66,7 @@ const Card = ({ props, isWishlist, onDelete }) => {
   const handleAddToCart = () => {
     addProductToCart();
     setShowCartPopup(true);
+
 
     setTimeout(() => {
       setShowCartPopup(false);
@@ -118,7 +112,7 @@ const Card = ({ props, isWishlist, onDelete }) => {
       )}
 
       {showCartPopup && ( 
-        <div className={Style.popupCart}>
+        <div className={Style.popup}>
           <p>Añadido al Carrito</p>
         </div>
       )}
