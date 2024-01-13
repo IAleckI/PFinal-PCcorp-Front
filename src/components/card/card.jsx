@@ -11,7 +11,6 @@ import Corazon2 from "../../Assets/Logos/Corazon2.png";
 import { useAddProductToCart } from "../../utils/hooks/products/useMutationProducts";
 import { jwtDecode } from "jwt-decode";
 
-
 const Card = ({ props, isWishlist, onDelete }) => {
   let email = '';
   try {
@@ -21,31 +20,27 @@ const Card = ({ props, isWishlist, onDelete }) => {
       email = decodedToken.email;
     } else {
       console.warn("User is not logged in. USER_INFO not found in localStorage.");
-      
       email = ''; 
     }
   } catch (error) {
     console.error("Error decoding USER_INFO:", error);
-
     email = ''; 
   }
 
-  
-  const { addProductToCart, addLoading } = useAddProductToCart(props.id)
   const [hovered, setHovered] = useState(false);
   const [isInWishlist, setIsInWishlist] = useState(false);
   const [addFavMutation] = useMutation(ADD_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: email } }] });
   const [deleteFavMutation] = useMutation(DELETE_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: email } }] });
+  const { addProductToCart, addLoading } = useAddProductToCart(props.id);
   const [showPopup, setShowPopup] = useState(false);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [showDeletePopupFromButton, setShowDeletePopupFromButton] = useState(false);
   const [showCartPopup, setShowCartPopup] = useState(false);
-  
+
   useEffect(() => {
     setIsInWishlist(isWishlist);
   }, [isWishlist]);
-  
- 
+
   const handleFavToggle = async () => {
     try {
       if (isInWishlist) {
@@ -56,6 +51,7 @@ const Card = ({ props, isWishlist, onDelete }) => {
         await addFavMutation({ variables: { productId: props.id, userId: email } });
         setShowPopup(true);
       }
+
       setIsInWishlist(!isInWishlist);
 
       setTimeout(() => {
@@ -67,10 +63,16 @@ const Card = ({ props, isWishlist, onDelete }) => {
     }
   };
 
+  const handleAddToCart = () => {
+    addProductToCart();
+    setShowCartPopup(true);
 
-  
+    // Ajusta el tiempo de visualización del popup del carrito
+    setTimeout(() => {
+      setShowCartPopup(false);
+    }, 1500);
+  };
 
-  
   return (
     <figure className={Style.card}>
       <img
@@ -98,14 +100,20 @@ const Card = ({ props, isWishlist, onDelete }) => {
         />
       )}
       <Button
-        text= "Añadir"
-        onClick={addProductToCart}
+        text="Añadir"
+        onClick={handleAddToCart}
         style={{ width: "80px", height: "40px", marginBottom: "6px" }}
       />
 
       {showPopup && ( 
         <div className={Style.popup}>
           <p>Agregado a Favoritos</p>
+        </div>
+      )}
+
+      {showCartPopup && ( 
+        <div className={Style.popup}>
+          <p>Añadido al carrito</p>
         </div>
       )}
 
