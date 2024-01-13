@@ -7,7 +7,7 @@ import GoogleLogin from 'react-google-login'
 
 export default function LoginTemplate() {
   const clientId = useGoogle()
-  
+  const {onFailure, onSuccess} = useGoogle()
 
   return (
     <div className={Style.login}>
@@ -17,8 +17,8 @@ export default function LoginTemplate() {
           <GoogleLogin
             clientId={clientId}
             buttonText="Login with Google"
-            onSuccess={responseGoogle => console.log(responseGoogle)}
-            onFailure={responseGoogle => console.log(responseGoogle)}
+            onSuccess={onSuccess}
+            onFailure={onFailure}
             cookiePolicy={'single_host_origin'}
             className={Style.login_google_button}
           />

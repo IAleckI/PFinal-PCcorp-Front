@@ -41,6 +41,7 @@
   border-radius: 4px;
   margin: auto;
   text-decoration: none;
+  margin-bottom: 20px;
 }
 
 .noFavsButton:hover {

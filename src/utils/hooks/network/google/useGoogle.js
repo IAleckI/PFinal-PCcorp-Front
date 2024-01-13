@@ -1,9 +1,13 @@
 import { gapi } from "gapi-script";
 import { useEffect } from "react";
-
+import { NETWORK_LOGIN } from "../../../graphql/querys/user/userNetworkLogin";
+import { useLazyQuery } from "@apollo/client";
+import { useNavigate } from "react-router-dom";
 
 export const useGoogle = () => {
     const clientId = "1071609619402-4eavh491h2ak8v4lqu0eqq02osfuq8ai.apps.googleusercontent.com"
+    const [getUserNetworkLogin]= useLazyQuery(NETWORK_LOGIN)
+   const navigate = useNavigate()
     
     useEffect(() => {
         const start = () => {
@@ -15,7 +19,24 @@ export const useGoogle = () => {
         gapi.load('client:auth2', start)
     },[])
 
-    function onSuccess (res) {
+    async function onSuccess (res) {
+        try {
+          const result =  await getUserNetworkLogin({
+            variables: {
+                email: res.profileObj.email,
+                userName: res.profileObj.name,
+            }
+        })
+        if (result?.error?.message) throw new Error(result.error.message);
+        
+        const userInfo = result.data.getUserNetworkLogin
+        localStorage.setItem('USER_INFO', userInfo);
+        console.log("USER_INFO:", userInfo)
+        navigate("/")
+    } catch (error) {
+         console.log(error) ;
+        }
+        
         console.log(res);
     }
 

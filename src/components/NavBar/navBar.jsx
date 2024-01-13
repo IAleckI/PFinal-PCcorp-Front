@@ -14,7 +14,9 @@ const NavBar = () => {
     <nav className={Style.navbar}>
       <div className={Style.firstNavbar}>
         <Link to={"/"}><img src={homelogo} alt="logo"  className={Style.logo}/></Link>
-        <SearchBar/>
+        <div className={Style.searchBar}>
+          <SearchBar/>
+        </div>
         <div className={Style.navbar_user}>
           <Link to={"/wishlist"}><img src={wishlist} alt="wishlist" /></Link>
           <Link to={"/cart"}><img src={bolsalogo} alt="bolsa" /></Link>

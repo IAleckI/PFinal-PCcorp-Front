@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { useParams } from "react-router-dom";
-import {jwtDecode} from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 import { CREATE_USER_REVIEW_MUTATION } from "../../utils/graphql/mutations/review/review";
 import { Button, ReviewCard } from "../Index";
 import Style from "./review.module.css";
@@ -12,8 +12,8 @@ const Reviews = () => {
   const [tittle, setTitle] = useState("");
   const [comment, setDescription] = useState("");
   const [reviews, setReviews] = useState([]);
-
   const [createUserReview] = useMutation(CREATE_USER_REVIEW_MUTATION);
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleStarClick = (star) => {
     setRating(star);
@@ -42,16 +42,11 @@ const Reviews = () => {
           const decodedToken = jwtDecode(userInfo);
           userId = decodedToken.email;
         } else {
-          console.warn(
-            "User is not logged in. USER_INFO not found in localStorage."
-          );
+          console.warn("User is not logged in. USER_INFO not found in localStorage.");
         }
       } catch (error) {
         console.error("Error decoding USER_INFO:", error);
       }
-
-      console.log("productId:", productId);
-      console.log("userId:", userId);
 
       const { data } = await createUserReview({
         variables: {
@@ -69,6 +64,13 @@ const Reviews = () => {
       setRating(0);
       setTitle("");
       setDescription("");
+
+      // Muestra el pop-up después de enviar la reseña
+      setShowPopup(true);
+
+      setTimeout(() => {
+        setShowPopup(false);
+      }, 2000);
     } catch (error) {
       console.error("Error creating review:", error);
       // Handle error as needed
@@ -87,9 +89,7 @@ const Reviews = () => {
             {[1, 2, 3, 4, 5].map((star) => (
               <span
                 key={star}
-                className={
-                  star <= rating ? Style.starFilled : Style.star
-                }
+                className={star <= rating ? Style.starFilled : Style.star}
                 onClick={() => handleStarClick(star)}
               >
                 &#9733;
@@ -125,9 +125,18 @@ const Reviews = () => {
         </div>
       </div>
 
-      {reviews.map((review, index) => (
-        <ReviewCard key={index} {...review} />
-      ))}
+      {/* Nueva sección para las ReviewCards */}
+      <div className={Style.reviewCardSection}>
+        {reviews.map((review, index) => (
+          <ReviewCard key={index} {...review} />
+        ))}
+      </div>
+
+      {showPopup && (
+        <div className={Style.popup}>
+          <p>Tu reseña ha sido cargada. ¡Gracias!</p>
+        </div>
+      )}
     </div>
   );
 };
