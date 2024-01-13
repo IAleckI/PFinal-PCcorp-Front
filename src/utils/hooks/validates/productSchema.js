@@ -7,4 +7,5 @@ export const productSchema = z.object({
     brand: z.string().min(3, 'Brand is required'),
     stock: z.number().min(1, 'Stock is required'),
     price: z.number().min(1, 'Price is required'),
+    imagen: z.string().min(1),
 })
