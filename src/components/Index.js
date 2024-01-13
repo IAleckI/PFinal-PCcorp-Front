@@ -18,6 +18,7 @@ import CartList from "./cartList/cartList";
 import AboutUsComponent from "./AboutUs/aboutUs";
 import Verify from "./verify/verify";
 import ReviewCard from "./ReviewCard/reviewCard";
+import ThirdButton from "./Button/thirdButton/thirdButton";
 
 
 export {
@@ -40,5 +41,6 @@ export {
   CardCarrouselProcesadores,
   FormCreateComponent,
   AboutUsComponent,
-  ReviewCard
+  ReviewCard,
+  ThirdButton
 };
