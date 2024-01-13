@@ -16,6 +16,7 @@ import LoginTemplate from "./Login/login";
 import GetToken from './token/token'
 import CartList from "./cartList/cartList";
 import AboutUsComponent from "./AboutUs/aboutUs";
+import Paginate from "./paginate/paginate";
 
 export {
   Button,
@@ -35,5 +36,6 @@ export {
   CartList,
   CardCarrouselProcesadores,
   FormCreateComponent,
-  AboutUsComponent
+  AboutUsComponent, 
+  Paginate,
 };
