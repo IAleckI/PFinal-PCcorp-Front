@@ -24,15 +24,17 @@
 }
 
 .card h2 {
-    color: #7971EA;
-    font-size: 16px;
-    white-space: wrap;
-    width: 200px;
-    height: 80px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-align: center;
-
+  color: #7971EA;
+  font-size: 16px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2; /* Limita a 2 líneas */
+  white-space: normal; /* Asegura que el texto no se corte abruptamente */
+  width: 200px;
+  height: 40px; /* Ajusta la altura según sea necesario */
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .card_price {
@@ -43,7 +45,7 @@
 .card h3 {
     color: #8C92A0;
     font-size: 16px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 
 }
 

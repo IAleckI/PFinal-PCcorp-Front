@@ -27,6 +27,7 @@ const Card = ({ props, isWishlist, onDelete }) => {
     email = ''; 
   }
 
+  const { addProductToCart, addLoading } = useAddProductToCart(props.id);
   const [hovered, setHovered] = useState(false);
   const [isInWishlist, setIsInWishlist] = useState(false);
   const [addFavMutation] = useMutation(ADD_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: email } }] });
@@ -35,7 +36,9 @@ const Card = ({ props, isWishlist, onDelete }) => {
   const [showPopup, setShowPopup] = useState(false);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [showDeletePopupFromButton, setShowDeletePopupFromButton] = useState(false);
-  const [showCartPopup, setShowCartPopup] = useState(false);
+
+  const [buttonText, setButtonText] = useState("Añadir");
+  const [buttonColor, setButtonColor] = useState("#7971EA");
 
   useEffect(() => {
     setIsInWishlist(isWishlist);
@@ -100,9 +103,14 @@ const Card = ({ props, isWishlist, onDelete }) => {
         />
       )}
       <Button
-        text="Añadir"
+        text={buttonText}
         onClick={handleAddToCart}
-        style={{ width: "80px", height: "40px", marginBottom: "6px" }}
+        style={{
+          width: "80px",
+          height: "40px",
+          marginBottom: "6px",
+          backgroundColor: buttonColor,
+        }}
       />
 
       {showPopup && ( 
