@@ -6,21 +6,8 @@ import GoogleLogin from "react-google-login";
 import swal from "sweetalert";
 
 export default function LoginTemplate() {
-  const clientId = useGoogle();
-
-  const mostrarAlerta = () => {
-    swal({
-      title: "Login exitoso",
-      text: "Bienvenido a Make My PC",
-      icon: "success",
-      button: "Continuar",
-    });
-  };
-
-  const handlerGoogleLoginSucces = (responseGoogle) => {
-    mostrarAlerta();
-    console.log(responseGoogle);
-  };
+  const clientId = useGoogle()
+  const {onFailure, onSuccess} = useGoogle()
 
   return (
     <div className={Style.login}>
@@ -30,9 +17,9 @@ export default function LoginTemplate() {
           <GoogleLogin
             clientId={clientId}
             buttonText="Login with Google"
-            onSuccess={handlerGoogleLoginSucces}
-            onFailure={(responseGoogle) => console.log(responseGoogle)}
-            cookiePolicy={"single_host_origin"}
+            onSuccess={onSuccess}
+            onFailure={onFailure}
+            cookiePolicy={'single_host_origin'}
             className={Style.login_google_button}
           />
 

@@ -3,13 +3,11 @@ import CheckOut from "../checkout/checkout";
 import CardCard from "../cartCards/cardCard";
 import { useGetProducts } from "../../utils/hooks/products/useMutationProducts";
 import { Link } from "react-router-dom";
-import { Footer } from "../Index";
-import InterrogationPC from "../../Assets/Img/InterrogationPC.jpeg";
-
+import { useState } from "react";
 
 export default function CartList() {
   const { products, loading, error } = useGetProducts();
-  console.log("products:", products);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error: {error.message}</p>;
@@ -17,31 +15,34 @@ export default function CartList() {
   if (!products || products?.length === 0) {
     return (
       <div>
-        <p className={Style.noCartText}>
-          Aún no agregas productos a tu carrito, entra al catalogo para
-          agregarlos
-        </p>
-      <img className={Style.imgConfused} src={InterrogationPC} alt="" />
-        <button className={Style.noCartButton}>
-          {" "}
-          <Link to="/catalogo">Ir al catalogo</Link>
-        </button>
-
-        <Footer />
+        <p className={Style.noProducts}>Aún no agregas productos a tu carrito, entra al catálogo para agregarlos</p>
+        <Link to="/catalogo">
+          <button>Ir al catálogo</button>
+        </Link>
       </div>
     );
   }
+
+
+  const displayedProducts = isExpanded ? products : products.slice(0, 3);
 
   return (
     <div className={Style.cartList_container}>
       <div className={Style.cartList}>
         <h1>Carrito</h1>
-        {products?.map((p) => (
+        {displayedProducts.map((p) => (
           <CardCard key={p.id} props={p} />
         ))}
+
+        {products.length > 3 && (
+          <button className={Style.button} onClick={() => setIsExpanded(!isExpanded)}>
+            {isExpanded ? "Contraer" : "Expandir"}
+          </button>
+        )}
       </div>
-      <CheckOut />
-      <Footer />
+      <div className={`${Style.cartList_container} ${Style.checkout}`}>
+        <CheckOut cartProducts={products} />
+      </div>
     </div>
   );
 }

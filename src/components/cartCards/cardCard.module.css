@@ -44,3 +44,7 @@
 .card_amount button:hover {
     background-color: #eee;
 }
+
+.preciocart{
+    font-size: 20px;
+}

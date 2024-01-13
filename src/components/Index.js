@@ -16,10 +16,13 @@ import LoginTemplate from "./Login/login";
 import GetToken from './token/token'
 import CartList from "./cartList/cartList";
 import AboutUsComponent from "./AboutUs/aboutUs";
-import Paginate from "./paginate/paginate";
+import Verify from "./verify/verify";
+import ReviewCard from "./ReviewCard/reviewCard";
+
 
 export {
   Button,
+  Verify,
   SearchBar,
   Carousel,
   Footer,
@@ -36,6 +39,6 @@ export {
   CartList,
   CardCarrouselProcesadores,
   FormCreateComponent,
-  AboutUsComponent, 
-  Paginate,
+  AboutUsComponent,
+  ReviewCard
 };

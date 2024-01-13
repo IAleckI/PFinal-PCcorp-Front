@@ -11,42 +11,36 @@ import Corazon2 from "../../Assets/Logos/Corazon2.png";
 import { useAddProductToCart } from "../../utils/hooks/products/useMutationProducts";
 import { jwtDecode } from "jwt-decode";
 
-
 const Card = ({ props, isWishlist, onDelete }) => {
   let email = '';
   try {
     const userInfo = localStorage.getItem('USER_INFO');
-    console.log("user info:", userInfo, )
     if (userInfo) {
       const decodedToken = jwtDecode(userInfo);
       email = decodedToken.email;
     } else {
       console.warn("User is not logged in. USER_INFO not found in localStorage.");
-      
       email = ''; 
     }
   } catch (error) {
     console.error("Error decoding USER_INFO:", error);
-
     email = ''; 
   }
 
-  
-  const { addProductToCart, addLoading } = useAddProductToCart(props.id)
   const [hovered, setHovered] = useState(false);
   const [isInWishlist, setIsInWishlist] = useState(false);
   const [addFavMutation] = useMutation(ADD_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: email } }] });
   const [deleteFavMutation] = useMutation(DELETE_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: email } }] });
+  const { addProductToCart, addLoading } = useAddProductToCart(props.id);
   const [showPopup, setShowPopup] = useState(false);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [showDeletePopupFromButton, setShowDeletePopupFromButton] = useState(false);
-  
+  const [showCartPopup, setShowCartPopup] = useState(false);
+
   useEffect(() => {
-    // Actualiza el estado isInWishlist cuando cambia la prop isWishlist
     setIsInWishlist(isWishlist);
   }, [isWishlist]);
-  
- 
+
   const handleFavToggle = async () => {
     try {
       if (isInWishlist) {
@@ -58,7 +52,6 @@ const Card = ({ props, isWishlist, onDelete }) => {
         setShowPopup(true);
       }
 
-      // Actualiza el estado isInWishlist después de la mutación
       setIsInWishlist(!isInWishlist);
 
       setTimeout(() => {
@@ -69,7 +62,18 @@ const Card = ({ props, isWishlist, onDelete }) => {
       console.error("Error al añadir/eliminar de favoritos:", error);
     }
   };
-  
+
+  const handleAddToCart = () => {
+    console.log("Adding to Cart...");
+    addProductToCart();
+    setShowCartPopup(true);
+
+
+    setTimeout(() => {
+      setShowCartPopup(false);
+    }, 1500);
+  };
+
   return (
     <figure className={Style.card}>
       <img
@@ -84,7 +88,7 @@ const Card = ({ props, isWishlist, onDelete }) => {
         <img src={props.image} alt={props.name} />
         <h2 title={props.name}>{props.name}</h2>
         <h3>{props.model}</h3>
-        <h4 className={Style.card_price}>${props.price}</h4>
+        <h4 className={Style.card_price}>${props.price.toLocaleString('es-ES', { maximumFractionDigits: 0 })}</h4>
       </NavLink>
       {isWishlist && (
         <Button
@@ -97,14 +101,20 @@ const Card = ({ props, isWishlist, onDelete }) => {
         />
       )}
       <Button
-        text= "Agregar a carrito"
-        onClick={addProductToCart}
+        text="Añadir"
+        onClick={handleAddToCart}
         style={{ width: "80px", height: "40px", marginBottom: "6px" }}
       />
 
       {showPopup && ( 
         <div className={Style.popup}>
           <p>Agregado a Favoritos</p>
+        </div>
+      )}
+
+      {showCartPopup && ( 
+        <div className={Style.popupcart}>
+          <p>Añadido al Carrito</p>
         </div>
       )}
 

@@ -1,3 +1,7 @@
+.searchBar{
+ padding-left: 150px;
+}
+
 .navbar {
   display: flex;
   flex-direction: column;

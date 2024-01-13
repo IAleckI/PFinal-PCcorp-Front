@@ -13,7 +13,7 @@
     margin-bottom: 10px;
 }
 
-.filter h2 {
+.filter h2  {
     color: #666;
     font-family: sans-serif;
     text-align: center;
@@ -26,8 +26,17 @@
     margin-top: 5px;
     color: #666;
     font-family: sans-serif;
+    text-align: center;
 }
 
+.search{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    padding: 10px, 10px, 10px;
+  
+}
 .button {
     background-color: transparent;
     height: 40px;
