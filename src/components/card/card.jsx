@@ -64,10 +64,11 @@ const Card = ({ props, isWishlist, onDelete }) => {
   };
 
   const handleAddToCart = () => {
+    console.log("Adding to Cart...");
     addProductToCart();
     setShowCartPopup(true);
 
-    // Ajusta el tiempo de visualización del popup del carrito
+
     setTimeout(() => {
       setShowCartPopup(false);
     }, 1500);
