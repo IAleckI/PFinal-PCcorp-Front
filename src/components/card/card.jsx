@@ -11,7 +11,6 @@ import Corazon2 from "../../Assets/Logos/Corazon2.png";
 import { useAddProductToCart } from "../../utils/hooks/products/useMutationProducts";
 import { jwtDecode } from "jwt-decode";
 
-
 const Card = ({ props, isWishlist, onDelete }) => {
   let email = '';
   try {
@@ -30,8 +29,7 @@ const Card = ({ props, isWishlist, onDelete }) => {
     email = ''; 
   }
 
-  
-  const { addProductToCart, addLoading } = useAddProductToCart(props.id)
+  const { addProductToCart, addLoading } = useAddProductToCart(props.id);
   const [hovered, setHovered] = useState(false);
   const [isInWishlist, setIsInWishlist] = useState(false);
   const [addFavMutation] = useMutation(ADD_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: email } }] });
@@ -39,13 +37,15 @@ const Card = ({ props, isWishlist, onDelete }) => {
   const [showPopup, setShowPopup] = useState(false);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [showDeletePopupFromButton, setShowDeletePopupFromButton] = useState(false);
-  
+
+  const [buttonText, setButtonText] = useState("Añadir");
+  const [buttonColor, setButtonColor] = useState("#7971EA");
+
   useEffect(() => {
     // Actualiza el estado isInWishlist cuando cambia la prop isWishlist
     setIsInWishlist(isWishlist);
   }, [isWishlist]);
-  
- 
+
   const handleFavToggle = async () => {
     try {
       if (isInWishlist) {
@@ -68,7 +68,19 @@ const Card = ({ props, isWishlist, onDelete }) => {
       console.error("Error al añadir/eliminar de favoritos:", error);
     }
   };
-  
+
+  const handleAddToCart = async () => {
+    try {
+      await addProductToCart();
+
+      // Cambiar el texto y color del botón al hacer clic
+      setButtonText("Añadido");
+      setButtonColor("#1BEBA6");
+    } catch (error) {
+      console.error("Error al añadir al carrito:", error);
+    }
+  };
+
   return (
     <figure className={Style.card}>
       <img
@@ -96,9 +108,14 @@ const Card = ({ props, isWishlist, onDelete }) => {
         />
       )}
       <Button
-        text= "Añadir"
-        onClick={addProductToCart}
-        style={{ width: "80px", height: "40px", marginBottom: "6px" }}
+        text={buttonText}
+        onClick={handleAddToCart}
+        style={{
+          width: "80px",
+          height: "40px",
+          marginBottom: "6px",
+          backgroundColor: buttonColor,
+        }}
       />
 
       {showPopup && ( 

@@ -14,7 +14,6 @@ const ProductDetail = () => {
   const { addProductToCart } = useAddProductToCart(id);
 
   useEffect(() => {
-  
     window.scrollTo(0, 0);
   }, []);
 
@@ -29,23 +28,32 @@ const ProductDetail = () => {
   const { getProductById } = data;
 
   return (
-    <div className={Style.details}>
-      <div className={Style.imageContainer}>
-        <img className={Style.img} src={getProductById.image} alt="imagen" />
+    <>
+      <div className={Style.details}>
+        <div className={Style.imageContainer}>
+          <img className={Style.img} src={getProductById.image} alt="imagen" />
+        </div>
+        <div className={Style.infoContainer}>
+          <div className={Style.titleContainer}>
+            <h1>{getProductById.name}</h1>
+          </div>
+          <div className={Style.specsContainer}>
+            <h2>Marca: {getProductById.brand}</h2>
+            <h2>Precio: $ {getProductById.price.toLocaleString('es-ES', { maximumFractionDigits: 0 })}</h2>
+            <h2>Modelo: {getProductById.model}</h2>
+            <h2>Tipo: {getProductById.type}</h2>
+            <h2 className={Style.Stock}>Stock: {getProductById.stock}</h2>
+          </div>
+          <Button text={"Añadir al carrito"} onClick={addProductToCart} />
+        </div>
       </div>
-      <div className={Style.infoContainer}>
-        <h1>{getProductById.name}</h1>
-        <h2>Marca: {getProductById.brand}</h2>
-        <h2>Precio: $ {getProductById.price.toLocaleString('es-ES', { maximumFractionDigits: 0 })}</h2>
-        <h2>Modelo: {getProductById.model}</h2>
-        <h2>Tipo: {getProductById.type}</h2>
-        <h2>Descripción: {getProductById.description}</h2>
-        <h2>Stock: {getProductById.stock}</h2>
-  
-        <Button text={"Añadir al carrito"} onClick={addProductToCart} />
+
+      <div className={Style.descriptionContainer}>
+        <h2 className={Style.descriptionTitle}>Descripción</h2>
+        <p className={Style.descriptionText}>{getProductById.description}</p>
       </div>
-    </div>
+    </>
   );
-  }  
+};
 
 export default ProductDetail;

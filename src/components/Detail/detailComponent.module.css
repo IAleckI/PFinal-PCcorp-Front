@@ -11,11 +11,10 @@
 .details {
   display: flex;
   padding: 20px;
-  background-color: #f0f0f0;
+  background-color: #e7e7e742;
   max-width: 100%;
   box-sizing: border-box;
   margin: 0 auto;
-
 }
 
 .imageContainer {
@@ -43,8 +42,41 @@
   }
 
   .imageContainer,
-  .infoContainer {
+  .infoContainer,
+  .descriptionContainer {
     max-width: 100%;
     padding-right: 0;
   }
+}
+
+.titleContainer {
+  margin-bottom: 20px;
+}
+
+.specsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.descriptionContainer {
+  margin-top: 10px;
+  padding: 30px;
+}
+
+.descriptionTitle {
+  font-size: 28px;
+  color: #000;
+}
+
+.descriptionText {
+  font-size: 16px;
+  color: #8C92A0;
+}
+
+.descriptionContainer {
+background-color: #e7e7e742;}
+
+.Stock{
+  margin-bottom: 50px;
 }
