@@ -113,7 +113,7 @@ const Card = ({ props, isWishlist, onDelete }) => {
 
       {showCartPopup && ( 
         <div className={Style.popupcart}>
-          <p>Añadido al Carrito</p>
+          <p>Añadido al Carrito!</p>
         </div>
       )}
 
