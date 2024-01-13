@@ -27,6 +27,7 @@
 .infoContainer {
   flex: 2;
   overflow: hidden;
+  font-size: 13px;
 }
 
 .img {
@@ -51,7 +52,7 @@
 
 .titleContainer {
   margin-bottom: 20px;
-}
+  font-size: 12px;}
 
 .specsContainer {
   display: flex;
@@ -78,5 +79,6 @@
 background-color: #e7e7e742;}
 
 .Stock{
-  margin-bottom: 50px;
+  margin-bottom:25px;
 }
+
