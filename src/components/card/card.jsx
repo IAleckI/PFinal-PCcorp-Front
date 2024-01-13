@@ -84,7 +84,7 @@ const Card = ({ props, isWishlist, onDelete }) => {
         onMouseLeave={() => setHovered(false)}
         onClick={handleFavToggle}
       />
-      <NavLink to={/${props.id}} className={Style.card_text}>
+      <NavLink to={`/${props.id}`} className={Style.card_text}>
         <img src={props.image} alt={props.name} />
         <h2 title={props.name}>{props.name}</h2>
         <h3>{props.model}</h3>
