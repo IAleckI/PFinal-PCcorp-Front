@@ -27,7 +27,6 @@ const Card = ({ props, isWishlist, onDelete }) => {
     email = ''; 
   }
 
-  const { addProductToCart, addLoading } = useAddProductToCart(props.id);
   const [hovered, setHovered] = useState(false);
   const [isInWishlist, setIsInWishlist] = useState(false);
   const [addFavMutation] = useMutation(ADD_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: email } }] });
@@ -36,9 +35,7 @@ const Card = ({ props, isWishlist, onDelete }) => {
   const [showPopup, setShowPopup] = useState(false);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [showDeletePopupFromButton, setShowDeletePopupFromButton] = useState(false);
-
-  const [buttonText, setButtonText] = useState("Añadir");
-  const [buttonColor, setButtonColor] = useState("#7971EA");
+  const [showCartPopup, setShowCartPopup] = useState(false);
 
   useEffect(() => {
     setIsInWishlist(isWishlist);
@@ -60,13 +57,14 @@ const Card = ({ props, isWishlist, onDelete }) => {
       setTimeout(() => {
         setShowPopup(false);
         setShowDeletePopup(false);
-      }, 1500);
+      }, 2000);
     } catch (error) {
       console.error("Error al añadir/eliminar de favoritos:", error);
     }
   };
 
   const handleAddToCart = () => {
+    console.log("Adding to Cart...");
     addProductToCart();
     setShowCartPopup(true);
 
@@ -103,14 +101,9 @@ const Card = ({ props, isWishlist, onDelete }) => {
         />
       )}
       <Button
-        text={buttonText}
+        text="Añadir"
         onClick={handleAddToCart}
-        style={{
-          width: "80px",
-          height: "40px",
-          marginBottom: "6px",
-          backgroundColor: buttonColor,
-        }}
+        style={{ width: "80px", height: "40px", marginBottom: "6px" }}
       />
 
       {showPopup && ( 
@@ -120,8 +113,8 @@ const Card = ({ props, isWishlist, onDelete }) => {
       )}
 
       {showCartPopup && ( 
-        <div className={Style.popupcart}>
-          <p>Añadido al Carrito!</p>
+        <div className={Style.popupCart}>
+          <p>Añadido al Carrito</p>
         </div>
       )}
 
