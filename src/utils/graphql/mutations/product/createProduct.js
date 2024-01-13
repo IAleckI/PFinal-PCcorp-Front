@@ -8,19 +8,16 @@ export const CREATE_PRODUCT = gql`
     $brand: String!
     $stock: Int!
     $price: Int!
-    $image: String!
+    $image: Upload!
   ) {
     createProduct(
-       
       name: $name
       model: $model
       family: $family
       brand: $brand
       stock: $stock
       price: $price
-        image: $image
-        
-
+      image: $image
     ) {
       id
       name
