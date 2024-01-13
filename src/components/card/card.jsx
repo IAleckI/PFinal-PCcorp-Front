@@ -39,9 +39,9 @@ const Card = ({ props, isWishlist, onDelete }) => {
   const [showPopup, setShowPopup] = useState(false);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [showDeletePopupFromButton, setShowDeletePopupFromButton] = useState(false);
+  const [showCartPopup, setShowCartPopup] = useState(false);
   
   useEffect(() => {
-    // Actualiza el estado isInWishlist cuando cambia la prop isWishlist
     setIsInWishlist(isWishlist);
   }, [isWishlist]);
   
@@ -56,8 +56,6 @@ const Card = ({ props, isWishlist, onDelete }) => {
         await addFavMutation({ variables: { productId: props.id, userId: email } });
         setShowPopup(true);
       }
-
-      // Actualiza el estado isInWishlist después de la mutación
       setIsInWishlist(!isInWishlist);
 
       setTimeout(() => {
@@ -68,6 +66,10 @@ const Card = ({ props, isWishlist, onDelete }) => {
       console.error("Error al añadir/eliminar de favoritos:", error);
     }
   };
+
+
+  
+
   
   return (
     <figure className={Style.card}>
