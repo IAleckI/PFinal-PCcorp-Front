@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { Button } from "../Index";
@@ -13,8 +13,9 @@ const ProductDetail = () => {
   });
   const { addProductToCart } = useAddProductToCart(id);
 
+  const [showCartPopup, setShowCartPopup] = useState(false);
+
   useEffect(() => {
-  
     window.scrollTo(0, 0);
   }, []);
 
@@ -27,6 +28,15 @@ const ProductDetail = () => {
     );
 
   const { getProductById } = data;
+
+  const handleAddToCart = () => {
+    addProductToCart();
+    setShowCartPopup(true);
+
+    setTimeout(() => {
+      setShowCartPopup(false);
+    }, 1500);
+  };
 
   return (
     <div className={Style.details}>
@@ -41,11 +51,17 @@ const ProductDetail = () => {
         <h2>Tipo: {getProductById.type}</h2>
         <h2>Descripción: {getProductById.description}</h2>
         <h2>Stock: {getProductById.stock}</h2>
-  
-        <Button text={"Añadir al carrito"} onClick={addProductToCart} />
+
+        <Button text={"Añadir al carrito"} onClick={handleAddToCart} />
       </div>
+      
+      {showCartPopup && (
+        <div className={Style.popupcart}>
+          <p>Añadido al Carrito</p>
+        </div>
+      )}
     </div>
   );
-  }  
+};
 
 export default ProductDetail;

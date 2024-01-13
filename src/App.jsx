@@ -1,7 +1,7 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 
-import { Home, Detail , Catalogo, Wishlist, RegisterComponent, FormCreate, AboutUs, Cart, Login } from "./Views/Index";
+import { Home, Detail , Catalogo, Wishlist, RegisterComponent, FormCreate, AboutUs, Cart, Login, UserBoard } from "./Views/Index";
 import { GetToken} from "./components/Index";
 import {Verify} from "./components/Index";
 
@@ -18,6 +18,7 @@ function App() {
         <Route path="/create" element={<FormCreate/>} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/account/:id" element={<UserBoard/>} />
         {!GetToken() ? <Route path="/verify" element={<Verify/>} /> : null}
       </Routes>
   );
