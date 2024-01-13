@@ -31,7 +31,7 @@ const Card = ({ props, isWishlist, onDelete }) => {
   const [isInWishlist, setIsInWishlist] = useState(false);
   const [addFavMutation] = useMutation(ADD_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: email } }] });
   const [deleteFavMutation] = useMutation(DELETE_FAV, { refetchQueries: [{ query: GET_ALL_FAVS, variables: { userId: email } }] });
-  const { addProductToCart, addLoading } = useAddProductToCart(props.id);
+  const { addProductToCart } = useAddProductToCart(props.id);
   const [showPopup, setShowPopup] = useState(false);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [showDeletePopupFromButton, setShowDeletePopupFromButton] = useState(false);
@@ -40,6 +40,13 @@ const Card = ({ props, isWishlist, onDelete }) => {
   useEffect(() => {
     setIsInWishlist(isWishlist);
   }, [isWishlist]);
+
+  useEffect(() => {
+    setShowCartPopup(false); 
+    return () => {
+      setShowCartPopup(false); 
+    };
+  }, []);
 
   const handleFavToggle = async () => {
     try {
@@ -64,10 +71,8 @@ const Card = ({ props, isWishlist, onDelete }) => {
   };
 
   const handleAddToCart = () => {
-    console.log("Adding to Cart...");
     addProductToCart();
     setShowCartPopup(true);
-
 
     setTimeout(() => {
       setShowCartPopup(false);
