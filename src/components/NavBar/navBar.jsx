@@ -8,7 +8,7 @@ import { NavLink, Link, useLocation } from "react-router-dom";
 import LogoutButton from "../Logout/LogoutComponent";
 
 const NavBar = () => {
-  
+  const token = localStorage.getItem("USER_INFO")
   
   return (
     <nav className={Style.navbar}>
@@ -20,7 +20,9 @@ const NavBar = () => {
         <div className={Style.navbar_user}>
           <Link to={"/wishlist"}><img src={wishlist} alt="wishlist" /></Link>
           <Link to={"/cart"}><img src={bolsalogo} alt="bolsa" /></Link>
-          <Link to={"/login"}><img src={usuario} alt="user" /></Link>
+          {token !== undefined 
+          ? <Link to={"/account/profile"}><img src={usuario} alt="user" /></Link>
+          : <Link to={"/login"}><img src={usuario} alt="user" /></Link>}
           <LogoutButton />
         </div>
       </div>

@@ -38,7 +38,8 @@ export const usePayment = () => {
                         userId: email,
                         items: mapped }, 
                 })
-
+                console.log(email);
+                console.log(paymentResult);
                 setPaymentId(paymentResult.data.createPayment)
                 setLoading(false)
             } catch (error) {
