@@ -8,7 +8,7 @@ export const CREATE_PRODUCT = gql`
     $brand: String!
     $stock: Int!
     $price: Int!
-    $image: String!
+    $image: Upload!
   ) {
     createProduct(
        

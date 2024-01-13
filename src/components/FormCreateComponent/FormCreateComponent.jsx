@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import Style from "./FormCreateComponent.module.css";
 import { useMutation } from "@apollo/client"
 import { CREATE_PRODUCT } from "../../utils/graphql/mutations/product/createProduct";
+import axios from "axios"
 
 
 const FormCreateComponent = () => {
@@ -24,26 +25,49 @@ const FormCreateComponent = () => {
     },
   });
 
-  const onSubmit = async (data) => {
-    try {
-      console.log(data)   
-      const result = await createProduct({
-        variables:{
-          name: data.name,
-          model: data.model,
-          family: data.family,
-          brand: data.brand,
-          stock: parseInt(data.stock),
-          price: parseInt(data.price),
-          image: data.image,
+  // const onSubmit = async (data) => {
+  //   try {
+  //     console.log(data)   
+  //     const result = await createProduct({
+  //       variables:{
+  //         name: data.name,
+  //         model: data.model,
+  //         family: data.family,
+  //         brand: data.brand,
+  //         stock: parseInt(data.stock),
+  //         price: parseInt(data.price),
+  //         image: data.image,
           
-        }
+  //       }
+  //     });
+  //     console.log("Mutation result:", result)
+  //   } catch (error) {
+  //     console.error("Error in createProduct mutation:", error);
+  //   }
+  // };
+
+  const onSubmit = async (data) => {
+    try{
+      const formData = new FormData();
+      formData.append("name", data.name);
+      formData.append("model", data.model);
+      formData.append("family", data.family);
+      formData.append("brand", data.brand);
+      formData.append("stock", parseInt(data.stock));
+      formData.append("price", parseInt(data.price));
+      formData.append("image", data.image[0]);
+
+      console.log(formData)
+      const result = await axios.post("https://back-mans.onrender.com/files", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
       });
       console.log("Mutation result:", result)
-    } catch (error) {
-      console.error("Error in createProduct mutation:", error);
+    }catch(error){
+      console.log("Error in createProduct mutation:", error);
     }
-  };
+  }
 
   return (
     <div className={Style.template}>
