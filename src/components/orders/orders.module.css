@@ -1,0 +1,41 @@
+
+.orders {
+    padding: 20px;
+  }
+  
+  .productList {
+    display: flex;
+    flex-direction: column;
+
+  }
+  
+  .cardContainer {
+    border: 1px solid #ccc;
+    margin-right: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: inherit;
+  }
+  
+  .cardImage {
+    width: 100px; 
+    height: auto;
+    margin-right: 10px;
+  }
+  
+  .cardDetails {
+    flex: 1;
+  }
+  
+  .detailsButton {
+    width: 160px;
+    height: 50px;
+    background-color: #7971EA;
+    color: #fff;
+    letter-spacing: 3px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    margin-top: 5px;
+  }
+  
