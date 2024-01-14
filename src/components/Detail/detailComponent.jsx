@@ -39,6 +39,24 @@ const ProductDetail = () => {
   };
 
   return (
+    <>
+      <div className={Style.details}>
+        <div className={Style.imageContainer}>
+          <img className={Style.img} src={getProductById.image} alt="imagen" />
+        </div>
+        <div className={Style.infoContainer}>
+          <div className={Style.titleContainer}>
+            <h1>{getProductById.name}</h1>
+          </div>
+          <div className={Style.specsContainer}>
+            <h2>Marca: {getProductById.brand}</h2>
+            <h2>Precio: $ {getProductById.price.toLocaleString('es-ES', { maximumFractionDigits: 0 })}</h2>
+            <h2>Modelo: {getProductById.model}</h2>
+            <h2>Tipo: {getProductById.type}</h2>
+            <h2 className={Style.Stock}>Stock: {getProductById.stock}</h2>
+          </div>
+          <Button text={"Añadir al carrito"} onClick={addProductToCart} />
+        </div>
     <div className={Style.details}>
       <div className={Style.imageContainer}>
         <img className={Style.img} src={getProductById.image} alt="imagen" />
