@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { Button } from "../Index";
@@ -13,8 +13,6 @@ const ProductDetail = () => {
   });
   const { addProductToCart } = useAddProductToCart(id);
 
-  const [showCartPopup, setShowCartPopup] = useState(false);
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -28,8 +26,6 @@ const ProductDetail = () => {
     );
 
   const { getProductById } = data;
-
-
 
   return (
     <>
@@ -50,28 +46,13 @@ const ProductDetail = () => {
           </div>
           <Button text={"Añadir al carrito"} onClick={addProductToCart} />
         </div>
-    <div className={Style.details}>
-      <div className={Style.imageContainer}>
-        <img className={Style.img} src={getProductById.image} alt="imagen" />
       </div>
-      <div className={Style.infoContainer}>
-        <h1>{getProductById.name}</h1>
-        <h2>Marca: {getProductById.brand}</h2>
-        <h2>Precio: $ {getProductById.price.toLocaleString('es-ES', { maximumFractionDigits: 0 })}</h2>
-        <h2>Modelo: {getProductById.model}</h2>
-        <h2>Tipo: {getProductById.type}</h2>
-        <h2>Descripción: {getProductById.description}</h2>
-        <h2>Stock: {getProductById.stock}</h2>
 
-        <Button text={"Añadir al carrito"} onClick={handleAddToCart} />
+      <div className={Style.descriptionContainer}>
+        <h2 className={Style.descriptionTitle}>Descripción</h2>
+        <p className={Style.descriptionText}>{getProductById.description}</p>
       </div>
-      
-      {showCartPopup && (
-        <div className={Style.popupcart}>
-          <p>Añadido al Carrito</p>
-        </div>
-      )}
-    </div>
+    </>
   );
 };
 
