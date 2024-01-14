@@ -29,14 +29,7 @@ const ProductDetail = () => {
 
   const { getProductById } = data;
 
-  const handleAddToCart = () => {
-    addProductToCart();
-    setShowCartPopup(true);
 
-    setTimeout(() => {
-      setShowCartPopup(false);
-    }, 1500);
-  };
 
   return (
     <>
