@@ -18,7 +18,8 @@ import CartList from "./cartList/cartList";
 import AboutUsComponent from "./AboutUs/aboutUs";
 import Verify from "./verify/verify";
 import ReviewCard from "./ReviewCard/reviewCard";
-import Paginate from "./paginate/paginate";
+import ThirdButton from "./Button/thirdButton/thirdButton";
+
 
 export {
   Button,
@@ -41,5 +42,5 @@ export {
   FormCreateComponent,
   AboutUsComponent,
   ReviewCard,
-  Paginate
+  ThirdButton
 };

@@ -44,7 +44,7 @@ const ProductDetail = () => {
             <h2>Tipo: {getProductById.type}</h2>
             <h2 className={Style.Stock}>Stock: {getProductById.stock}</h2>
           </div>
-          <Button className= {Style.ButtonDetail} text={"Añadir al carrito"} onClick={addProductToCart} />
+          <Button text={"Añadir al carrito"} onClick={addProductToCart} />
         </div>
       </div>
 
