@@ -8,6 +8,7 @@ import Style from "./wishlist.module.css";
 import { Link } from "react-router-dom";
 import InterrogationPC from "../../Assets/Img/InterrogationPC.jpeg";
 import { jwtDecode } from "jwt-decode";
+import { Button } from "../../components/Index";
 
 const Wishlist = () => {
   let email = '';
@@ -65,7 +66,8 @@ const Wishlist = () => {
     return (
       <div>
         <NavBar />
-        <p>Error al cargar favoritos: {error.message}</p>
+        <p>Necesitas iniciar sesión para ver tus favoritos</p>
+        <Button text="Iniciar sesión" onClick={() => (window.location.href = "/login")} />
         <Footer />
       </div>
     );
