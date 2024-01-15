@@ -8,7 +8,7 @@ import {Verify} from "./components/Index";
 function App() {
   return (
       <Routes>
-       
+        
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<RegisterComponent/>} />
         {!GetToken() ? <Route path="/login" element={<Login/>} /> : null}
