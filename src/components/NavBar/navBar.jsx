@@ -29,8 +29,6 @@ const NavBar = () => {
       <div className={Style.secondNavbar}>
         <LocationNav location="/"  tittle='HOME'/>
         <LocationNav location="/catalogo" tittle='CATALOGO'/>
-        <LocationNav location="/build" tittle='ARMA TU PC'/>
-        <LocationNav location="/destacados" tittle='DESTACADOS'/>
         <LocationNav location="/AboutUs" tittle='¿QUIENES SOMOS?'/>
       </div>
     </nav>
