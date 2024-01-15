@@ -9,6 +9,7 @@ import LogoutButton from "../Logout/LogoutComponent";
 
 const NavBar = () => {
   const token = localStorage.getItem("USER_INFO")
+  const image = localStorage.getItem("USER_IMAGE")
   
   return (
     <nav className={Style.navbar}>
@@ -20,10 +21,10 @@ const NavBar = () => {
         <div className={Style.navbar_user}>
           <Link to={"/wishlist"}><img src={wishlist} alt="wishlist" /></Link>
           <Link to={"/cart"}><img src={bolsalogo} alt="bolsa" /></Link>
-          {token !== undefined 
-          ? <Link to={"/account/profile"}><img src={usuario} alt="user" /></Link>
+          {token
+          ? <Link to={"/account/profile"}> <img className={Style.profileImage} src={image} alt="user" /></Link>
           : <Link to={"/login"}><img src={usuario} alt="user" /></Link>}
-          <LogoutButton />
+          {/* <LogoutButton /> */}
         </div>
       </div>
       <div className={Style.secondNavbar}>
