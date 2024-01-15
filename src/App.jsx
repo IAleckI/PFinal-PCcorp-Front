@@ -14,6 +14,7 @@ function App() {
         {!GetToken() ? <Route path="/login" element={<Login/>} /> : null}
         <Route path="/catalogo" element={<Catalogo />} />
         <Route path="/:id" element={<Detail />} />
+        <Route path="/build" element={<ArmaTuPC />} />
         <Route path="/wishlist" element={<Wishlist/>} />
         <Route path="/create" element={<FormCreate/>} />
         <Route path="/AboutUs" element={<AboutUs />} />

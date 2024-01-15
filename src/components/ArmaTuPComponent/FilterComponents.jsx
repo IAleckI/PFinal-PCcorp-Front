@@ -27,7 +27,10 @@ const FilterComponents = () => {
     Cooler,
   ];
 
+  
   const { filter, filterBrand, deleteFilters, filterType } = useFilter();
+
+
   const { filtered } = useSelector((state) => state.products);
 
   const { firstIndex, lastIndex, currentPage, totalPages, setCurrentPage } =
