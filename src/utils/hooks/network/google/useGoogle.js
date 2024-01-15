@@ -27,11 +27,12 @@ export const useGoogle = () => {
                 userName: res.profileObj.name,
             }
         })
+        localStorage.setItem('USER_IMAGE', res.profileObj.imageUrl)
         if (result?.error?.message) throw new Error(result.error.message);
         
         const userInfo = result.data.getUserNetworkLogin
         localStorage.setItem('USER_INFO', userInfo);
-        console.log("USER_INFO:", userInfo)
+        
         navigate("/")
     } catch (error) {
          console.log(error) ;
