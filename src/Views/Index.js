@@ -9,9 +9,10 @@ import Wishlist from "./Wishlist/wishlist";
 import FormCreate from "./FormCreate/FormCreate";
 import AboutUs from "./AboutUs/AboutUs";
 import UserBoard from "./userDashBoard/userBoard";
+import AdminDeleteComponent from "../components/adminDeleteComponent/AdminDeleteComponent";
 
 export {
-  // ArmaTuPC,
+  AdminDeleteComponent,
   Home,
   Detail,
   Login,

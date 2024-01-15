@@ -12,6 +12,7 @@ import {
   Cart,
   Login,
   UserBoard,
+  AdminDeleteComponent
 } from "./Views/Index";
 import { GetToken } from "./components/Index";
 import { Verify } from "./components/Index";
@@ -24,13 +25,13 @@ function App() {
       {!GetToken() ? <Route path="/login" element={<Login />} /> : null}
       <Route path="/catalogo" element={<Catalogo />} />
       <Route path="/:id" element={<Detail />} />
-      {/* <Route path="/build" element={<ArmaTuPC />} /> */}
       <Route path="/wishlist" element={<Wishlist />} />
       <Route path="/create" element={<FormCreate />} />
       <Route path="/AboutUs" element={<AboutUs />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/account/:id" element={<UserBoard />} />
       {!GetToken() ? <Route path="/verify" element={<Verify />} /> : null}
+      <Route path="/testing" element={<AdminDeleteComponent />} />
     </Routes>
   );
 }

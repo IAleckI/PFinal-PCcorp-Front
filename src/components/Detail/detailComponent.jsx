@@ -5,6 +5,7 @@ import { Button } from "../Index";
 import { GET_PRODUCT_BY_ID } from "../../utils/graphql/querys/products/getProductById";
 import Style from "./detailComponent.module.css";
 import { useAddProductToCart } from "../../utils/hooks/products/useMutationProducts";
+import { AdminDeleteComponent } from "../Index";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -52,6 +53,7 @@ const ProductDetail = () => {
         <h2 className={Style.descriptionTitle}>Descripción</h2>
         <p className={Style.descriptionText}>{getProductById.description}</p>
       </div>
+    <AdminDeleteComponent />
     </>
   );
 };
