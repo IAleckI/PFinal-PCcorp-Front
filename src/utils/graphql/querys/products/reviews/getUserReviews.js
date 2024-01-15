@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
-export const GET_USERS_REVIEW = gql`
-  query GetUserReviews($userId: String!) {
+export const GET_USER_REVIEWS = gql`
+  query getUserReviews($userId: String!) {
     getUserReviews(userId: $userId) {
       id
       userId
