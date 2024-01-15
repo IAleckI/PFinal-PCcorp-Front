@@ -32,7 +32,7 @@ export const useGoogle = () => {
         
         const userInfo = result.data.getUserNetworkLogin
         localStorage.setItem('USER_INFO', userInfo);
-        console.log("USER_INFO:", userInfo)
+        
         navigate("/")
     } catch (error) {
          console.log(error) ;

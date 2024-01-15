@@ -19,7 +19,7 @@ const Card = ({ props, isWishlist, onDelete }) => {
       const decodedToken = jwtDecode(userInfo);
       email = decodedToken.email;
     } else {
-      console.warn("User is not logged in. USER_INFO not found in localStorage.");
+      
       email = ''; 
     }
   } catch (error) {
