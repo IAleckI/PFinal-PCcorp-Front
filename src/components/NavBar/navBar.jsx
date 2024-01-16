@@ -5,32 +5,29 @@ import bolsalogo from "../../Assets/Logos/bolsa.png";
 import usuario from "../../Assets/Logos/usuario.png";
 import wishlist from "../../Assets/Logos/wishlist.png";
 import { NavLink, Link, useLocation } from "react-router-dom";
-import LogoutButton from "../Logout/LogoutComponent";
 
 const NavBar = () => {
   const token = localStorage.getItem("USER_INFO")
+  const image = localStorage.getItem("USER_IMAGE")
   
   return (
     <nav className={Style.navbar}>
       <div className={Style.firstNavbar}>
-        <Link to={"/"}><img src={homelogo} alt="logo"  className={Style.logo}/></Link>
+        <Link to={"/"}> <img src={homelogo} alt="logo"  className={Style.logo}/></Link>
         <div className={Style.searchBar}>
           <SearchBar/>
         </div>
         <div className={Style.navbar_user}>
           <Link to={"/wishlist"}><img src={wishlist} alt="wishlist" /></Link>
           <Link to={"/cart"}><img src={bolsalogo} alt="bolsa" /></Link>
-          {token !== undefined 
-          ? <Link to={"/account/profile"}><img src={usuario} alt="user" /></Link>
+          {token
+          ? <Link to={"/account/profile"}> <img className={Style.profileImage} src={image} alt="user" /></Link>
           : <Link to={"/login"}><img src={usuario} alt="user" /></Link>}
-          <LogoutButton />
         </div>
       </div>
       <div className={Style.secondNavbar}>
         <LocationNav location="/"  tittle='HOME'/>
         <LocationNav location="/catalogo" tittle='CATALOGO'/>
-        <LocationNav location="/build" tittle='ARMA TU PC'/>
-        <LocationNav location="/destacados" tittle='DESTACADOS'/>
         <LocationNav location="/AboutUs" tittle='¿QUIENES SOMOS?'/>
       </div>
     </nav>

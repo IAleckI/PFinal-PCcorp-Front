@@ -1,3 +1,4 @@
+import AdminDeleteComponent from "./adminDeleteComponent/adminDeleteComponent";
 import { Button } from "./Button/button";
 import SearchBar from "./SearchBar/SearchBar";
 import Carousel from "./Carrusel/carouselLanding";
@@ -22,6 +23,7 @@ import ThirdButton from "./Button/thirdButton/thirdButton";
 
 
 export {
+  AdminDeleteComponent,
   Button,
   Verify,
   SearchBar,

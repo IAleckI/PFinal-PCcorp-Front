@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { NETWORK_LOGIN } from "../../../graphql/querys/user/userNetworkLogin";
 import { useLazyQuery } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 
 export const useGoogle = () => {
     const clientId = "1071609619402-4eavh491h2ak8v4lqu0eqq02osfuq8ai.apps.googleusercontent.com"
@@ -27,12 +28,21 @@ export const useGoogle = () => {
                 userName: res.profileObj.name,
             }
         })
+        localStorage.setItem('USER_IMAGE', res.profileObj.imageUrl)
         if (result?.error?.message) throw new Error(result.error.message);
         
         const userInfo = result.data.getUserNetworkLogin
         localStorage.setItem('USER_INFO', userInfo);
-        console.log("USER_INFO:", userInfo)
-        navigate("/")
+        
+        swal({
+            title: "Login!",
+            text: "Has iniciado sesion",
+            icon: "success",
+            button: "Volver",
+            timer: 1500
+        }). then(() => {
+            navigate('/')
+        })
     } catch (error) {
          console.log(error) ;
         }

@@ -1,18 +1,24 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import Style from "./Logout.module.css"
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import Style from "./Logout.module.css";
+import {Button} from "../Index";
 
 const LogoutButton = () => {
-let user = JSON.parse(localStorage.getItem("USER-INFO"))
- const navigate = useNavigate()
-const logOut = ()=>{
-localStorage.clear(user)
-navigate('/login')
-}
+  let user = JSON.parse(localStorage.getItem("USER-INFO"));
+  const navigate = useNavigate();
+  const logOut = () => {
+    swal({
+      title: "Logout!",
+      text: "Has cerrado sesion",
+      icon: "success",
+      button: "Volver",
+    })
+    localStorage.clear(user);
+    navigate("/login");
+  };
   return (
-    <button className={Style.logout} onClick={logOut}>
-      Logout
-    </button>
+    <Button onClick={logOut} text={"Logout"}  />
+ 
   );
 };
 

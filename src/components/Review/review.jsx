@@ -34,7 +34,6 @@ const Reviews = () => {
     }
 
     try {
-      // Obtén userId desde el localStorage
       let userId = "";
       try {
         const userInfo = localStorage.getItem("USER_INFO");
@@ -42,7 +41,7 @@ const Reviews = () => {
           const decodedToken = jwtDecode(userInfo);
           userId = decodedToken.email;
         } else {
-          console.warn("User is not logged in. USER_INFO not found in localStorage.");
+         
         }
       } catch (error) {
         console.error("Error decoding USER_INFO:", error);

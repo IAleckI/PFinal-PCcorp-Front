@@ -119,3 +119,8 @@
     text-align: center;
   }
 }
+
+.profileImage{
+
+  border-radius: 40px;
+}
