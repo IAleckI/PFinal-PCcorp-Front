@@ -1,9 +1,11 @@
-import Style from './configAccount.module.css'
+import React from 'react';
+import Style from './configAccount.module.css';
+import UpdateProduct from '../Update/update';
 
-export default function ConfigAccount(){
-    return (
-        <div className={Style.configAccount}>
-            <h1>ACCOUNT</h1>
-        </div>
-    )
+export default function ConfigAccount() {
+  return (
+    <div className={Style.configAccount}>
+      <UpdateProduct />
+    </div>
+  );
 }
