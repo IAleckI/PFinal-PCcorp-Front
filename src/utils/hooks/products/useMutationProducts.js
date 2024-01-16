@@ -5,8 +5,7 @@ import { DECREASE_PRODUCT } from '../../graphql/mutations/products/decreaseProdu
 import {jwtDecode} from 'jwt-decode';
 import { useState } from 'react'
 
-import { getProductsRequest, getProducts } from '../../state/features/products/productSlice'
-import { useDispatch } from 'react-redux';
+
 
 
 export const useAddProductToCart = (id) => {
@@ -17,7 +16,7 @@ export const useAddProductToCart = (id) => {
       const decodedToken = jwtDecode(userInfo);
       email = decodedToken.email;
     } else {
-      console.warn("User is not logged in. USER_INFO not found in localStorage.");
+      
       
       email = ''; 
     }

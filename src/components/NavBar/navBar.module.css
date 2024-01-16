@@ -1,3 +1,7 @@
+.searchBar{
+ padding-left: 150px;
+}
+
 .navbar {
   display: flex;
   flex-direction: column;
@@ -114,4 +118,9 @@
     width: 100%;
     text-align: center;
   }
+}
+
+.profileImage{
+
+  border-radius: 40px;
 }

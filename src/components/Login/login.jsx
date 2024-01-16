@@ -1,32 +1,47 @@
-import Style from './login.module.css'
-import { useGoogle } from '../../utils/hooks/network/google/useGoogle'
-import { useFacebook } from '../../utils/hooks/network/facebook/useFacebook'
-import LoginData from './loginData/loginData'
-import GoogleLogin from 'react-google-login'
+import Style from './login.module.css';
+import { useGoogle } from '../../utils/hooks/network/google/useGoogle';
+import LoginData from './loginData/loginData';
+import GoogleLogin from 'react-google-login';
 
+import loginImage from '../../Assets/Img/fotologin.jpg'; 
 
 export default function LoginTemplate() {
-  const clientId = useGoogle()
-  
+  const clientId = useGoogle();
+  const { onFailure, onSuccess } = useGoogle();
 
   return (
     <div className={Style.login}>
       <section className={Style.template}>
         <div className={Style.login_template}>
-          <h1>Login in to Make My PC app</h1>
-          <GoogleLogin
-            clientId={clientId}
-            buttonText="Login with Google"
-            onSuccess={responseGoogle => console.log(responseGoogle)}
-            onFailure={responseGoogle => console.log(responseGoogle)}
-            cookiePolicy={'single_host_origin'}
-            className={Style.login_google_button}
+          <h1>LOGIN</h1>
+          <LoginData />
+          <div className={Style.login_middle} />
+
+          <div className={Style.login_divider_text}>
+            O puedes iniciar sesión con:
+          </div>
+
+
+          <div className={Style.login_buttons}>
+            <GoogleLogin
+              clientId={clientId}
+              buttonText="Login with Google"
+              onSuccess={onSuccess}
+              onFailure={onFailure}
+              cookiePolicy={'single_host_origin'}
+              className={Style.login_google_button}
+            />
+          </div>
+        </div>
+
+        <div className={Style.image_container}>
+          <img
+            src={loginImage}
+            alt="Login Background"
+            className={Style.login_image}
           />
-          
-          <div className={Style.login_middle}/>
-          <LoginData/>
         </div>
       </section>
     </div>
-  )
+  );
 }
