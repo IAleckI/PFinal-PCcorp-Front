@@ -1,11 +1,16 @@
 import React from 'react';
-import { useAuth } from "../../utils/hooks/auth/authContext"
+import { useNavigate } from 'react-router-dom';
+import Style from "./Logout.module.css"
 
 const LogoutButton = () => {
-  const { logout } = useAuth();
-
+let user = JSON.parse(localStorage.getItem("USER-INFO"))
+ const navigate = useNavigate()
+const logOut = ()=>{
+localStorage.clear(user)
+navigate('/login')
+}
   return (
-    <button onClick={logout}>
+    <button className={Style.logout} onClick={logOut}>
       Logout
     </button>
   );

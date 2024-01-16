@@ -3,57 +3,27 @@ import { useForm } from "react-hook-form";
 import Style from "./FormCreateComponent.module.css";
 import { useMutation } from "@apollo/client"
 import { CREATE_PRODUCT } from "../../utils/graphql/mutations/product/createProduct";
-
+import { useCreate } from "../../utils/hooks/helpers/products/createProducts";
 
 const FormCreateComponent = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  
+  const { onSubmit, handleSubmit, register, errors } = useCreate();
+console.log("form errors", errors)
+  
 
-  const [createProduct, { loading, error }] = useMutation(CREATE_PRODUCT, {
-    onCompleted: (data) => {
-      console.log("Product created successfully:", data);
-      // You can perform additional actions after successful creation
-    },
-    onError: (error) => {
-      console.error("Error creating product:", error);
-      
 
-    },
-  });
-
-  const onSubmit = async (data) => {
-    try {
-      console.log(data)
-      await createProduct({
-        
-          name: data.name,
-          model: data.model,
-          family: data.family,
-          brand: data.brand,
-          stock: parseInt(data.stock),
-          price: parseInt(data.price),
-          image: data.image,
-       
-      });
-    } catch (error) {
-      console.error("Error in createProduct mutation:", error);
-    }
-  };
-
-  return (
+return (
     <div className={Style.template}>
     <h1 className={Style.title}>FormCreateComponent</h1>
   
-    <form className={Style.form} onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="image">Upload Image</label>
-      <input className={Style.input}type="file" {...register("image")} />
+    <form method="POST" className={Style.form} onSubmit={handleSubmit(onSubmit)}  encType="multipart/form-data">
   
       <label htmlFor="name">Name</label>
       <input className={Style.input} type="text" {...register("name")} />
-  
+
+      {/* <label htmlFor="description">Description</label>
+      <textarea className={Style.input} name="description" id="" cols="50" rows="50"></textarea> */}
+      
       <label htmlFor="model">Model</label>
       <input className={Style.input}  type="text" {...register("model")} />
   
@@ -64,13 +34,19 @@ const FormCreateComponent = () => {
       <input className={Style.input} type="text" {...register("brand")} />
   
       <label htmlFor="stock">Stock</label>
-      <input className={Style.input} type="number" {...register("stock")} />
+      <input className={Style.input} type="number" min="1" {...register("stock")} />
   
       <label htmlFor="price">Price</label>
-      <input className={Style.input} type="number" {...register("price")} />
+      <input className={Style.input} type="number" min="1" {...register("price")} />
   
-      <button className={Style.input} type="submit">Submit</button>
+    <label htmlFor="files">Upload Image</label>
+    <input className={Style.input} type="file" {...register("files")} />
+
+      <button className={Style.input} type="submit" >Submit</button>
+
+      <span>{console.log(errors)}</span>
     </form>
+
   </div>
   );
 };

@@ -3,5 +3,26 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    padding-top: 10px;
-}
+  }
+
+  
+  
+  .login_form {
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Reducido el espacio entre elementos */
+    margin: 0 auto;
+  }
+  
+  /* Ajustes para Input */
+  .login_form input {
+    font-size: 16px; /* Tamaño de la tipografía reducido */
+    padding: 0.1px; /* Reducido el espacio de relleno */
+  }
+  
+  /* Ajustes para PrimaryButton */
+  .login_form_buttons button {
+    font-size: 16px; /* Tamaño de la tipografía reducido */
+  }

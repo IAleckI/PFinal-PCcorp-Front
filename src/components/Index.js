@@ -1,3 +1,4 @@
+import AdminDeleteComponent from "./adminDeleteComponent/AdminDeleteComponent";
 import { Button } from "./Button/button";
 import SearchBar from "./SearchBar/SearchBar";
 import Carousel from "./Carrusel/carouselLanding";
@@ -16,9 +17,15 @@ import LoginTemplate from "./Login/login";
 import GetToken from './token/token'
 import CartList from "./cartList/cartList";
 import AboutUsComponent from "./AboutUs/aboutUs";
+import Verify from "./verify/verify";
+import ReviewCard from "./ReviewCard/reviewCard";
+import ThirdButton from "./Button/thirdButton/thirdButton";
+
 
 export {
+  AdminDeleteComponent,
   Button,
+  Verify,
   SearchBar,
   Carousel,
   Footer,
@@ -35,5 +42,7 @@ export {
   CartList,
   CardCarrouselProcesadores,
   FormCreateComponent,
-  AboutUsComponent
+  AboutUsComponent,
+  ReviewCard,
+  ThirdButton
 };
