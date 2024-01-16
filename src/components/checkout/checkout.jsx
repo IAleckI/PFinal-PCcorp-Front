@@ -11,7 +11,7 @@ export default function CheckOut({ cartProducts }) {
     const price = result.data.getTotalPrice * 0.1 / 100;
 
     return (
-        <div className={Style.checkout}>
+        <div >
             <h2 className={Style.tittle}>Resumen de compra</h2>
             <div className={Style.checkout_info}>
                 <h3>Productos ({cartProducts.length})</h3>

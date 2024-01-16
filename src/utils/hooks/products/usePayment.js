@@ -14,6 +14,8 @@ export const usePayment = () => {
     const products = useQuery(GET_ALL_USER_PRODUCTS, {
         variables: { userId: email },
     })
+
+   
     const result = useQuery(GET_TOTAL_PRICE, {
         variables: { userId: email },
     })
