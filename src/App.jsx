@@ -11,8 +11,7 @@ import {
   AboutUs,
   Cart,
   Login,
-  UserBoard,
-  AdminDeleteComponent
+  UserBoard
 } from "./Views/Index";
 import { GetToken } from "./components/Index";
 import { Verify } from "./components/Index";
@@ -31,9 +30,6 @@ function App() {
       <Route path="/cart" element={<Cart />} />
       <Route path="/account/:id" element={<UserBoard />} />
       {!GetToken() ? <Route path="/verify" element={<Verify />} /> : null}
-
-      {/* Esta ruta es solo para testing, no afecta el proyecto en general, el "element" puede ser cualquier componente */}
-      <Route path="/testing" element={<AdminDeleteComponent />} />
       
     </Routes>
   );
