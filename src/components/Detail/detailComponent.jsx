@@ -6,6 +6,7 @@ import { GET_PRODUCT_BY_ID } from "../../utils/graphql/querys/products/getProduc
 import Style from "./detailComponent.module.css";
 import { useAddProductToCart } from "../../utils/hooks/products/useMutationProducts";
 import { AdminDeleteComponent } from "../Index";
+import { jwtDecode } from "jwt-decode";
 import swal from "sweetalert";
 
 const ProductDetail = () => {
@@ -30,8 +31,33 @@ const ProductDetail = () => {
   const { getProductById } = data;
 
   const addToCart = () => {
-    addProductToCart();
-    swal("¡Añadido al carrito!", `${getProductById.name} se ha añadido al carrito.`, "success");
+    let email = "";
+    try {
+      const userInfo = localStorage.getItem("USER_INFO");
+      if (userInfo) {
+        const decodedToken = jwtDecode(userInfo);
+        email = decodedToken.email;
+      } else {
+        email = "";
+      }
+    } catch (error) {
+      console.error("Error decoding USER_INFO:", error);
+      email = "";
+    }
+
+    if (!email) {
+      swal(
+        "Inicia sesión",
+        "Antes debes iniciar sesión para agregar productos al carrito",
+        "info"
+      ).then(() => {
+        window.location.href = "/login";
+      });
+    } else {
+      addProductToCart();
+      swal("¡Añadido al carrito!", `${getProductById.name} se ha añadido al carrito.`, "success");
+    }
+
   };
 
   return (
