@@ -130,7 +130,7 @@ const Update = () => {
             <button className={styles.modalCloseButton} onClick={handleClose}>
               <img src={closeIcon} alt="Cerrar" />
             </button>
-            <h2>Edit Product</h2>
+            <h2>Editar Producto</h2>
             <form className={styles.editFormContainer}>
               {editableProperties.map((title) => (
                 <div key={title}>
