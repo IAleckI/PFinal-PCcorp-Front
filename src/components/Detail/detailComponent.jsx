@@ -6,6 +6,7 @@ import { GET_PRODUCT_BY_ID } from "../../utils/graphql/querys/products/getProduc
 import Style from "./detailComponent.module.css";
 import { useAddProductToCart } from "../../utils/hooks/products/useMutationProducts";
 import { AdminDeleteComponent } from "../Index";
+import swal from "sweetalert";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -28,8 +29,13 @@ const ProductDetail = () => {
 
   const { getProductById } = data;
 
+  const addToCart = () => {
+    addProductToCart();
+    swal("¡Añadido al carrito!", `${getProductById.name} se ha añadido al carrito.`, "success");
+  };
+
   return (
-    <>
+    <div className={Style.container}>
       <div className={Style.details}>
         <div className={Style.imageContainer}>
           <img className={Style.img} src={getProductById.image} alt="imagen" />
@@ -43,9 +49,9 @@ const ProductDetail = () => {
             <h2>Precio: $ {getProductById.price.toLocaleString('es-ES', { maximumFractionDigits: 0 })}</h2>
             <h2>Modelo: {getProductById.model}</h2>
             <h2>Tipo: {getProductById.type}</h2>
-            <h2 className={Style.Stock}>Stock: {getProductById.stock}</h2>
+            <h2 className={Style.stock}>Stock: {getProductById.stock}</h2>
           </div>
-          <Button text={"Añadir al carrito"} onClick={addProductToCart} />
+          <Button text={"Añadir al carrito"} onClick={addToCart} />
         </div>
       </div>
 
@@ -53,8 +59,8 @@ const ProductDetail = () => {
         <h2 className={Style.descriptionTitle}>Descripción</h2>
         <p className={Style.descriptionText}>{getProductById.description}</p>
       </div>
-    <AdminDeleteComponent />
-    </>
+      <AdminDeleteComponent />
+    </div>
   );
 };
 
