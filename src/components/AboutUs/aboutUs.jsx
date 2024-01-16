@@ -6,6 +6,8 @@ import teamIcon from '../../Assets/Img/AboutUsImgs/team1.png';
 import partnerIcon from '../../Assets/Img/AboutUsImgs/partner1.png';
 import futureIcon from '../../Assets/Img/AboutUsImgs/future.png';
 import photoExample from '../../Assets/Img/AboutUsImgs/fotoejemplo.jpg';
+import santisch from '../../Assets/Img/AboutUsImgs/santisch.png';
+
 
 const AboutUsComponent = () => {
   const teamData = [
@@ -15,7 +17,7 @@ const AboutUsComponent = () => {
     { name: 'Santiago R.', photo: photoExample },
     { name: 'Robert H.', photo: photoExample },
     { name: 'Valentin S.', photo: photoExample },
-    { name: 'Santiago S.', photo: photoExample },
+    { name: 'Santiago S.', photo: santisch },
     { name: 'Guillermo B.', photo: photoExample },
   ];
 
