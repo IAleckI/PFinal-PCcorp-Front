@@ -7,6 +7,7 @@ import partnerIcon from '../../Assets/Img/AboutUsImgs/partner1.png';
 import futureIcon from '../../Assets/Img/AboutUsImgs/future.png';
 import photoExample from '../../Assets/Img/AboutUsImgs/fotoejemplo.jpg';
 import santisch from '../../Assets/Img/AboutUsImgs/santisch.png';
+import guille from '../../Assets/Img/AboutUsImgs/guilleB.jpg';
 
 
 const AboutUsComponent = () => {
@@ -18,7 +19,7 @@ const AboutUsComponent = () => {
     { name: 'Robert H.', photo: photoExample },
     { name: 'Valentin S.', photo: photoExample },
     { name: 'Santiago S.', photo: santisch },
-    { name: 'Guillermo B.', photo: photoExample },
+    { name: 'Guillermo B.', photo: guille },
   ];
 
   return (
