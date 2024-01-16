@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Style from './configAccount.module.css';
-import UpdateProduct from '../Update/update';
+
 import { useEditUser } from '../../utils/hooks/User/editUser'
 
 
@@ -25,7 +25,7 @@ export default function ConfigAccount() {
     {console.log('Form rendered')} 
         </div>
      
-      <UpdateProduct />
+      
     </div>
   );
 }

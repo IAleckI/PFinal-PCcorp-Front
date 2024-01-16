@@ -4,9 +4,10 @@ import Style from "./FormCreateComponent.module.css";
 import { useMutation } from "@apollo/client"
 import { CREATE_PRODUCT } from "../../utils/graphql/mutations/product/createProduct";
 import { useCreate } from "../../utils/hooks/helpers/products/createProducts";
-
+import { useNavigate } from "react-router";
 const FormCreateComponent = () => {
   
+const navigate = useNavigate()
   const { onSubmit, handleSubmit, register, errors } = useCreate();
 console.log("form errors", errors)
   
@@ -43,7 +44,7 @@ return (
     <input className={Style.input} type="file" {...register("files")} />
 
       <button className={Style.input} type="submit" >Submit</button>
-
+      <button type='button' onClick={()=> navigate('/dashboard')}>Go Back</button>
       <span>{console.log(errors)}</span>
     </form>
 
