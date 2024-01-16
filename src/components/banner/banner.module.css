@@ -1,19 +1,21 @@
 .banner {
-    width: 100%;
-    height: 200px;
-    background-image: url('../../Assets/bg/catalogo.jpg');
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
-    padding-top: 80px;
+  width: 100%;
+  height: 200px;
+  background-image: url("../../Assets/bg/catalogo.jpg");
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding-top: 80px;
 }
 .banner h2 {
-    font-size: 40px;
-    color: #fff;
+  font-size: 40px;
+  color: #fff;
 }
-.banner h2, .banner button {
-    margin-left: 30px;
-    
-} 
+.banner h2,
+.banner button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
