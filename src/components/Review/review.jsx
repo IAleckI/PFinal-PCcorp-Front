@@ -34,7 +34,6 @@ const Reviews = () => {
     }
 
     try {
-      // Obtén userId desde el localStorage
       let userId = "";
       try {
         const userInfo = localStorage.getItem("USER_INFO");

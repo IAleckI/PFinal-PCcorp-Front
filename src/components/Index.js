@@ -1,4 +1,4 @@
-import AdminDeleteComponent from "./adminDeleteComponent/AdminDeleteComponent";
+import AdminDeleteComponent from "./adminDeleteComponent/adminDeleteComponent";
 import { Button } from "./Button/button";
 import SearchBar from "./SearchBar/SearchBar";
 import Carousel from "./Carrusel/carouselLanding";
