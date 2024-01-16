@@ -11,6 +11,7 @@ import Corazon2 from "../../Assets/Logos/Corazon2.png";
 import { useAddProductToCart } from "../../utils/hooks/products/useMutationProducts";
 import { jwtDecode } from "jwt-decode";
 import swal from "sweetalert";
+
 const Card = ({ props, isWishlist, onDelete }) => {
   let email = "";
   try {
@@ -42,8 +43,9 @@ const Card = ({ props, isWishlist, onDelete }) => {
   const [showCartPopup, setShowCartPopup] = useState(false);
 
   useEffect(() => {
-    setIsInWishlist(isWishlist);
-  }, [isWishlist]);
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    setIsInWishlist(favorites.includes(props.id));
+  }, [props.id]);
 
   const handleFavToggle = async () => {
     try {
@@ -57,6 +59,7 @@ const Card = ({ props, isWishlist, onDelete }) => {
         });
         return;
       }
+
       if (isInWishlist) {
         await deleteFavMutation({
           variables: { productId: props.id, userId: email },
@@ -68,18 +71,31 @@ const Card = ({ props, isWishlist, onDelete }) => {
           icon: "success",
           buttons: false,
           timer: 1000,
-        })
+        });
       } else {
         await addFavMutation({
           variables: { productId: props.id, userId: email },
         });
         setShowPopup(true);
-        swal ({
+        swal({
           title: "Producto agregado a favoritos",
           icon: "success",
           buttons: false,
           timer: 1000,
-        })
+        });
+      }
+
+      const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+      if (isInWishlist) {
+        localStorage.setItem(
+          "favorites",
+          JSON.stringify(favorites.filter((id) => id !== props.id))
+        );
+      } else {
+        localStorage.setItem(
+          "favorites",
+          JSON.stringify([...favorites, props.id])
+        );
       }
 
       setIsInWishlist(!isInWishlist);
@@ -111,10 +127,9 @@ const Card = ({ props, isWishlist, onDelete }) => {
         icon: "success",
         buttons: false,
         timer: 1000,
-      })
+      });
       setShowCartPopup(true);
     }
-
   };
 
   return (
@@ -150,24 +165,6 @@ const Card = ({ props, isWishlist, onDelete }) => {
         onClick={handleAddToCart}
         style={{ width: "80px", height: "40px", marginBottom: "6px" }}
       />
-
-      {/* {showPopup && (
-        <div className={Style.popup}>
-          <p>Agregado a Favoritos</p>
-        </div>
-      )}
-
-      {showCartPopup && (
-        <div className={Style.popup}>
-          <p>Añadido al carrito</p>
-        </div>
-      )}
-
-      {(showDeletePopup || showDeletePopupFromButton) && (
-        <div className={Style.popupDel}>
-          <p>Eliminado de Favoritos</p>
-        </div>
-      )} */}
     </figure>
   );
 };
