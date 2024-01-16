@@ -46,7 +46,7 @@ const Home = () => {
       )}
 
       <h2 style={{ textAlign: "center", marginTop: "20px", marginBottom: "20px" }}>
-        ¿Quieres ver más?, Entrá en nuestro catalogo y consigue lo que querés
+        ¿Quieres ver más?, Entrá en nuestro catalogo y consigue lo que quieres
       </h2>
       <span style={{ textAlign: "center", marginBottom: "20px" }} />
       <Button  text="Ir al catalogo" onClick={() => (window.location.href = "/catalogo")} />
