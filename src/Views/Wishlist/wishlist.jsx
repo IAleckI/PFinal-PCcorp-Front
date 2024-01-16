@@ -83,12 +83,7 @@ const Wishlist = () => {
         <p className={Style.noFavsText}> vuelve al catalogo para agregarlos.</p>
         <img className={Style.imgConfused} src={InterrogationPC} alt="" />
 
-        <button className={Style.noFavsButton}>
-          {" "}
-          <Link className={Style.link} to="/catalogo">
-            Volver al catalogo{" "}
-          </Link>
-        </button>
+       <Button Style text="Ir al catalogo" onClick={() => (window.location.href = "/catalogo")} />
 
         <Footer />
       </div>

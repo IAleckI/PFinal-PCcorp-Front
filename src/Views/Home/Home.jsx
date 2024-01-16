@@ -7,8 +7,7 @@ import {
 } from "../../components/Index";
 import { useProducts } from "../../utils/hooks/products/useProducts";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-
+import { Button } from "../../components/Index";
 const Home = () => {
   const { data } = useSelector((state) => state.products);
   const arrayOfComponents = data?.map((product) => (
@@ -48,9 +47,7 @@ const Home = () => {
       <p>
         ¿Quieres ver más?, Entrá en nuestro catalogo y consigue lo que querés
       </p>
-      <button>
-        <Link to="/catalogo">Ir al catalogo</Link>
-      </button>
+      <Button text="Ir al catalogo" onClick={() => (window.location.href = "/catalogo")} />
       <Footer />
     </div>
   );
