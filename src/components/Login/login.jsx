@@ -1,10 +1,9 @@
 import Style from './login.module.css';
 import { useGoogle } from '../../utils/hooks/network/google/useGoogle';
-import { useFacebook } from '../../utils/hooks/network/facebook/useFacebook';
 import LoginData from './loginData/loginData';
 import GoogleLogin from 'react-google-login';
 
-import loginImage from '../../Assets/Img/fotologin.jpg'; // Import the image
+import loginImage from '../../Assets/Img/fotologin.jpg'; 
 
 export default function LoginTemplate() {
   const clientId = useGoogle();
@@ -32,10 +31,6 @@ export default function LoginTemplate() {
               cookiePolicy={'single_host_origin'}
               className={Style.login_google_button}
             />
-
-            <div className={Style.login_facebook_button}>
-              Facebook
-            </div>
           </div>
         </div>
 
