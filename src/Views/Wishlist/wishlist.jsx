@@ -8,6 +8,7 @@ import Style from "./wishlist.module.css";
 import { Link } from "react-router-dom";
 import InterrogationPC from "../../Assets/Img/InterrogationPC.jpeg";
 import { jwtDecode } from "jwt-decode";
+import { Button } from "../../components/Index";
 
 const Wishlist = () => {
   let email = '';
@@ -65,13 +66,14 @@ const Wishlist = () => {
     return (
       <div>
         <NavBar />
-        <p>Error al cargar favoritos: {error.message}</p>
+        <p>Necesitas iniciar sesión para ver tus favoritos</p>
+        <Button text="Iniciar sesión" onClick={() => (window.location.href = "/login")} />
         <Footer />
       </div>
     );
   }
 
-  if (!favs || favs.length === 0) {
+  if (!favs || favs?.length === 0) {
     return (
       <div>
         <NavBar />
@@ -81,12 +83,7 @@ const Wishlist = () => {
         <p className={Style.noFavsText}> vuelve al catalogo para agregarlos.</p>
         <img className={Style.imgConfused} src={InterrogationPC} alt="" />
 
-        <button className={Style.noFavsButton}>
-          {" "}
-          <Link className={Style.link} to="/catalogo">
-            Volver al catalogo{" "}
-          </Link>
-        </button>
+       <Button Style text="Ir al catalogo" onClick={() => (window.location.href = "/catalogo")} />
 
         <Footer />
       </div>
