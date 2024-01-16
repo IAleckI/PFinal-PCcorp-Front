@@ -18,11 +18,11 @@ const NavBar = () => {
           <SearchBar/>
         </div>
         <div className={Style.navbar_user}>
-          <Link to={"/wishlist"}><img src={wishlist} alt="wishlist" /></Link>
-          <Link to={"/cart"}><img src={bolsalogo} alt="bolsa" /></Link>
+          <Link to={"/wishlist"}><img src={wishlist} title="Favoritos" alt="wishlist" /></Link>
+          <Link to={"/cart"}><img src={bolsalogo} title="Carrito" alt="bolsa" /></Link>
           {token
           ? <Link to={"/account/profile"}> <img className={Style.profileImage} src={image} alt="user" /></Link>
-          : <Link to={"/login"}><img src={usuario} alt="user" /></Link>}
+          : <Link to={"/login"}><img src={usuario} title="Login" alt="user" /></Link>}
         </div>
       </div>
       <div className={Style.secondNavbar}>
