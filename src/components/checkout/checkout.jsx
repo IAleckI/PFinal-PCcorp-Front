@@ -27,7 +27,7 @@ export default function CheckOut({ cartProducts }) {
             </div>
             {loading
                 ? <a href='#' className={Style.button_pay_d}>Continuar compra</a>
-                : <a href={paymentId} target='_blank' rel="noreferrer" onClick={() => pay()} className={Style.button_pay}>Continuar compra</a>}
+                : <a href={paymentId} rel="noreferrer" onClick={() => pay()} className={Style.button_pay}>Continuar compra</a>}
         </div>
     );
 }
