@@ -131,3 +131,18 @@
     display: flex;
     align-items: center;
   }
+
+  .cart_button {
+    width: 150px;
+    height: 40px;
+    background: url('../../Assets/Logos/carrito.png') no-repeat center center;
+    background-size: contain;
+    margin-bottom: 10px;
+    background-color: #7971EA;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .cart_button:hover {
+    background-color: #5d52cc;
+  }

@@ -12,6 +12,7 @@ import { useAddProductToCart } from "../../utils/hooks/products/useMutationProdu
 import { jwtDecode } from "jwt-decode";
 import swal from "sweetalert";
 
+
 const Card = ({ props, isWishlist, onDelete }) => {
   let email = "";
   try {
@@ -150,21 +151,7 @@ const Card = ({ props, isWishlist, onDelete }) => {
           ${props.price.toLocaleString("es-ES", { maximumFractionDigits: 0 })}
         </h4>
       </NavLink>
-      {isWishlist && (
-        <Button
-          className={Style.deleteButton}
-          text="Eliminar"
-          onClick={() => {
-            onDelete && onDelete(props.id);
-            setShowDeletePopupFromButton(true);
-          }}
-        />
-      )}
-      <Button
-        text="Añadir"
-        onClick={handleAddToCart}
-        style={{ width: "80px", height: "40px", marginBottom: "6px" }}
-      />
+      <button onClick={handleAddToCart} className={Style.cart_button}/>
     </figure>
   );
 };
