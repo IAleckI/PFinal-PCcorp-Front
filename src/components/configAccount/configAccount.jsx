@@ -3,7 +3,9 @@ import Style from './configAccount.module.css';
 import UpdateProduct from '../Update/update';
 import { useEditUser } from '../../utils/hooks/User/editUser'
 export default function ConfigAccount() {
-  return (
+  const  {register, handleSubmit,errors, onSubmit} = useEditUser()
+  
+    return (
     <div className={Style.configAccount}>
            <div className={Style.configAccount}>
             <form onSubmit={handleSubmit(onSubmit)}>
