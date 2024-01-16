@@ -77,10 +77,10 @@ const Wishlist = () => {
     return (
       <div>
         <NavBar />
-        <p className={Style.noFavsText}>
+        <h2 className={Style.noFavsText}>
           Vaya, parece que aun no tienes favoritos,
-        </p>
-        <p className={Style.noFavsText}> vuelve al catalogo para agregarlos.</p>
+        </h2>
+        <h2 className={Style.noFavsText}> vuelve al catalogo para agregarlos.</h2>
         <img className={Style.imgConfused} src={InterrogationPC} alt="" />
 
        <Button Style text="Ir al catalogo" onClick={() => (window.location.href = "/catalogo")} />

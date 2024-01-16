@@ -8,6 +8,7 @@ import {
 import { useProducts } from "../../utils/hooks/products/useProducts";
 import { useSelector } from "react-redux";
 import { Button } from "../../components/Index";
+
 const Home = () => {
   const { data } = useSelector((state) => state.products);
   const arrayOfComponents = data?.map((product) => (
@@ -44,10 +45,11 @@ const Home = () => {
         />
       )}
 
-      <p>
+      <h2 style={{ textAlign: "center", marginTop: "20px", marginBottom: "20px" }}>
         ¿Quieres ver más?, Entrá en nuestro catalogo y consigue lo que querés
-      </p>
-      <Button text="Ir al catalogo" onClick={() => (window.location.href = "/catalogo")} />
+      </h2>
+      <span style={{ textAlign: "center", marginBottom: "20px" }} />
+      <Button  text="Ir al catalogo" onClick={() => (window.location.href = "/catalogo")} />
       <Footer />
     </div>
   );
