@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { CREATE_PAYMENT } from '../../graphql/querys/products/createPayment'
-import { useSelector } from 'react-redux'
+import { GET_PAYMENT_CART } from '../../graphql/querys/products/getPayment'
 import { useQuery, useLazyQuery } from '@apollo/client'
 import { jwtDecode } from 'jwt-decode'
 import { GET_TOTAL_PRICE, GET_ALL_USER_PRODUCTS } from '../../graphql/querys/products/getAllUserProducts'
@@ -10,6 +10,7 @@ export const usePayment = () => {
     const [paymentId, setPaymentId] = useState("")
     const email = jwtDecode(localStorage.getItem('USER_INFO')).email
     const [getPayment] = useLazyQuery(CREATE_PAYMENT)
+    const [getPaymentCart] = useLazyQuery(GET_PAYMENT_CART)
     const products = useQuery(GET_ALL_USER_PRODUCTS, {
         variables: { userId: email },
     })
@@ -34,12 +35,9 @@ export const usePayment = () => {
                 })
                 
                 const paymentResult = await getPayment({
-                    variables: { 
-                        userId: email,
-                        items: mapped }, 
+                    variables: { items: mapped }, 
                 })
-                console.log(email);
-                console.log(paymentResult);
+                
                 setPaymentId(paymentResult.data.createPayment)
                 setLoading(false)
             } catch (error) {
@@ -51,7 +49,14 @@ export const usePayment = () => {
         
         
         data()
-    },[products.data, getPayment, result.data, products.loading])
+    },[products.data, getPayment, products.loading])
 
-    return { loading, paymentId, result, products: products.data }
+    const pay = async () => {
+        const res = await getPaymentCart({
+            variables: { getPaymentId: email, price: parseInt(result.data.getTotalPrice)},
+        })
+        console.log(res);
+    }
+
+    return { loading, paymentId, result, products: products.data, pay }
 }
