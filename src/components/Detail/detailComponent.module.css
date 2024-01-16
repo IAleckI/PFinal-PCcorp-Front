@@ -34,9 +34,6 @@
   margin-bottom: 10px;
 }
 
-.stock {
-  font-size: 16px;
-}
 
 .descriptionContainer {
   margin-top: 20px;
@@ -60,6 +57,5 @@
 .error {
   text-align: center;
   margin-top: 50px;
-  /* Estilo específico para errores si es necesario */
   font-size: 24px;
 }

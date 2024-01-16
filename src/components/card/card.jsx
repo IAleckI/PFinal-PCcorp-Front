@@ -151,7 +151,7 @@ const Card = ({ props, isWishlist, onDelete }) => {
           ${props.price.toLocaleString("es-ES", { maximumFractionDigits: 0 })}
         </h4>
       </NavLink>
-      <button onClick={handleAddToCart} className={Style.cart_button}/>
+      <Button onClick={handleAddToCart} text={"Añadir al carrito"} style={{width: "150px", height: "40px",marginbottom: "10px"}}/>
     </figure>
   );
 };
