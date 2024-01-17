@@ -6,17 +6,25 @@ import teamIcon from '../../Assets/Img/AboutUsImgs/team1.png';
 import partnerIcon from '../../Assets/Img/AboutUsImgs/partner1.png';
 import futureIcon from '../../Assets/Img/AboutUsImgs/future.png';
 import photoExample from '../../Assets/Img/AboutUsImgs/fotoejemplo.jpg';
+import santisch from '../../Assets/Img/AboutUsImgs/santisch.png';
+import guille from '../../Assets/Img/AboutUsImgs/guilleB.jpg';
+import valen from '../../Assets/Img/AboutUsImgs/valen.jpg';
+import robs from '../../Assets/Img/AboutUsImgs/robs.jpg';
+import santiru from '../../Assets/Img/AboutUsImgs/santiru.jpg';
+
+
+
 
 const AboutUsComponent = () => {
   const teamData = [
     { name: 'Alexander H.', photo: photoExample },
     { name: 'Julian S.', photo: photoExample },
     { name: 'Tomás I.', photo: photoExample },
-    { name: 'Santiago R.', photo: photoExample },
-    { name: 'Robert H.', photo: photoExample },
-    { name: 'Valentin S.', photo: photoExample },
-    { name: 'Santiago S.', photo: photoExample },
-    { name: 'Guillermo B.', photo: photoExample },
+    { name: 'Santiago R.', photo: santiru },
+    { name: 'Robert H.', photo: robs },
+    { name: 'Valentin S.', photo: valen },
+    { name: 'Santiago S.', photo: santisch },
+    { name: 'Guillermo B.', photo: guille },
   ];
 
   return (

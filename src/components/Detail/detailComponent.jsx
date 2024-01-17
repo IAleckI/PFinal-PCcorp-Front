@@ -3,24 +3,31 @@ import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { Button } from "../Index";
 import { GET_PRODUCT_BY_ID } from "../../utils/graphql/querys/products/getProductById";
+import { GET_ALL_PRODUCT_REVIEWS } from "../../utils/graphql/querys/products/reviews/getAllProductReviews"; 
 import Style from "./detailComponent.module.css";
 import { useAddProductToCart } from "../../utils/hooks/products/useMutationProducts";
 import { AdminDeleteComponent } from "../Index";
 import { jwtDecode } from "jwt-decode";
 import swal from "sweetalert";
+import Reviews from "../Review/review";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const { loading, error, data } = useQuery(GET_PRODUCT_BY_ID, {
     variables: { id },
   });
+  
+  const { loading: reviewsLoading, error: reviewsError, data: reviewsData } = useQuery(GET_ALL_PRODUCT_REVIEWS, {
+    variables: { productId: id },
+  });
+
   const { addProductToCart } = useAddProductToCart(id);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  if (loading) return <h1 className={Style.loading}>Cargando...</h1>;
+  if (loading || reviewsLoading) return <h1 className={Style.loading}>Cargando...</h1>;
   if (error)
     return (
       <error className={Style.error}>
@@ -86,7 +93,11 @@ const ProductDetail = () => {
         <p className={Style.descriptionText}>{getProductById.description}</p>
       </div>
       <AdminDeleteComponent />
+      <div>
+      <Reviews/>
+      </div>
     </div>
+    
   );
 };
 

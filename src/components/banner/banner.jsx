@@ -1,16 +1,18 @@
-import Style from './banner.module.css'
-import { Button } from '../Index';
+import Style from "./banner.module.css";
+import { Button } from "../Index";
 
 const Banner = () => {
-    return (
-        <article className={Style.banner}>
-            <h2>Ofertas por tiempo limitado</h2>
-            <Button 
-              text={'VER OFERTAS'} 
-              onClick={() => console.log('hola')}/>
-        </article>
-    )
-
-}
+  return (
+    <article className={Style.banner}>
+      <h2>¿Quieres saber quienes somos?</h2>
+      <h2>Haz click abajo para conocernos mejor !</h2>
+      <Button
+        text={"CONÓCENOS"}
+        onClick={() => (window.location.href = "/aboutUs")}
+        additionalClassName={Style.bannerButton}
+      />
+    </article>
+  );
+};
 
 export default Banner;

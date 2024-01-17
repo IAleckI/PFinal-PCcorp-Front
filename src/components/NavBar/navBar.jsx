@@ -29,6 +29,7 @@ const NavBar = () => {
         <LocationNav location="/"  tittle='HOME'/>
         <LocationNav location="/catalogo" tittle='CATALOGO'/>
         <LocationNav location="/AboutUs" tittle='¿QUIENES SOMOS?'/>
+        <LocationNav location="/dashboard" tittle='DASHBOARD'/>
       </div>
     </nav>
   );

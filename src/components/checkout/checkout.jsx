@@ -2,16 +2,16 @@ import Style from './checkout.module.css'
 import { usePayment } from '../../utils/hooks/products/usePayment'
 
 export default function CheckOut({ cartProducts }) {
-    const { loading, paymentId, result } = usePayment();
+    const { loading, paymentId, result, pay } = usePayment();
 
-    if ( !paymentId || paymentId.length === 0) {
+    if ( !paymentId || paymentId.length === 0 || !result.data) {
         return <p>Cargando...</p>;
     }
 
     const price = result.data.getTotalPrice * 0.1 / 100;
 
     return (
-        <div className={Style.checkout}>
+        <div >
             <h2 className={Style.tittle}>Resumen de compra</h2>
             <div className={Style.checkout_info}>
                 <h3>Productos ({cartProducts.length})</h3>
@@ -27,7 +27,7 @@ export default function CheckOut({ cartProducts }) {
             </div>
             {loading
                 ? <a href='#' className={Style.button_pay_d}>Continuar compra</a>
-                : <a href={paymentId} target='_blank' rel="noreferrer" className={Style.button_pay}>Continuar compra</a>}
+                : <a href={paymentId} rel="noreferrer" onClick={() => pay()} className={Style.button_pay}>Continuar compra</a>}
         </div>
     );
 }

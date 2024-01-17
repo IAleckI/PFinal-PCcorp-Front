@@ -8,7 +8,7 @@ import Wishlist from "./Wishlist/wishlist";
 import FormCreate from "./FormCreate/FormCreate";
 import AboutUs from "./AboutUs/AboutUs";
 import UserBoard from "./userDashBoard/userBoard";
-
+import {Dashboard} from "./Dashboard/dashboard"
 export {
   Home,
   Detail,
@@ -19,5 +19,6 @@ export {
   AboutUs,
   Cart,
   Wishlist,
-  UserBoard
+  UserBoard,
+  Dashboard
 };
