@@ -11,10 +11,10 @@ const UsersDash = () => {
   const [editUserId, setEditUserId] = useState(null);
   const [updateUserData, setUpdateUserData] = useState({
     id: "",
-    username: "",
+    userName: "",
     email: "",
-    role: "",
-    // Add other user properties as needed
+    password: "",
+   
   });
   const [successMessage, setSuccessMessage] = useState(null);
 
@@ -22,15 +22,15 @@ const UsersDash = () => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
-console.log(data)
+
 const users = data.getAllUser;
 
   if (!users || users.length === 0) {
     return <p>No users available.</p>;
   }
 
-  const propertyTitles = ['id', 'username', 'email', 'role', /* Add other properties here */];
-  const editableProperties = ['id', 'username', 'email', 'role', /* Add other properties here */];
+  const propertyTitles = ['id', 'userName', 'email', 'password', /* Add other properties here */];
+  const editableProperties = ['id', 'userName', 'email', 'password', /* Add other properties here */];
 
   const handleEditClick = (userId) => {
     setEditUserId(userId);
@@ -39,9 +39,9 @@ const users = data.getAllUser;
 
     setUpdateUserData({
       id: selectedUser.id,
-      username: selectedUser.username,
+      userName: selectedUser.userName,
       email: selectedUser.email,
-      role: selectedUser.role,
+      password: selectedUser.passwordHash,
       // Set other properties here
     });
   };
@@ -53,22 +53,28 @@ const users = data.getAllUser;
     });
   };
 
-  const handleUpdate = async () => {
+  const handleUpdate = async (data) => {
     try {
-      const { data } = await updateUserMutation({
+      const result = await updateUserMutation({
         variables: {
           ...updateUserData,
         },
-        refetchQueries: [{ query: GET_ALL_USERS }],
+        refetchQueries: [{ query: PROFILE_USER }],
       });
 
       console.log("User updated:", data.updateUser);
+      console.log(result);
 
+      if (result.errors && result.errors.length > 0) {
+        throw new Error(result.errors[0].message);
+      }
+  
+      console.log(result.errors); 
       setUpdateUserData({
         id: "",
-        username: "",
+        userName: "",
         email: "",
-        role: "",
+        password: "",
         // Reset other properties
       });
       setEditUserId(null);
@@ -81,7 +87,7 @@ const users = data.getAllUser;
         setSuccessMessage(null);
       }, 3000); // Hide the message after 3000 milliseconds (3 seconds)
     } catch (error) {
-      console.error("Error updating user:", error.message);
+      console.error("Error updating user:", {error});
     }
   };
 
@@ -130,7 +136,7 @@ const users = data.getAllUser;
                   <input
                     type="text"
                     name={title}
-                    value={updateUserData[title]}
+                    value={updateUserData[title] || ''}
                     onChange={handleChange}
                     className={styles.input}
                   />
