@@ -14,8 +14,8 @@ const FormCreateComponent = () => {
   const handleFormSubmit = async (data) => {
     try {
       // Validar que todos los campos estén llenos
-      if (!data.name || !data.model || !data.family || !data.brand || !data.stock || !data.price || !data.files) {
-        swal ("Error", "Por favor, completa todos los campos.", "error");
+      if (!data.name || !data.model || !data.family || !data.brand || !data.stock || !data.price || !data.files[0]) {
+        swal("Error", "Por favor, completa todos los campos.", "error");
         return;
       }
 
