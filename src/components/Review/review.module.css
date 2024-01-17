@@ -3,15 +3,16 @@
     margin-top: 20px;
   }
   .cardContainer {
-    border: 2px solid #ccc; /* Grosor del borde y color */
-    border-radius: 10px; /* Bordes redondeados */
-    padding: 20px; /* Espaciado interno */
-    display: inline-block; /* Ajuste de ancho al contenido */
-    margin: 30px auto 50px; /* Márgenes superior e inferior de 30px y 50px respectivamente, centrado horizontalmente */
-    width: 70%; /* Ajusta según sea necesario */
-    margin-left: 15%;
-    margin-right: 15%;
+    border: 2px solid #ccc; 
+    border-radius: 10px; 
+    padding: 20px; 
+    display: inline-block; 
+    margin: 30px auto 50px; 
+    width: 100%;  /* Ajusta el valor de width según tu preferencia */
+    margin-left: 5%; /* Calculado para centrar */
+    margin-right: 5%; /* Calculado para centrar */
   }
+  
   
   .reviewsTitle {
     font-size: 20px;
@@ -78,7 +79,6 @@ text-align: center;  }
   .reviewCardSection {
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: auto;
     padding: 10px; /* Ajusta el espaciado según sea necesario */
     margin-bottom: 20px; /* Ajusta el margen según sea necesario */
   }

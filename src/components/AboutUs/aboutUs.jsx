@@ -8,6 +8,8 @@ import futureIcon from '../../Assets/Img/AboutUsImgs/future.png';
 import photoExample from '../../Assets/Img/AboutUsImgs/fotoejemplo.jpg';
 import santisch from '../../Assets/Img/AboutUsImgs/santisch.png';
 import guille from '../../Assets/Img/AboutUsImgs/guilleB.jpg';
+import valen from '../../Assets/Img/AboutUsImgs/valen.jpg';
+
 
 
 const AboutUsComponent = () => {
@@ -17,7 +19,7 @@ const AboutUsComponent = () => {
     { name: 'Tomás I.', photo: photoExample },
     { name: 'Santiago R.', photo: photoExample },
     { name: 'Robert H.', photo: photoExample },
-    { name: 'Valentin S.', photo: photoExample },
+    { name: 'Valentin S.', photo: valen },
     { name: 'Santiago S.', photo: santisch },
     { name: 'Guillermo B.', photo: guille },
   ];
