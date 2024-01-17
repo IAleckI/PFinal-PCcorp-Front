@@ -32,7 +32,7 @@ export const useFormRegister = () => {
         },
       });
 
-      if (result.data?.userCreate) {
+      if (result.data?.createUser) {
         swal({
           title: "Cuenta Creada",
           text: "Ahora puedes iniciar sesion",
