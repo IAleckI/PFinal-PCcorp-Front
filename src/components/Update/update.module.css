@@ -159,3 +159,8 @@ td.image img {
   border-radius: 5px;
   z-index: 1100; /* Ajusta el z-index según sea necesario */
 }
+
+.deleteButton{
+width: 20px;
+height: 20px;
+}
