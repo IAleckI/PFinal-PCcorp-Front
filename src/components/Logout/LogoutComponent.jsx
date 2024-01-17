@@ -14,7 +14,13 @@ const LogoutButton = () => {
       button: "Volver",
     })
     localStorage.clear(user);
+<<<<<<< Updated upstream
     navigate("/");
+=======
+    navigate("/login");
+
+    window.location.reload();
+>>>>>>> Stashed changes
   };
   return (
     <Button onClick={logOut} text={"Logout"}  />
