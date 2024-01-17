@@ -14,7 +14,7 @@ const LogoutButton = () => {
       button: "Volver",
     })
     localStorage.clear(user);
-    navigate("/login");
+    navigate("/");
   };
   return (
     <Button onClick={logOut} text={"Logout"}  />
