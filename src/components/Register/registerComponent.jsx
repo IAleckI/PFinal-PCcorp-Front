@@ -8,7 +8,7 @@ const RegisterComponent = ()=> {
     <div className={Style.template}>
        <section className={Style.login_template}> 
        <div className={Style.login_template}>
-          <h1>Register in to Make my PC</h1>
+          <h1>Bienvenido a "Make My PC"</h1>
         <RegisterData/>
         </div>
         </section>

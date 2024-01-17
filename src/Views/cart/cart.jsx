@@ -1,11 +1,11 @@
-import { NavBar, CartList } from '../../components/Index'
+import { NavBar, CartList, Footer } from "../../components/Index";
 
 export default function Cart() {
-    return (
-        <div>
-            <NavBar/>
-            <CartList/>
-        </div>
-    )
-
+  return (
+    <div>
+      <NavBar />
+      <CartList />
+      <Footer />
+    </div>
+  );
 }

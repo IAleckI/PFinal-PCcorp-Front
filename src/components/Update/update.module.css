@@ -1,0 +1,187 @@
+.tableContainer {
+  margin: 20px auto;
+  width: 80%;
+  overflow-y: auto;
+  max-height: 40vw;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  
+}
+
+thead th {
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: left;
+}
+
+tbody tr {
+  border-bottom: 1px solid #ddd;
+  
+}
+
+td {
+  padding: 10px;
+  word-break: break-all;
+}
+
+/* Estilo para las imágenes dentro del casillero 'image' */
+td.image {
+  max-width: 100px; /* Ancho máximo */
+  max-height: 100px; /* Altura máxima */
+}
+
+/* Asegúrate de que las imágenes se ajusten correctamente al tamaño especificado */
+td.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Esto asegura que la imagen cubra el cuadro sin distorsión */
+}
+
+/* Nuevos estilos para el icono de edición */
+.editButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.editButton img {
+  width: 20px; /* Ajusta el tamaño según sea necesario */
+  height: 20px;
+}
+
+.editFormContainer {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.editFormContainer h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.editFormContainer form {
+  display: flex;
+  flex-direction: column;
+}
+
+.editFormContainer label {
+  margin-bottom: 5px;
+}
+
+.editFormContainer input {
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.editFormContainer button {
+  padding: 10px;
+  background-color: #007bff;
+  color: #0a0909;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.editFormContainer button:hover {
+  background-color: #0056b3;
+}
+
+.modalOverlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+  z-index: 1000; /* Asegura que la capa modal esté en la parte superior */
+}
+
+.modalContainer {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.modalCloseButton {
+  margin-left: 250px;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1001; /* Asegura que el botón esté por encima del formulario */
+}
+
+.modalCloseButton img {
+  
+  width: 20px; /* Ajusta el tamaño según sea necesario */
+  height: 20px;
+}
+
+.editFormContainer input {
+  padding: 10px;
+  margin-bottom: 15px; /* Más espacio entre campo y campo */
+  border: 1px solid #ddd; /* Borde para resaltar los campos */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+.editFormContainer button {
+  padding: 10px;
+  background-color: #7971EA; /* Color personalizado */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  align-self: center; /* Centrar el botón */
+}
+
+.editFormContainer button:hover {
+  background-color: #5f58c1; /* Cambiar color al pasar el ratón */
+}
+
+.successPopup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #7eff7e; /* Verde claro */
+  border: 1px solid #4caf50; /* Borde verde */
+  border-radius: 5px;
+  z-index: 1100; /* Ajusta el z-index según sea necesario */
+}
+
+.deleteButton{
+width: 20px;
+height: 20px;
+background: transparent;
+
+}
+
+.trashButton {
+  background: transparent;
+  border: none; 
+}
+
+.tdDelete {
+  text-align: center; 
+  vertical-align: middle; 
+}
+
+.tdEdit{
+  text-align: center;
+  vertical-align: middle;
+}

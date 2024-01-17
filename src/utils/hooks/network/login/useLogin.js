@@ -23,15 +23,18 @@ export const useFormHook = () => {
     
             if (result?.error?.message) throw new Error(result.error.message);
     
-            // Store user information in localStorage
             const userInfo = result.data.getUserLogin.token;
             localStorage.setItem('USER_INFO', userInfo);
             
-            // Log user information for debugging
-            console.log('User Info:', userInfo);
-    
-            // Redirect or perform other actions after successful login
-            navigate('/');
+            swal({
+                title: "Login!",
+                text: "Has iniciado sesión",
+                icon: "success",
+                button: "Volver",
+                timer: 1500
+            }).then(() => {
+                navigate('/');
+            });
         } catch (error) {
             setError('password', { message: error.message });
         }

@@ -1,3 +1,4 @@
+import AdminDeleteComponent from "./adminDeleteComponent/adminDeleteComponent";
 import { Button } from "./Button/button";
 import SearchBar from "./SearchBar/SearchBar";
 import Carousel from "./Carrusel/carouselLanding";
@@ -19,9 +20,14 @@ import AboutUsComponent from "./AboutUs/aboutUs";
 import Verify from "./verify/verify";
 import ReviewCard from "./ReviewCard/reviewCard";
 import ThirdButton from "./Button/thirdButton/thirdButton";
+import Update from "./Update/update";
+import { DashboardAside } from "./dashboardAside/dashboardAside";
+import UsersDash from "./usersDash/usersDash";
+
 
 
 export {
+  AdminDeleteComponent,
   Button,
   Verify,
   SearchBar,
@@ -42,5 +48,8 @@ export {
   FormCreateComponent,
   AboutUsComponent,
   ReviewCard,
-  ThirdButton
+  ThirdButton,
+  Update,
+  DashboardAside,
+  UsersDash
 };
