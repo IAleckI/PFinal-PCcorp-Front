@@ -1,10 +1,11 @@
-import React, { useState } from "react";
-import { useMutation } from "@apollo/client";
+import React, { useState, useEffect } from "react";
+import { useMutation, useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { jwtDecode } from 'jwt-decode';
 import { CREATE_USER_REVIEW_MUTATION } from "../../utils/graphql/mutations/review/review";
 import { Button, ReviewCard } from "../Index";
 import Style from "./review.module.css";
+import { GET_ALL_PRODUCT_REVIEWS } from "../../utils/graphql/querys/products/reviews/getAllProductReviews";
 
 const Reviews = () => {
   const { id: productId } = useParams();
@@ -14,6 +15,17 @@ const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const [createUserReview] = useMutation(CREATE_USER_REVIEW_MUTATION);
   const [showPopup, setShowPopup] = useState(false);
+
+  // Obtener reseñas del producto
+  const { loading: reviewsLoading, error: reviewsError, data: reviewsData } = useQuery(GET_ALL_PRODUCT_REVIEWS, {
+    variables: { productId },
+  });
+
+  useEffect(() => {
+    if (reviewsData && reviewsData.getAllProductReviews) {
+      setReviews(reviewsData.getAllProductReviews);
+    }
+  }, [reviewsData]);
 
   const handleStarClick = (star) => {
     setRating(star);
@@ -41,7 +53,7 @@ const Reviews = () => {
           const decodedToken = jwtDecode(userInfo);
           userId = decodedToken.email;
         } else {
-         
+          // Lógica para manejar si no hay información del usuario
         }
       } catch (error) {
         console.error("Error decoding USER_INFO:", error);
@@ -82,7 +94,7 @@ const Reviews = () => {
       <div className={Style.cardContainer}>
         <div className={Style.reviewsContainer}>
           <h1 className={Style.reviewsTitle}>
-            Ayuda a los demás con su compra ! Deja tu reseña !
+            Ayuda a los demás con su compra! ¡Deja tu reseña!
           </h1>
           <div className={Style.starsContainer}>
             {[1, 2, 3, 4, 5].map((star) => (
@@ -124,11 +136,12 @@ const Reviews = () => {
         </div>
       </div>
 
-      {/* Nueva sección para las ReviewCards */}
       <div className={Style.reviewCardSection}>
-        {reviews.map((review, index) => (
-          <ReviewCard key={index} {...review} />
-        ))}
+        {reviews.length > 0 ? (
+          <ReviewCard reviews={reviews} />
+        ) : (
+          <p>No hay reseñas disponibles.</p>
+        )}
       </div>
 
       {showPopup && (

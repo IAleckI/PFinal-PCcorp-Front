@@ -19,7 +19,6 @@
   font-size: 24px;
 }
 
-/* Agrega estilo para usar display flex en las tarjetas de revisión */
 .cardContent {
   display: flex;
   flex-direction: column;
