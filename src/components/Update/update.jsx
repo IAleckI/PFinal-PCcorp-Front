@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./update.module.css";
 import editarIcon from "../../Assets/Logos/iconoeditar.png";
 import closeIcon from "../../Assets/Logos/Xicon.png";
-import trashIcon from "../../Assets/Logos/trash.png";
+import trashIcon from "../../Assets/Logos/iconoEliminar.png";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_ALL_PRODUCTS } from "../../utils/graphql/querys/products/getAllProducts";
 import { UPDATE_PRODUCT } from "../../utils/graphql/mutations/product/updateProduct";
@@ -150,13 +150,13 @@ const Update = () => {
                   {title === 'image' ? <img src={product[title]} alt={product.name} /> : product[title]}
                 </td>
               ))}
-              <td>
+              <td className={styles.tdEdit}>
                 <button className={styles.editButton} onClick={() => handleEditClick(product.id)}>
                   <img src={editarIcon} alt="Editar" />
                 </button>
               </td>
-              <td>
-                <button onClick={() => handleDelete(product.id)}>
+              <td className={styles.tdDelete}>
+                <button className={styles.trashButton} onClick={() => handleDelete(product.id)}>
                   <img className={styles.deleteButton} src={trashIcon} alt="Eliminar" />
                 </button>
               </td>

@@ -163,4 +163,21 @@ td.image img {
 .deleteButton{
 width: 20px;
 height: 20px;
+background: transparent;
+
+}
+
+.trashButton {
+  background: transparent;
+  border: none; 
+}
+
+.tdDelete {
+  text-align: center; 
+  vertical-align: middle; 
+}
+
+.tdEdit{
+  text-align: center;
+  vertical-align: middle;
 }

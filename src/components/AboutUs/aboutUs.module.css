@@ -152,7 +152,8 @@
     display: block;
     margin: 5px auto; /* Ajusta el margen entre la imagen y el círculo */
     padding: 3px; /* Ajusta el padding entre la imagen y el círculo */
-    box-shadow: 0 0 0 10px white; /* Ajusta el ancho y el color del espacio entre la imagen y el círculo */
+    box-shadow: 0 0 0 10px white; 
+    object-fit: cover;
   }
   
   .TeamMemberName {
