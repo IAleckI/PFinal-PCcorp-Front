@@ -1,0 +1,27 @@
+.card a{
+    text-decoration: none;
+}
+
+.receipt {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px;
+    border-bottom: 2px solid #aaa;
+    
+    color: #111;
+}
+
+.receipt_info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.receipt_info h2 {
+    font-size: 1rem;
+}
+
+.receipt_info img {
+    width: 100px;
+}
