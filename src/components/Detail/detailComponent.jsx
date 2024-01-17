@@ -70,7 +70,6 @@ const ProductDetail = () => {
       <div>
       <Reviews/>
       </div>
-      
     </div>
     
   );

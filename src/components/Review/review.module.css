@@ -14,7 +14,6 @@
   }
   
   
-  
   .reviewsTitle {
     font-size: 20px;
     margin-bottom: 10px;
@@ -80,7 +79,6 @@ text-align: center;  }
   .reviewCardSection {
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: auto;
     padding: 10px; /* Ajusta el espaciado según sea necesario */
     margin-bottom: 20px; /* Ajusta el margen según sea necesario */
   }
