@@ -6,6 +6,7 @@ import { CREATE_USER_REVIEW_MUTATION } from "../../utils/graphql/mutations/revie
 import { Button, ReviewCard } from "../Index";
 import Style from "./review.module.css";
 import { GET_ALL_PRODUCT_REVIEWS } from "../../utils/graphql/querys/products/reviews/getAllProductReviews";
+import swal from "sweetalert";
 
 const Reviews = () => {
   const { id: productId } = useParams();
@@ -16,7 +17,7 @@ const Reviews = () => {
   const [createUserReview] = useMutation(CREATE_USER_REVIEW_MUTATION);
   const [showPopup, setShowPopup] = useState(false);
 
-  // Obtener reseñas del producto
+
   const { loading: reviewsLoading, error: reviewsError, data: reviewsData } = useQuery(GET_ALL_PRODUCT_REVIEWS, {
     variables: { productId },
   });
@@ -41,7 +42,7 @@ const Reviews = () => {
 
   const handleReviewSubmit = async () => {
     if (!rating || !tittle || !comment) {
-      alert("Por favor, complete todos los campos.");
+      swal("Error", "Por favor, complete todos los campos.", "error");
       return;
     }
 
@@ -53,7 +54,7 @@ const Reviews = () => {
           const decodedToken = jwtDecode(userInfo);
           userId = decodedToken.email;
         } else {
-          // Lógica para manejar si no hay información del usuario
+  
         }
       } catch (error) {
         console.error("Error decoding USER_INFO:", error);
@@ -76,15 +77,21 @@ const Reviews = () => {
       setTitle("");
       setDescription("");
 
-      // Muestra el pop-up después de enviar la reseña
-      setShowPopup(true);
-
+      swal({
+        title: "¡Gracias!",
+        text: "Tu reseña ha sido cargada.",
+        icon: "success",
+        timer: 2000,
+        showConfirmButton: false,
+      });
+  
       setTimeout(() => {
+   
         setShowPopup(false);
       }, 2000);
     } catch (error) {
       console.error("Error creating review:", error);
-      // Handle error as needed
+      
     }
   };
 
