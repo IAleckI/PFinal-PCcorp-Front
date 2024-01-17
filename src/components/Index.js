@@ -22,6 +22,7 @@ import ReviewCard from "./ReviewCard/reviewCard";
 import ThirdButton from "./Button/thirdButton/thirdButton";
 import Update from "./Update/update";
 import { DashboardAside } from "./dashboardAside/dashboardAside";
+import UsersDash from "./usersDash/usersDash";
 
 
 
@@ -49,5 +50,6 @@ export {
   ReviewCard,
   ThirdButton,
   Update,
-  DashboardAside
+  DashboardAside,
+  UsersDash
 };
