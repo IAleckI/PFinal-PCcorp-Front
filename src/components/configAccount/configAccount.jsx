@@ -2,19 +2,27 @@ import React from 'react';
 import Style from './configAccount.module.css';
 import swal from 'sweetalert';
 import { useEditUser } from '../../utils/hooks/User/editUser';
+import { useNavigate } from 'react-router-dom';
 
 export default function ConfigAccount() {
   const { register, handleSubmit, errors, onSubmit } = useEditUser();
-
+  const navigate = useNavigate();
 
   const showSuccessAlert = () => {
     swal({
       title: 'Cambios guardados!',
       text: 'Los cambios se guardaron exitosamente.',
       icon: 'success',
-      button: 'Volver',
-      timer: 1500,
+      timer: 1800,
     });
+
+
+    setTimeout(() => {
+      navigate("/account/config");
+
+
+      window.location.reload();
+    }, 1800);
   };
 
   return (
