@@ -42,7 +42,7 @@ export const useGoogle = () => {
             timer: 1500
         }). then(() => {
             navigate('/')
-            refetch();
+            window.location.reload();
 
         })
     } catch (error) {
