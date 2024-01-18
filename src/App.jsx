@@ -21,7 +21,7 @@ function App() {
 
   const token = localStorage.getItem("USER_INFO");
   const decode = token ? jwtDecode(token) : { ban: null };
-  const isBanned = decode.ban === "true";
+  const isBanned = decode.ban === true; 
 
   if (isBanned) {
     return (
