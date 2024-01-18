@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import styles from "./update.module.css";
-import editarIcon from "../../Assets/Logos/iconoeditar.png";
-import closeIcon from "../../Assets/Logos/Xicon.png";
-import trashIcon from "../../Assets/Logos/iconoEliminar.png";
 import { useQuery, useMutation } from "@apollo/client";
+import editarIcon from "../../Assets/Logos/iconoeditar.png";
 import { GET_ALL_PRODUCTS } from "../../utils/graphql/querys/products/getAllProducts";
 import { UPDATE_PRODUCT } from "../../utils/graphql/mutations/product/updateProduct";
-import { DELETE_PRODUCT } from "../../utils/graphql/mutations/product/deleteProduct";
-import swal from "sweetalert";
+import closeIcon from "../../Assets/Logos/Xicon.png";
 
 const Update = () => {
   const { loading, error, data } = useQuery(GET_ALL_PRODUCTS);
@@ -24,7 +21,6 @@ const Update = () => {
   const [successMessage, setSuccessMessage] = useState(null);
 
   const [updateProductMutation] = useMutation(UPDATE_PRODUCT);
-  const [deleteProductMutation] = useMutation(DELETE_PRODUCT);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
@@ -36,7 +32,7 @@ const Update = () => {
   }
 
   const propertyTitles = ['id', 'name', 'model', 'family', 'brand', 'stock', 'image', 'price'];
-  const editableProperties = ['id', 'name', 'model', 'family', 'brand', 'stock', 'price'];
+  const editableProperties = ['name', 'model', 'family', 'brand', 'stock', 'price'];
 
   const handleEditClick = (productId) => {
     setEditProductId(productId);
@@ -44,7 +40,6 @@ const Update = () => {
     const selectedProduct = products.find((product) => product.id === productId);
 
     setUpdateFormData({
-      id: selectedProduct.id,
       name: selectedProduct.name,
       model: selectedProduct.model,
       family: selectedProduct.family,
@@ -55,13 +50,9 @@ const Update = () => {
   };
 
   const handleChange = (e) => {
-    const value = (e.target.name === "stock" || e.target.name === "price") 
-      ? parseInt(e.target.value, 10)
-      : e.target.value;
-  
     setUpdateFormData({
       ...updateFormData,
-      [e.target.name]: value,
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -87,11 +78,13 @@ const Update = () => {
       });
       setEditProductId(null);
 
-      swal({
-        title: "Cambio guardado con éxito",
-        icon: "success",
-        timer: 2000,
-      });
+      // Mostrar el mensaje de éxito
+      setSuccessMessage("Cambio guardado con éxito !");
+
+      // Limpiar el mensaje después de unos segundos
+      setTimeout(() => {
+        setSuccessMessage(null);
+      }, 3000); // Ocultar el mensaje después de 3000 milisegundos (3 segundos)
     } catch (error) {
       console.error("Error updating product:", error.message);
     }
@@ -99,35 +92,6 @@ const Update = () => {
 
   const handleClose = () => {
     setEditProductId(null);
-  };
-
-  const handleDelete = async (productId) => {
-    try {
-      swal({
-        title: "¿Estás seguro?",
-        text: "¡No podrás revertir esto!",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-      }).then(async (willDelete) => {
-        if (willDelete) {
-          const { data } = await deleteProductMutation({
-            variables: {
-              id: productId,
-            },
-            refetchQueries: [{ query: GET_ALL_PRODUCTS }],
-          });
-
-          console.log("Product deleted:", data.deleteProduct);
-
-          swal("¡Tu producto ha sido eliminado!", {
-            icon: "success",
-          });
-        }
-      });
-    } catch (error) {
-      console.error("Error deleting product:", error.message);
-    }
   };
 
   return (
@@ -139,7 +103,6 @@ const Update = () => {
               <th key={title}>{title}</th>
             ))}
             <th>Editar</th>
-            <th>Eliminar</th>
           </tr>
         </thead>
         <tbody>
@@ -150,14 +113,9 @@ const Update = () => {
                   {title === 'image' ? <img src={product[title]} alt={product.name} /> : product[title]}
                 </td>
               ))}
-              <td className={styles.tdEdit}>
+              <td>
                 <button className={styles.editButton} onClick={() => handleEditClick(product.id)}>
                   <img src={editarIcon} alt="Editar" />
-                </button>
-              </td>
-              <td className={styles.tdDelete}>
-                <button className={styles.trashButton} onClick={() => handleDelete(product.id)}>
-                  <img className={styles.deleteButton} src={trashIcon} alt="Eliminar" />
                 </button>
               </td>
             </tr>
@@ -190,6 +148,12 @@ const Update = () => {
               </button>
             </form>
           </div>
+        </div>
+      )}
+
+      {successMessage && (
+        <div className={styles.successPopup}>
+          {successMessage}
         </div>
       )}
     </div>
