@@ -34,7 +34,7 @@ const Update = () => {
   }
 
   const propertyTitles = ['id', 'name', 'model', 'family', 'brand', 'stock', 'image', 'price'];
-  const editableProperties = ['name', 'model', 'family', 'brand', 'stock', 'price'];
+  const editableProperties = ['id','name', 'model', 'family', 'brand', 'stock', 'price'];
 
   const handleEditClick = (productId) => {
     setEditProductId(productId);
