@@ -7,6 +7,9 @@ import { UPDATE_PRODUCT } from "../../utils/graphql/mutations/product/updateProd
 import closeIcon from "../../Assets/Logos/Xicon.png";
 import trashIcon from "../../Assets/Logos/iconoEliminar.png";
 import { DELETE_PRODUCT } from "../../utils/graphql/mutations/product/deleteProduct";
+import swal from "sweetalert";
+
+
 const Update = () => {
   const { loading, error, data } = useQuery(GET_ALL_PRODUCTS);
   const [deleteProductMutation] = useMutation(DELETE_PRODUCT);
@@ -85,17 +88,20 @@ const Update = () => {
       });
       setEditProductId(null);
 
-      // Mostrar el mensaje de éxito
-      setSuccessMessage("Cambio guardado con éxito !");
+    swal("Cambio guardado con éxito!", {
+      icon: "success",
+      timer: 1500,
+      buttons: false,
+    });
 
-      // Limpiar el mensaje después de unos segundos
-      setTimeout(() => {
-        setSuccessMessage(null);
-      }, 3000); // Ocultar el mensaje después de 3000 milisegundos (3 segundos)
-    } catch (error) {
-      console.error("Error updating product:", error.message);
-    }
-  };
+  } catch (error) {
+    // Manejar el error y mostrar un mensaje si es necesario
+    console.error("Error updating product:", error.message);
+    swal("Error al actualizar el producto", {
+      icon: "error",
+    });
+  }
+};
 
   const handleClose = () => {
     setEditProductId(null);
