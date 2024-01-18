@@ -36,7 +36,7 @@ const FormCreateComponent = () => {
 
   return (
     <div className={Style.template}>
-      <h1 className={Style.title}>Create your product:</h1>
+      <h1 className={Style.tittle}>Agrega la información del componente que deseas crear</h1>
 
       <form
         method="POST"

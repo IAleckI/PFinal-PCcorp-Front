@@ -13,7 +13,7 @@ export default function Catalogo () {
         <NavBar/>
         <Banner/>
         <section style={{display: 'flex', marginTop: '40px'}}>
-          <Filter/>
+          <Filter />
           <CardList 
             firstIndex={firstIndex} 
             lastIndex={lastIndex} 

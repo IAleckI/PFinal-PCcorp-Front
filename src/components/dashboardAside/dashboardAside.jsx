@@ -1,10 +1,11 @@
-import React from 'react'
-import Style from './dashboardAside.module.css'
+import React from "react";
+import Style from "./dashboardAside.module.css";
+import { Button } from "../Index";
 
 export const DashboardAside = () => {
   return (
-   <aside>
-    <button className={Style.createButton}><a className={Style.create} href="/dashboard/create">Create Product</a> </button>
-   </aside>
-  )
-}
+    <aside>
+      <Button text="Crear Producto" onClick={() => {window.location.href = '/dashboard/create'}}/>
+    </aside>
+  );
+};
