@@ -5,9 +5,11 @@ import editarIcon from "../../Assets/Logos/iconoeditar.png";
 import { GET_ALL_PRODUCTS } from "../../utils/graphql/querys/products/getAllProducts";
 import { UPDATE_PRODUCT } from "../../utils/graphql/mutations/product/updateProduct";
 import closeIcon from "../../Assets/Logos/Xicon.png";
-
+import trashIcon from "../../Assets/Logos/iconoEliminar.png";
+import { DELETE_PRODUCT } from "../../utils/graphql/mutations/product/deleteProduct";
 const Update = () => {
   const { loading, error, data } = useQuery(GET_ALL_PRODUCTS);
+  const [deleteProductMutation] = useMutation(DELETE_PRODUCT);
   const [editProductId, setEditProductId] = useState(null);
   const [updateFormData, setUpdateFormData] = useState({
     id: "",
@@ -94,6 +96,34 @@ const Update = () => {
     setEditProductId(null);
   };
 
+  const handleDelete = async (productId) => {
+    try {
+      swal({
+        title: "¿Estás seguro?",
+        text: "¡No podrás revertir esto!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then(async (willDelete) => {
+        if (willDelete) {
+          const { data } = await deleteProductMutation({
+            variables: {
+              id: productId,
+            },
+            refetchQueries: [{ query: GET_ALL_PRODUCTS }],
+          });
+
+          console.log("Product deleted:", data.deleteProduct);
+
+          swal("¡Tu producto ha sido eliminado!", {
+            icon: "success",
+          });
+        }
+      });
+    } catch (error) {
+      console.error("Error deleting product:", error.message);
+    }
+  };
   return (
     <div className={styles.tableContainer}>
       <table>
@@ -103,6 +133,7 @@ const Update = () => {
               <th key={title}>{title}</th>
             ))}
             <th>Editar</th>
+            <th>Eliminar</th>
           </tr>
         </thead>
         <tbody>
@@ -116,6 +147,11 @@ const Update = () => {
               <td>
                 <button className={styles.editButton} onClick={() => handleEditClick(product.id)}>
                   <img src={editarIcon} alt="Editar" />
+                </button>
+              </td>
+              <td className={styles.tdDelete}>
+                <button className={styles.trashButton} onClick={() => handleDelete(product.id)}>
+                  <img className={styles.deleteButton} src={trashIcon} alt="Eliminar" />
                 </button>
               </td>
             </tr>
