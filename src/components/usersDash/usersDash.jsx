@@ -31,7 +31,7 @@ const users = data.getAllUser;
     return <p>No users available.</p>;
   }
 
-  const propertyTitles = ['id', 'userName','email' ,'password', /* Add other properties here */];
+  const propertyTitles = ['id', 'userName','email' ,'password', 'ban' /* Add other properties here */];
   const editableProperties = ['userName', 'password', /* Add other properties here */];
 
   const handleEditClick = (userId) => {
@@ -139,6 +139,7 @@ const users = data.getAllUser;
             ))}
             <th>Edit</th>
             <th>Ban</th>
+            <th>Is Banned</th>
           </tr>
         </thead>
         <tbody>
@@ -157,6 +158,7 @@ const users = data.getAllUser;
                   <img src={borrarCuenta} alt="Ban" />
                 </button>
               </td>
+              <td>{user.ban !== undefined ? String(user.ban) : 'N/A'}</td>
             </tr>
           ))}
         </tbody>

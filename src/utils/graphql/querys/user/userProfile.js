@@ -9,6 +9,7 @@ export const PROFILE_USER = gql`
             passwordHash
             verify
             token
+            ban
 
         }
     }
