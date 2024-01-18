@@ -29,8 +29,8 @@ const users = data.getAllUser;
     return <p>No users available.</p>;
   }
 
-  const propertyTitles = ['id', 'userName', 'email', 'password', /* Add other properties here */];
-  const editableProperties = ['id', 'userName', 'email', 'password', /* Add other properties here */];
+  const propertyTitles = [ 'userName', 'password', /* Add other properties here */];
+  const editableProperties = ['userName', 'password', /* Add other properties here */];
 
   const handleEditClick = (userId) => {
     setEditUserId(userId);
