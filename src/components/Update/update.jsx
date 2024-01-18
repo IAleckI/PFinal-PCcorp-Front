@@ -53,9 +53,13 @@ const Update = () => {
   };
 
   const handleChange = (e) => {
+    const value = (e.target.name === "stock" || e.target.name === "price") 
+    ? parseInt(e.target.value, 10)
+    : e.target.value;
+
     setUpdateFormData({
       ...updateFormData,
-      [e.target.name]: e.target.value,
+      [e.target.name]: value,
     });
   };
 
@@ -174,7 +178,7 @@ const Update = () => {
                   <input
                     type="text"
                     name={title}
-                    value={updateFormData[title]}
+                    value={updateFormData[title] || ''}
                     onChange={handleChange}
                     className={styles.input}
                   />
