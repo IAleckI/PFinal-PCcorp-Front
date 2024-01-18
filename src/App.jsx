@@ -16,8 +16,27 @@ import {
 } from "./Views/Index";
 import { GetToken } from "./components/Index";
 import { Verify } from "./components/Index";
-
+import { jwtDecode } from "jwt-decode";
 function App() {
+
+  const token = localStorage.getItem("USER_INFO");
+
+  const decode = token ? jwtDecode(token) : { ban: null};
+  const isBanned = decode.ban === "true";
+
+  if (isBanned) {
+    return (
+      <div>
+       
+        <div >
+          <h2>You are not authorized to access this page</h2>
+        </div>
+       
+      </div>
+    );
+  }
+
+
   return (
     <Routes>
       <Route path="/" element={<Home />} />

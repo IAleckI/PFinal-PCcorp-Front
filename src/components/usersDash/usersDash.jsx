@@ -5,9 +5,11 @@ import editarIcon from "../../Assets/Logos/iconoeditar.png";
 import { PROFILE_USER} from "../../utils/graphql/querys/user/userProfile";
 import { EDIT_USER } from "../../utils/graphql/mutations/user/editUser";
 import closeIcon from "../../Assets/Logos/Xicon.png";
-
+import { BAN_USER } from "../../utils/graphql/mutations/user/banUser";
+import borrarCuenta from "../../Assets/Logos/borrar-cuenta.png"
 const UsersDash = () => {
   const { loading, error, data } = useQuery(PROFILE_USER);
+  const [setBanUser] = useMutation(BAN_USER)
   const [editUserId, setEditUserId] = useState(null);
   const [updateUserData, setUpdateUserData] = useState({
     id: "",
@@ -29,7 +31,7 @@ const users = data.getAllUser;
     return <p>No users available.</p>;
   }
 
-  const propertyTitles = [ 'userName', 'password', /* Add other properties here */];
+  const propertyTitles = ['id', 'userName','email' ,'password', /* Add other properties here */];
   const editableProperties = ['userName', 'password', /* Add other properties here */];
 
   const handleEditClick = (userId) => {
@@ -95,6 +97,38 @@ const users = data.getAllUser;
     setEditUserId(null);
   };
 
+
+  const handleBan = async (data) => {
+    console.log(data);
+
+    try {
+        swal({
+            title: "¿Estás seguro?",
+            text: "esto puede revertirse en cualquier momento",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        }).then(async (willBan) => {
+            if (willBan) {
+                const result = await setBanUser({
+                    variables: {
+                     
+                        id: userEmail, // Add email to the variables
+                    },
+                    refetchQueries: [{ query: PROFILE_USER }],
+                });
+
+                console.log("User Banned:", result.setBanUser);
+
+                swal("¡usuario banneado con exito!", {
+                    icon: "success",
+                });
+            }
+        });
+    } catch (error) {
+        console.error("Error banning user:", error.message);
+    }
+};
   return (
     <div className={styles.tableContainer}>
       <table>
@@ -104,6 +138,7 @@ const users = data.getAllUser;
               <th key={title}>{title}</th>
             ))}
             <th>Edit</th>
+            <th>Ban</th>
           </tr>
         </thead>
         <tbody>
@@ -115,6 +150,11 @@ const users = data.getAllUser;
               <td>
                 <button className={styles.editButton} onClick={() => handleEditClick(user.id)}>
                   <img src={editarIcon} alt="Edit" />
+                </button>
+              </td>  
+              <td>
+                <button className={styles.editButton} onClick={() => handleBan(user.id)}>
+                  <img src={borrarCuenta} alt="Ban" />
                 </button>
               </td>
             </tr>
@@ -129,6 +169,7 @@ const users = data.getAllUser;
               <img src={closeIcon} alt="Close" />
             </button>
             <h2>Edit User</h2>
+           
             <form className={styles.editFormContainer}>
               {editableProperties.map((title) => (
                 <div key={title}>

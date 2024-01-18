@@ -46,3 +46,9 @@
     background-color: rgba(117, 112, 112, 0.045);
     margin-bottom: 20px;
 }
+
+.unauthorized {
+    text-align: center;
+    margin-top: 50px;
+    color: red;
+  }

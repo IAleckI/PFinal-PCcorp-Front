@@ -55,6 +55,8 @@ const FormCreateComponent = () => {
 
         <label htmlFor="brand">Brand</label>
         <input className={Style.input} type="text" {...register("brand")} />
+        <label htmlFor="brand">Type</label>
+        <input className={Style.input} type="text" {...register("type")} />
 
         <label htmlFor="stock">Stock</label>
         <input className={Style.input} type="number" min="1" {...register("stock")} />

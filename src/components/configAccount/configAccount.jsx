@@ -32,13 +32,17 @@ export default function ConfigAccount() {
           <label className={Style.formLable} htmlFor="newUsername">
             New Username:
           </label>
-          <input className={Style.formInput} type="text" id="newUsername" {...register('newUserName', { required: true })} />
-
+          <input className={Style.formInput} type="text" id="newUsername" {...register('newUserName', { required: true, minLength: 3 })} />
+          {errors.newUserName && errors.newUserName.type === 'minLength' && (
+    <span className={Style.error}>Nombre de ususario muy corto(minimo 3 caracteres!)</span>
+  )}
           <label className={Style.formLable} htmlFor="newPassword">
             New Password:
           </label>
-          <input className={Style.formInput} type="password" id="newPassword" {...register('newPassword', { required: true })} />
-
+          <input className={Style.formInput} type="password" id="newPassword" {...register('newPassword', { required: true, minLength: 8 })} />
+          {errors.newPassword && errors.newPassword.type === 'minLength' && (
+    <span className={Style.error}>Contraseña muy corta (minimo 8 caracteres)</span>
+  )}
           <button className={Style.formButton} type="submit">
             Save Changes
           </button>
