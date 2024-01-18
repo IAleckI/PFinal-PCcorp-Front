@@ -119,7 +119,7 @@ const users = data.getAllUser;
   
           console.log("User Banned:", result.setBanUser);
   
-          swal("¡usuario banneado con éxito!", {
+          swal("¡Usuario banneado con éxito!", {
             icon: "success",
           });
         }
@@ -128,7 +128,7 @@ const users = data.getAllUser;
       console.error("Error banning user:", error.message);
     }
   };
-  
+
   return (
     <div className={styles.tableContainer}>
       <table>
