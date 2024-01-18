@@ -17,6 +17,8 @@ import {
 import { GetToken } from "./components/Index";
 import { Verify } from "./components/Index";
 import { jwtDecode } from "jwt-decode";
+import LogoutButton from "./components/Logout/LogoutComponent";
+
 function App() {
 
   const token = localStorage.getItem("USER_INFO");
@@ -25,7 +27,10 @@ function App() {
 
   if (isBanned) {
     return (
+      <div>
       <h2>You are not authorized to access this page</h2>
+      <LogoutButton />
+      </div>
     );
   }
 
