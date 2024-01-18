@@ -1,5 +1,6 @@
-import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+
 import {
   Home,
   Detail,
@@ -16,8 +17,8 @@ import {
 import { GetToken } from "./components/Index";
 import { Verify } from "./components/Index";
 import { jwtDecode } from "jwt-decode";
-
 function App() {
+
   const token = localStorage.getItem("USER_INFO");
   const decode = token ? jwtDecode(token) : { ban: null };
   const isBanned = decode.ban === "true";
@@ -27,6 +28,7 @@ function App() {
       <h2>You are not authorized to access this page</h2>
     );
   }
+
 
   return (
     <Routes>
@@ -42,6 +44,8 @@ function App() {
       <Route path="/account/:id" element={<UserBoard />} />
       {!GetToken() ? <Route path="/verify" element={<Verify />} /> : null}
       <Route path="/dashboard" element={<Dashboard />} />
+      {/* Esta ruta es solo para testing, no afecta el proyecto en general, el "element" puede ser cualquier componente */}
+      {/* <Route path="/testing" element={<AdminDeleteComponent />} /> */}
     </Routes>
   );
 }
