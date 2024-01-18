@@ -39,7 +39,7 @@ export const useFormRegister = () => {
           icon: "success",
           button: "Iniciar Sesion",
         }).then(() => {
-          navigate("/register?registered=true");
+          navigate('/login');
         });
       }
     } catch (error) {
