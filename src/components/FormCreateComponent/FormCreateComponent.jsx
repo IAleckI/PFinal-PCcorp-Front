@@ -22,11 +22,20 @@ const FormCreateComponent = () => {
       // Resto de la lógica de envío de datos
       await onSubmit(data);
 
-      // Mostrar SweetAlert de éxito
-      swal("Éxito", "Producto creado exitosamente.", "success");
+      swal({
+        title: "Éxito",
+        text: "Producto creado exitosamente.",
+        icon: "success",
+        timer: 1500, // 1.5 segundos
+        buttons: false,
+      });
 
       // Redireccionar después del éxito
       navigate('/dashboard');
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+      
     } catch (error) {
       console.error("Error creando producto:", error);
       // Mostrar SweetAlert de error si es necesario
