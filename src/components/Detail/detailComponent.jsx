@@ -63,10 +63,10 @@ const ProductDetail = () => {
       </div>
 
       <div className={Style.descriptionContainer}>
-        <h2 className={Style.descriptionTitle}>Descripción</h2>
+        <h2 className={Style.descriptionTitle}></h2>
         <p className={Style.descriptionText}>{getProductById.description}</p>
       </div>
-      <AdminDeleteComponent />
+ 
       <div>
       <Reviews/>
       </div>
