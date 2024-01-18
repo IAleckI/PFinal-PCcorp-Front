@@ -42,6 +42,7 @@ const Update = () => {
     const selectedProduct = products.find((product) => product.id === productId);
 
     setUpdateFormData({
+      id: selectedProduct.id,
       name: selectedProduct.name,
       model: selectedProduct.model,
       family: selectedProduct.family,
