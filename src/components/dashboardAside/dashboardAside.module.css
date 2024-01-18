@@ -1,0 +1,19 @@
+.createButton {
+    font-size: 15px;
+    display: block;
+    justify-content: center;
+    width: 160px;
+    height: 50px;
+    background-color: #7971ea;
+    color: #fff;
+    letter-spacing: 3px;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    border: 2px solid #4b43bd;
+    transition: background-color .2s ease-out;
+}
+
+.create{
+    color: black;
+}

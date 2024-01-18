@@ -1,12 +1,15 @@
 .tableContainer {
   margin: 20px auto;
   width: 80%;
+  overflow-y: auto;
+  max-height: 40vw;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+  
 }
 
 thead th {
@@ -17,6 +20,7 @@ thead th {
 
 tbody tr {
   border-bottom: 1px solid #ddd;
+  
 }
 
 td {
@@ -80,7 +84,7 @@ td.image img {
 .editFormContainer button {
   padding: 10px;
   background-color: #007bff;
-  color: #fff;
+  color: #0a0909;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -158,4 +162,26 @@ td.image img {
   border: 1px solid #4caf50; /* Borde verde */
   border-radius: 5px;
   z-index: 1100; /* Ajusta el z-index según sea necesario */
+}
+
+.deleteButton{
+width: 20px;
+height: 20px;
+background: transparent;
+
+}
+
+.trashButton {
+  background: transparent;
+  border: none; 
+}
+
+.tdDelete {
+  text-align: center; 
+  vertical-align: middle; 
+}
+
+.tdEdit{
+  text-align: center;
+  vertical-align: middle;
 }

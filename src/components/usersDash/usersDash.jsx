@@ -26,7 +26,7 @@ const UsersDash = () => {
 const users = data.getAllUser;
 
   if (!users || users.length === 0) {
-    return <p>No hay usuario disponible.</p>;
+    return <p>No users available.</p>;
   }
 
   const propertyTitles = ['id', 'userName', 'email', 'password', /* Add other properties here */];

@@ -1,17 +1,21 @@
-.reviewCard {
+.reviewCardSlider {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.cardContent {
   border: 2px solid #ccc;
   border-radius: 10px;
   padding: 15px;
-  margin-bottom: 20px;
-  width: 500px;
-  height: 130px;
-  margin: 15px;
-  position: relative;
+  width: 300px;
+  height: 150px;
+  box-sizing: border-box;
+  margin-right: 10px; /* Ajusta el valor según tus preferencias */
 }
 
 .starsContainer {
-  position: relative;
-  top: 5px;
+  margin-bottom: 10px;
 }
 
 .starFilled {
@@ -19,9 +23,11 @@
   font-size: 24px;
 }
 
-/* Agrega estilo para usar display flex en las tarjetas de revisión */
-.cardContent {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+.slick-slider {
+  width: 100%; /* Ajusta el ancho según sea necesario */
+  box-sizing: border-box;
+}
+
+.slick-list {
+  overflow: initial; /* Ajuste para evitar problemas de desbordamiento */
 }
