@@ -28,7 +28,6 @@
     "react-facebook-login": "4.1.1",
     "react-google-login": "^5.2.2",
     "react-hook-form": "^7.49.2",
-    "react-image-magnifiers": "^1.4.0",
     "react-redux": "^9.0.4",
     "react-router-dom": "^6.21.1",
     "react-select": "^5.8.0",
