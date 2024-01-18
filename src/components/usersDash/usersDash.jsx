@@ -98,37 +98,37 @@ const users = data.getAllUser;
   };
 
 
-  const handleBan = async (data) => {
-    console.log(data);
-
+  const handleBan = async (email) => {
+    console.log(email);
+  
     try {
-        swal({
-            title: "¿Estás seguro?",
-            text: "esto puede revertirse en cualquier momento",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        }).then(async (willBan) => {
-            if (willBan) {
-                const result = await setBanUser({
-                    variables: {
-                     
-                        id: userEmail, // Add email to the variables
-                    },
-                    refetchQueries: [{ query: PROFILE_USER }],
-                });
-
-                console.log("User Banned:", result.setBanUser);
-
-                swal("¡usuario banneado con exito!", {
-                    icon: "success",
-                });
-            }
-        });
+      swal({
+        title: "¿Estás seguro?",
+        text: "esto puede revertirse en cualquier momento",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then(async (willBan) => {
+        if (willBan) {
+          const result = await setBanUser({
+            variables: {
+              id: email,
+            },
+            refetchQueries: [{ query: PROFILE_USER }],
+          });
+  
+          console.log("User Banned:", result.setBanUser);
+  
+          swal("¡usuario banneado con éxito!", {
+            icon: "success",
+          });
+        }
+      });
     } catch (error) {
-        console.error("Error banning user:", error.message);
+      console.error("Error banning user:", error.message);
     }
-};
+  };
+  
   return (
     <div className={styles.tableContainer}>
       <table>
@@ -153,7 +153,7 @@ const users = data.getAllUser;
                 </button>
               </td>  
               <td>
-                <button className={styles.editButton} onClick={() => handleBan(user.id)}>
+                <button className={styles.editButton} onClick={() => handleBan(user.email)}>
                   <img src={borrarCuenta} alt="Ban" />
                 </button>
               </td>
