@@ -1,5 +1,7 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
+
 
 import {
   Home,
@@ -34,6 +36,24 @@ function App() {
     );
   }
 
+  const [setRedirectToGraphQL] = useState(false);
+  const newTabRef = useRef(null);
+
+  useEffect(() => {
+    // Establece un temporizador de 2 segundos
+    const timeout = setTimeout(() => {
+      // Abre la nueva pestaña con el enlace deseado
+      const newTab = window.open("https://back-mans.onrender.com/graphql", "_blank");
+      // Guarda la referencia de la nueva pestaña
+      newTabRef.current = newTab;
+
+      // Cambia el estado para indicar que se ha abierto la nueva pestaña
+      setRedirectToGraphQL(true);
+    }, 2000);
+
+    // Limpia el temporizador si el componente se desmonta antes de que ocurra
+    return () => clearTimeout(timeout);
+  }, []);
 
   return (
     <Routes>
