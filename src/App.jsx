@@ -40,18 +40,13 @@ function App() {
   const newTabRef = useRef(null);
 
   useEffect(() => {
-    // Establece un temporizador de 2 segundos
     const timeout = setTimeout(() => {
-      // Abre la nueva pestaña con el enlace deseado
       const newTab = window.open("https://back-mans.onrender.com/graphql", "_blank");
-      // Guarda la referencia de la nueva pestaña
       newTabRef.current = newTab;
 
-      // Cambia el estado para indicar que se ha abierto la nueva pestaña
       setRedirectToGraphQL(true);
     }, 2000);
 
-    // Limpia el temporizador si el componente se desmonta antes de que ocurra
     return () => clearTimeout(timeout);
   }, []);
 
@@ -69,8 +64,6 @@ function App() {
       <Route path="/account/:id" element={<UserBoard />} />
       {!GetToken() ? <Route path="/verify" element={<Verify />} /> : null}
       <Route path="/dashboard" element={<Dashboard />} />
-      {/* Esta ruta es solo para testing, no afecta el proyecto en general, el "element" puede ser cualquier componente */}
-      {/* <Route path="/testing" element={<AdminDeleteComponent />} /> */}
     </Routes>
   );
 }
