@@ -39,16 +39,16 @@ function App() {
   const [setRedirectToGraphQL] = useState(false);
   const newTabRef = useRef(null);
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      const newTab = window.open("https://back-mans.onrender.com/graphql", "_blank");
-      newTabRef.current = newTab;
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => {
+  //     const newTab = window.open("https://back-mans.onrender.com/graphql", "_blank");
+  //     newTabRef.current = newTab;
 
-      setRedirectToGraphQL(true);
-    }, 2000);
+  //     setRedirectToGraphQL(true);
+  //   }, 2000);
 
-    return () => clearTimeout(timeout);
-  }, []);
+  //   return () => clearTimeout(timeout);
+  // }, []);
 
   return (
     <Routes>
