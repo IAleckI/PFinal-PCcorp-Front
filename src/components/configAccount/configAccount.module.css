@@ -23,12 +23,12 @@
 
 
 .formButton{
-    width: 100%;
+    width: 20%;
     height: 50px;
     border-radius: 12px;
-    background-color: transparent;
+    background-color: #7971EA;
     border: none;
-    font-size: 25px;
+    font-size: 20px;
     color: #000;
     display: flex;
     align-items: center;

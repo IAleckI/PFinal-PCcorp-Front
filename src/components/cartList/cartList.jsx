@@ -59,7 +59,7 @@ export default function CartList() {
           </button>
         )}
       </div>
-      <div className={`${Style.cartList_container} ${Style.checkout}`}>
+      <div className={Style.checkout}>
         <CheckOut cartProducts={products} />
       </div>
     </div>

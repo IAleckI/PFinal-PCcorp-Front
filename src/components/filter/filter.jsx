@@ -8,6 +8,10 @@ import { SearchBar } from '../Index'
 export default function Filter(){
   const { filter, filterBrand, deleteFilters, filterType } = useFilter()
 
+
+
+  console.log(filter);
+
   return (
       <div className={Style.filter}>
         
@@ -18,7 +22,7 @@ export default function Filter(){
         {Object.keys(filter).map((item, index) => (
           <FilterCard 
             key={index} 
-            filter={filter} 
+            filter={filter == filter.undefined ? filter.otros = filter.undefined : filter} 
             filterBrand={filterBrand} 
             filterType={filterType}
             items={item}/>

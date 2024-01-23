@@ -10,8 +10,11 @@ const Profile = () => {
   // const id = "cf18ff2c-f57c-4501-bc43-d54582e1e93a"
   const token = localStorage.getItem("USER_INFO");
   const image = localStorage.getItem("USER_IMAGE");
+ 
   if (token) {
     var userInfo = jwtDecode(token);
+    console.log(userInfo)
+    console.log(image)
   }
   // const [tokenMutation , {error, data}] = useMutation(VERIFY_USER);
 

@@ -42,6 +42,8 @@ export const useGoogle = () => {
             timer: 1500
         }). then(() => {
             navigate('/')
+            window.location.reload();
+
         })
     } catch (error) {
          console.log(error) ;

@@ -1,13 +1,15 @@
 .filter {
-    min-width: 350px;
-    height: 1150px;
-    box-shadow: 2px 2px 6px #ccc;
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
-    padding-left: 5px;
-    padding-right: 5px;
-    border: 1px solid #7971EA;
+
+       height: 1150px;
+       box-shadow: 2px 2px 6px #ccc;
+       margin: 20px;
+       display: flex;
+       flex-direction: column;
+       padding-left: 5px;
+       padding-right: 5px;
+       border: 1px solid #7971EA;
+       height: auto;
+       width: 25%;
 }
 .filter > * {
     margin-bottom: 10px;
@@ -46,4 +48,5 @@
     margin-top: 10px; /* Ajusta según tus preferencias */
     margin-bottom: 20px; /* Ajusta según tus preferencias */
     cursor: pointer;
+    color: #666;
 }

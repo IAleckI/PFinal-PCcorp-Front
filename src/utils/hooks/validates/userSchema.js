@@ -23,3 +23,12 @@ export const registerSchema = z.object({
     message: 'Passwords do not match',
     path: ['repeatPassword']
 })
+
+export const updateSchema = z.object({
+    userName: z.string()
+        .min(3, 'User name is required')
+        .max(20, 'User name is too long'),
+    password: z.string('Password incorrect')
+        .min(8, 'Password is required')
+        .max(20, 'Password is too long'),
+    });

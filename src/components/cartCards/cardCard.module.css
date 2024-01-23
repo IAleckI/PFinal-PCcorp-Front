@@ -39,6 +39,7 @@
     border: none;
     font-size: 25px;
     cursor: pointer;
+    color:black
 }
 
 .card_amount button:hover {

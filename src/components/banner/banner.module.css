@@ -6,16 +6,29 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
   padding-top: 80px;
 }
 .banner h2 {
-  font-size: 40px;
+  font-size: 24px;
   color: #fff;
+  margin-left: 10px;
 }
 .banner h2,
 .banner button {
   display: flex;
+  align-items:center;
+  justify-content:left;
+}
+
+.banner button {
+  justify-content:center;
+
+}
+
+.bannerButton {
+  display: flex;
   align-items: center;
-  justify-content: center;
+  margin-left: 10px; /* Mueve el botón hacia la izquierda */
+  justify-content: flex-start; /* Alinea el contenido del botón hacia la izquierda */
 }

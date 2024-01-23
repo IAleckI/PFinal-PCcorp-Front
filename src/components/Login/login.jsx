@@ -2,8 +2,8 @@ import Style from './login.module.css';
 import { useGoogle } from '../../utils/hooks/network/google/useGoogle';
 import LoginData from './loginData/loginData';
 import GoogleLogin from 'react-google-login';
-
 import loginImage from '../../Assets/Img/fotologin.jpg'; 
+
 
 export default function LoginTemplate() {
   const clientId = useGoogle();

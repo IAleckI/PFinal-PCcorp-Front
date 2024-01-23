@@ -1,58 +1,31 @@
-import React from 'react';
-import { useQuery } from '@apollo/client';
-import { NavLink } from 'react-router-dom';
-import { GET_PRODUCT_BY_ID } from '../../utils/graphql/querys/products/getProductById'; 
-import Style from './orders.module.css';
-
-const ProductCard = ({ productId }) => {
-  const { loading, error, data } = useQuery(GET_PRODUCT_BY_ID, {
-    variables: { id: productId },
-  });
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
-
-  const product = data.getProductById;
-
-
-  const handleDetailsClick = () => {
-
-    console.log(`Detalles del producto ${product.id}`);
-  };
-
-  return (
-    <div className={Style.productCard}>
-      <NavLink to={`/${product.id}`} className={Style.cardContainer}>
-        <img src={product.image} alt={product.name} className={Style.cardImage} />
-        <div className={Style.cardDetails}>
-          <h2 title={product.name}>{product.name}</h2>
-          <p>Fecha de compra: {product.purchaseDate}</p>
-        </div>
-      </NavLink>
-      <button className={Style.detailsButton} onClick={handleDetailsClick}>
-        Detalles
-      </button>
-    </div>
-  );
-};
+import Style from './orders.module.css'
+import { useQuery } from '@apollo/client'
+import { GET_ALL_RECEIPTS } from '../../utils/graphql/querys/products/getAllReceipts'
+import { jwtDecode } from 'jwt-decode'
+import { Link } from 'react-router-dom'
 
 
 export default function Orders() {
-  const productIds = [
-    "0e11ea15-ce5f-4fe8-9d7b-b412866f0ad5",
+    const { data, loading, error } = useQuery(GET_ALL_RECEIPTS, {
+        variables: { getAllReceiptsId: jwtDecode(localStorage.getItem('USER_INFO')).email } 
+    })
 
-  ];
-
-  return (
-    <div className={Style.orders}>
-      <h1>ORDERS</h1>
-      <div className={Style.productList}>
-        {[...Array(3)].map((_, index) => (
-          <div className={Style.cardContainer} key={index}>
-            <ProductCard productId={productIds[0]} />
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+    if (!data) return <p>No tienes pedidos</p>
+    if (loading) return <p>Loading...</p>
+    if (error) return <p>Error: {error.message}</p>
+    return (
+        <div className={Style.card}>
+            {data.getAllReceipts.map(receipt => (
+                <Link key={receipt.id} to={`/${receipt.id}`}>
+                 <div className={Style.receipt}>
+                    <div className={Style.receipt_info}>
+                    <img src={receipt.image} alt={receipt.name} />
+                    <h2>{receipt.name}</h2>
+                    </div>
+                    <h2>${receipt.price.toLocaleString('es-ES', { maximumFractionDigits: 0 })}</h2>
+                  </div>
+                </Link>
+            ))}
+        </div>
+    )
 }

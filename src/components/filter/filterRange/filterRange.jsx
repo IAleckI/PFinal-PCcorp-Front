@@ -17,9 +17,9 @@ const FilterRange = () => {
     return (
         <div className={Style.filter}>
             <div className={Style.filterRange}>
-            <input placeholder='Minimo' type="number" value={min} onChange={(e) => setMin(e.target.value)}/>
+            <input placeholder='Minimo' type="number" min="0" value={min} onChange={(e) => setMin(e.target.value)}/>
             <span>-</span>
-            <input placeholder='Maximo' type="number" value={max} onChange={(e) => setMax(e.target.value)}/>
+            <input placeholder='Maximo' type="number" min="0" value={max} onChange={(e) => setMax(e.target.value)}/>
             </div>
             <button className={Style.filter_button} onClick={onFilter}>Filtrar</button>
         </div>

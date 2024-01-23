@@ -5,11 +5,19 @@ import bolsalogo from "../../Assets/Logos/bolsa.png";
 import usuario from "../../Assets/Logos/usuario.png";
 import wishlist from "../../Assets/Logos/wishlist.png";
 import { NavLink, Link, useLocation } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
+
 
 const NavBar = () => {
   const token = localStorage.getItem("USER_INFO")
   const image = localStorage.getItem("USER_IMAGE")
   
+  if (token){
+    var admin = jwtDecode(token).role;
+    
+    
+  }
+
   return (
     <nav className={Style.navbar}>
       <div className={Style.firstNavbar}>
@@ -29,6 +37,7 @@ const NavBar = () => {
         <LocationNav location="/"  tittle='HOME'/>
         <LocationNav location="/catalogo" tittle='CATALOGO'/>
         <LocationNav location="/AboutUs" tittle='¿QUIENES SOMOS?'/>
+        {(admin === "admin")? <LocationNav location="/dashboard" tittle='DASHBOARD'/>:null}
       </div>
     </nav>
   );
